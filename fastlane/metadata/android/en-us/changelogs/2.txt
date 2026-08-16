@@ -1,0 +1,3 @@
+- Fixed app launcher display name to 2048 Reimagined.
+- Redesigned settings gear icon to a balanced precision vector.
+- Added Dynamic Auto-Gain Normalization to the audio visualizer for low-volume tracks.

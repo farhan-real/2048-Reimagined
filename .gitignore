@@ -1,16 +1,36 @@
-*.iml
-.gradle
-/local.properties
-/.idea
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# Built application files / outputs
+*.apk
+*.aar
+*.aab
+*.ap_
+
+# Gradle & Build caches
+.gradle/
+build/
+**/build/
+/app/release/
+
+# Local SDK & Environment configurations (NEVER commit these)
 local.properties
+.bundle/
+
+# Android Studio / IntelliJ IDEA files
+*.iml
+.idea/
+
+# Android Native / C++ builds
+.externalNativeBuild/
+.cxx/
+
+# Keystores & Signing configs (CRITICAL for security)
+*.jks
+*.keystore
+secrets.properties
+signing.properties
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Profiler & captures
+/captures/

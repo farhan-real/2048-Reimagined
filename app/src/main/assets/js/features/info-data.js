@@ -1,6 +1,15 @@
 (function() {
   const CHANGELOG = [
     {
+      version: "V2.2.1",
+      title: "Fixes",
+      changes: [
+        "Fixed app name overriding to 2048 Reimagined on launcher.",
+        "Fixed settings icon appearance.",
+        "Fixed visualizer appearing static for certain songs (such as Keygen 31)."
+      ]
+    },
+    {
       version: "V2.2.0",
       title: "Game Timer, Leaderboard & Layout Polish",
       changes: [

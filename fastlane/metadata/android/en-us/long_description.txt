@@ -1,0 +1,26 @@
+2048 Reimagined is a high-performance Android edition of the classic 2048 puzzle game. Built from scratch with an independent codebase, it features hardware-accelerated grid mechanics, display refresh rate unlocking (90Hz, 120Hz, and 144Hz), 11 visual themes, a background music engine with real-time spectrum visualizers, deterministic spawn modes, an active game timer, and a local leaderboard.
+
+Key Features:
+
+DISPLAY & PERFORMANCE
+- High Refresh Rate: Unlocks display rendering for 90Hz, 120Hz, and 144Hz panels.
+- Hardware Acceleration: Smooth GPU layer composition using CSS translate3d transforms.
+- 11 Visual Themes: Optimized color palettes including Neon AMOLED, Pastel AMOLED, Cyberpunk, Synthwave, Seaway, Pastel Pink, The Void, Terminal, Sakura Night, Supernova, and Classic Sand.
+
+GAMEPLAY MECHANICS
+- Deterministic Mode: Uses a Mulberry32 PRNG seeded with a hash of the current board state and turn count. Prevents using undo to re-roll random tile spawns.
+- Active Game Timer: Measures game duration strictly while the board is on-screen (auto-pauses when menus are open, during app switches, or on screen lock).
+- Top-5 Leaderboard: Local tracking of top scores alongside completion time and date, with options to delete individual entries or clear the board.
+- Single-Move Undo: Preserves complete state snapshots including score, matrix data, PRNG seed state, and timer duration.
+
+AUDIO & VISUALIZER ENGINE
+- Background Music Player: Plays local .mp3 and .flac audio tracks with playlist shuffling on startup.
+- Track Checklist: Select which songs are included in your active playback queue.
+- Real-Time Visualizer: Web Audio spectrum frequency visualizer supporting Full Bottom and Isolated Box modes with customizable sizing (Small, Medium, Large) and bar density settings.
+- Independent Volume Sliders: Separate volume controls for synthesized sound effects (SFX) and music.
+
+PRIVACY & PERMISSIONS
+- 100% Free and Open Source (GPLv3).
+- Works completely offline.
+- No ads, no analytics, and no tracking.
+- Only requires standard VIBRATE permission for adaptive haptic feedback.

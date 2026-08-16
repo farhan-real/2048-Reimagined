@@ -21,588 +21,589 @@
 </head>
 <body data-theme="neon_amoled" data-visualizer-mode="full" data-box-size="medium">
 
-<div class="app-wrapper">
-  <div class="top-group">
-    <!-- Top Navigation Utilities bar -->
-    <div class="nav-bar">
-      <div class="nav-actions-left">
-        <button class="icon-btn" id="btn-open-settings" aria-label="Settings">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="3"></circle>
-            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83-2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-          </svg>
-        </button>
-
-        <button class="icon-btn" id="btn-open-leaderboard" aria-label="Leaderboard">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-            <path d="M4 22h16"></path>
-            <path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path>
-            <path d="M6 4h12v5a6 6 0 0 1-12 0V4z"></path>
-          </svg>
-        </button>
-
-        <button class="icon-btn" id="btn-exit-app" aria-label="Exit Game">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-            <polyline points="16 17 21 12 16 7"></polyline>
-            <line x1="21" y1="12" x2="9" y2="12"></line>
-          </svg>
-        </button>
-      </div>
-
-      <div class="nav-actions-right">
-        <!-- Music Player Trigger -->
-        <button class="icon-btn" id="btn-open-music" aria-label="Music Player">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 18V5l12-2v13"></path>
-            <circle cx="6" cy="18" r="3"></circle>
-            <circle cx="18" cy="16" r="3"></circle>
-          </svg>
-        </button>
-
-        <!-- Theme Selector -->
-        <div class="theme-dropdown-wrapper" id="theme-dropdown-wrapper">
-          <button class="theme-dropdown-btn" id="theme-dropdown-btn">
-            <span id="theme-current-lbl">Neon AMOLED</span>
-            <svg class="chevron-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
+  <div class="app-wrapper">
+    <div class="top-group">
+      <!-- Top Navigation Utilities bar -->
+      <div class="nav-bar">
+        <div class="nav-actions-left">
+          <!-- Precision Settings Gear Icon -->
+          <button class="icon-btn" id="btn-open-settings" aria-label="Settings">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
             </svg>
           </button>
-          <div class="theme-dropdown-list" id="theme-dropdown-list"></div>
+
+          <button class="icon-btn" id="btn-open-leaderboard" aria-label="Leaderboard">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+              <path d="M4 22h16"></path>
+              <path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path>
+              <path d="M6 4h12v5a6 6 0 0 1-12 0V4z"></path>
+            </svg>
+          </button>
+          
+          <button class="icon-btn" id="btn-exit-app" aria-label="Exit Game">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+          </button>
+        </div>
+
+        <div class="nav-actions-right">
+          <!-- Music Player Trigger -->
+          <button class="icon-btn" id="btn-open-music" aria-label="Music Player">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18V5l12-2v13"></path>
+              <circle cx="6" cy="18" r="3"></circle>
+              <circle cx="18" cy="16" r="3"></circle>
+            </svg>
+          </button>
+
+          <!-- Theme Selector -->
+          <div class="theme-dropdown-wrapper" id="theme-dropdown-wrapper">
+            <button class="theme-dropdown-btn" id="theme-dropdown-btn">
+              <span id="theme-current-lbl">Neon AMOLED</span>
+              <svg class="chevron-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="theme-dropdown-list" id="theme-dropdown-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header with Score and Best Cards -->
+      <div class="brand-row">
+        <div class="logo-text">2048</div>
+        <div class="scores-wrapper">
+          <div class="score-card" id="score-card-container">
+            <span class="label">Score</span>
+            <span class="value" id="score">0</span>
+          </div>
+          <div class="score-card">
+            <span class="label">Best</span>
+            <span class="value" id="best-score">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="actions-row">
+        <button class="btn-capsule" id="btn-undo" disabled>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 7v6h6"></path>
+            <path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"></path>
+          </svg>
+          <span>Undo Move</span>
+        </button>
+        <button class="btn-capsule" id="btn-restart">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.5 2v6h-6"></path>
+            <path d="M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+          </svg>
+          <span>Restart Game</span>
+        </button>
+      </div>
+
+      <!-- Sub-row: Enlarged Timer Positioned Below Restart -->
+      <div class="actions-sub-row">
+        <div class="timer-pill" id="timer-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span id="game-timer">00:00</span>
         </div>
       </div>
     </div>
 
-    <!-- Header with Score and Best Cards -->
-    <div class="brand-row">
-      <div class="logo-text">2048</div>
-      <div class="scores-wrapper">
-        <div class="score-card" id="score-card-container">
-          <span class="label">Score</span>
-          <span class="value" id="score">0</span>
-        </div>
-        <div class="score-card">
-          <span class="label">Best</span>
-          <span class="value" id="best-score">0</span>
-        </div>
+    <!-- Elevated Board Spacers -->
+    <div class="layout-spacer-top"></div>
+
+    <div class="board-container" id="board-container">
+      <div class="grid-background">
+        <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+        <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+        <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+        <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+      </div>
+
+      <div class="tiles-container" id="tiles-container"></div>
+      <canvas id="particle-canvas"></canvas>
+
+      <div class="overlay" id="gameover-overlay">
+        <h2>Game Over</h2>
+        <p>You scored <strong id="final-score">0</strong> points!</p>
+        <div class="gameover-time-row">Duration: <strong id="final-time">00:00</strong></div>
+        <button class="overlay-btn" id="btn-retry-overlay">Try Again</button>
       </div>
     </div>
 
-    <!-- Action Buttons -->
-    <div class="actions-row">
-      <button class="btn-capsule" id="btn-undo" disabled>
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 7v6h6"></path>
-          <path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"></path>
-        </svg>
-        <span>Undo Move</span>
-      </button>
-      <button class="btn-capsule" id="btn-restart">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21.5 2v6h-6"></path>
-          <path d="M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
-        </svg>
-        <span>Restart Game</span>
-      </button>
-    </div>
-
-    <!-- Sub-row: Enlarged Timer Positioned Below Restart -->
-    <div class="actions-sub-row">
-      <div class="timer-pill" id="timer-badge">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <polyline points="12 6 12 12 16 14"></polyline>
-        </svg>
-        <span id="game-timer">00:00</span>
-      </div>
-    </div>
+    <div class="layout-spacer-bottom"></div>
   </div>
 
-  <!-- Elevated Board Spacers -->
-  <div class="layout-spacer-top"></div>
-
-  <div class="board-container" id="board-container">
-    <div class="grid-background">
-      <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-      <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-      <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-      <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-    </div>
-
-    <div class="tiles-container" id="tiles-container"></div>
-    <canvas id="particle-canvas"></canvas>
-
-    <div class="overlay" id="gameover-overlay">
-      <h2>Game Over</h2>
-      <p>You scored <strong id="final-score">0</strong> points!</p>
-      <div class="gameover-time-row">Duration: <strong id="final-time">00:00</strong></div>
-      <button class="overlay-btn" id="btn-retry-overlay">Try Again</button>
-    </div>
+  <!-- Isolated Bottom-Left Visualizer Box Widget -->
+  <div class="visualizer-box-container">
+    <canvas id="visualizer-box"></canvas>
   </div>
 
-  <div class="layout-spacer-bottom"></div>
-</div>
+  <!-- Full Width Bottom Visualizer Canvas -->
+  <canvas id="visualizer-full"></canvas>
 
-<!-- Isolated Bottom-Left Visualizer Box Widget -->
-<div class="visualizer-box-container">
-  <canvas id="visualizer-box"></canvas>
-</div>
+  <!-- Music Player Modal Dialog -->
+  <div class="modal-overlay" id="modal-music">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">Music Player</div>
+        <button class="close-icon-btn" id="btn-close-music" aria-label="Close Music">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
 
-<!-- Full Width Bottom Visualizer Canvas -->
-<canvas id="visualizer-full"></canvas>
+      <div class="modal-scroll-body">
+        <div class="now-playing-card">
+          <div class="vinyl-disc" id="vinyl-disc">
+            <div class="disc-center"></div>
+          </div>
+          <div class="track-meta">
+            <div class="track-title" id="music-title-display">No Track Selected</div>
+            <div class="track-artists" id="music-artist-display">Select songs to play</div>
+          </div>
 
-<!-- Music Player Modal Dialog -->
-<div class="modal-overlay" id="modal-music">
-  <div class="modal-card">
-    <div class="modal-header">
-      <div class="modal-title">Music Player</div>
-      <button class="close-icon-btn" id="btn-close-music" aria-label="Close Music">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
+          <!-- Seekbar -->
+          <div class="progress-container">
+            <input type="range" class="progress-slider" id="music-progress-bar" min="0" max="100" value="0" step="0.1" aria-label="Music progress seek bar">
+            <div class="progress-time-row">
+              <span id="music-current-time">0:00</span>
+              <span id="music-duration">0:00</span>
+            </div>
+          </div>
 
-    <div class="modal-scroll-body">
-      <div class="now-playing-card">
-        <div class="vinyl-disc" id="vinyl-disc">
-          <div class="disc-center"></div>
-        </div>
-        <div class="track-meta">
-          <div class="track-title" id="music-title-display">No Track Selected</div>
-          <div class="track-artists" id="music-artist-display">Select songs to play</div>
-        </div>
-
-        <!-- Seekbar -->
-        <div class="progress-container">
-          <input type="range" class="progress-slider" id="music-progress-bar" min="0" max="100" value="0" step="0.1" aria-label="Music progress seek bar">
-          <div class="progress-time-row">
-            <span id="music-current-time">0:00</span>
-            <span id="music-duration">0:00</span>
+          <!-- Controls -->
+          <div class="music-controls-row">
+            <button class="control-btn" id="btn-music-prev" aria-label="Previous Track">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="19 20 9 12 19 4 19 20"></polygon><line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2.5"></line></svg>
+            </button>
+            <button class="control-btn play-btn" id="btn-music-play" aria-label="Play or Pause">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+            </button>
+            <button class="control-btn" id="btn-music-next" aria-label="Next Track">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2.5"></line></svg>
+            </button>
           </div>
         </div>
 
-        <!-- Controls -->
-        <div class="music-controls-row">
-          <button class="control-btn" id="btn-music-prev" aria-label="Previous Track">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="19 20 9 12 19 4 19 20"></polygon><line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2.5"></line></svg>
-          </button>
-          <button class="control-btn play-btn" id="btn-music-play" aria-label="Play or Pause">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
-          </button>
-          <button class="control-btn" id="btn-music-next" aria-label="Next Track">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2.5"></line></svg>
-          </button>
+        <!-- Music Volume Slider -->
+        <div class="settings-card">
+          <div class="setting-info">
+            <label for="slider-music-volume">Music Volume</label>
+            <span class="value-badge" id="lbl-music-modal-volume">75%</span>
+          </div>
+          <input class="slider" type="range" id="slider-music-volume" min="0" max="100" value="75">
         </div>
-      </div>
 
-      <!-- Music Volume Slider -->
-      <div class="settings-card">
-        <div class="setting-info">
-          <label for="slider-music-volume">Music Volume</label>
-          <span class="value-badge" id="lbl-music-modal-volume">75%</span>
+        <!-- Visualizer Mode Tabs -->
+        <div class="settings-card">
+          <div class="setting-info">Visualizer Mode</div>
+          <div class="tab-group" id="group-visualizer-mode">
+            <button class="tab-btn active" data-mode="full">Full Bottom</button>
+            <button class="tab-btn" data-mode="box">Isolated Box</button>
+            <button class="tab-btn" data-mode="off">Off</button>
+          </div>
         </div>
-        <input class="slider" type="range" id="slider-music-volume" min="0" max="100" value="75">
-      </div>
 
-      <!-- Visualizer Mode Tabs -->
-      <div class="settings-card">
-        <div class="setting-info">Visualizer Mode</div>
-        <div class="tab-group" id="group-visualizer-mode">
-          <button class="tab-btn active" data-mode="full">Full Bottom</button>
-          <button class="tab-btn" data-mode="box">Isolated Box</button>
-          <button class="tab-btn" data-mode="off">Off</button>
+        <!-- Visualizer Box Size Tabs -->
+        <div class="settings-card" id="card-box-size">
+          <div class="setting-info">Box Size</div>
+          <div class="tab-group" id="group-visualizer-box-size">
+            <button class="tab-btn" data-size="small">Small</button>
+            <button class="tab-btn active" data-size="medium">Medium</button>
+            <button class="tab-btn" data-size="large">Large</button>
+          </div>
         </div>
-      </div>
 
-      <!-- Visualizer Box Size Tabs -->
-      <div class="settings-card" id="card-box-size">
-        <div class="setting-info">Box Size</div>
-        <div class="tab-group" id="group-visualizer-box-size">
-          <button class="tab-btn" data-size="small">Small</button>
-          <button class="tab-btn active" data-size="medium">Medium</button>
-          <button class="tab-btn" data-size="large">Large</button>
+        <!-- Visualizer Bar Count Slider -->
+        <div class="settings-card">
+          <div class="setting-info">
+            <label for="slider-visualizer-bars">Visualizer Bars</label>
+            <span class="value-badge" id="lbl-visualizer-bars">Dense (65 bars)</span>
+          </div>
+          <input class="slider" type="range" id="slider-visualizer-bars" min="20" max="120" step="5" value="65">
         </div>
-      </div>
 
-      <!-- Visualizer Bar Count Slider -->
-      <div class="settings-card">
-        <div class="setting-info">
-          <label for="slider-visualizer-bars">Visualizer Bars</label>
-          <span class="value-badge" id="lbl-visualizer-bars">Dense (65 bars)</span>
+        <!-- Autoplay Music Toggle -->
+        <div class="settings-card toggle-row">
+          <div>
+            <div class="setting-info">Autoplay Music</div>
+            <div class="setting-subtext">Start music playback automatically when launching the game</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="toggle-autoplay-music" aria-label="Autoplay Music" checked>
+            <span class="switch-slider"></span>
+          </label>
         </div>
-        <input class="slider" type="range" id="slider-visualizer-bars" min="20" max="120" step="5" value="65">
-      </div>
 
-      <!-- Autoplay Music Toggle -->
-      <div class="settings-card toggle-row">
-        <div>
-          <div class="setting-info">Autoplay Music</div>
-          <div class="setting-subtext">Start music playback automatically when launching the game</div>
-        </div>
-        <label class="switch">
-          <input type="checkbox" id="toggle-autoplay-music" aria-label="Autoplay Music" checked>
-          <span class="switch-slider"></span>
-        </label>
-      </div>
-
-      <!-- Track Selection Trigger Card -->
-      <button class="settings-action-card" id="btn-open-track-selector" style="width: 100%;">
+        <!-- Track Selection Trigger Card -->
+        <button class="settings-action-card" id="btn-open-track-selector" style="width: 100%;">
           <span class="action-card-header">
             <span class="action-card-title">Choose Active Playlist</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
           </span>
-        <span class="action-card-desc" id="music-active-count">Select tracks to play</span>
-      </button>
+          <span class="action-card-desc" id="music-active-count">Select tracks to play</span>
+        </button>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Track Selection Dialog -->
-<div class="modal-overlay" id="modal-music-selector">
-  <div class="modal-card">
-    <div class="modal-header">
-      <div class="modal-title">Select Tracks</div>
-      <button class="close-icon-btn" id="btn-close-track-selector" aria-label="Cancel">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
+  <!-- Track Selection Dialog -->
+  <div class="modal-overlay" id="modal-music-selector">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">Select Tracks</div>
+        <button class="close-icon-btn" id="btn-close-track-selector" aria-label="Cancel">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
 
-    <div class="modal-scroll-body">
-      <div class="track-selection-container" id="track-checkbox-list"></div>
-    </div>
+      <div class="modal-scroll-body">
+        <div class="track-selection-container" id="track-checkbox-list"></div>
+      </div>
 
-    <div class="modal-footer">
-      <button class="btn-primary" id="btn-save-track-selection">Save Playlist</button>
+      <div class="modal-footer">
+        <button class="btn-primary" id="btn-save-track-selection">Save Playlist</button>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Settings Modal -->
-<div class="modal-overlay" id="modal-settings">
-  <div class="modal-card">
-    <div class="modal-header">
-      <div class="modal-title">Settings</div>
-      <button class="close-icon-btn" id="btn-close-settings" aria-label="Close Settings">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
-
-    <div class="modal-scroll-body">
-      <!-- SFX Volume Slider -->
-      <div class="settings-card">
-        <div class="setting-info">
-          <label for="slider-sfx-volume">SFX Volume</label>
-          <span class="value-badge" id="lbl-sfx-volume">80%</span>
-        </div>
-        <input class="slider" type="range" id="slider-sfx-volume" min="0" max="100" value="80">
+  <!-- Settings Modal -->
+  <div class="modal-overlay" id="modal-settings">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">Settings</div>
+        <button class="close-icon-btn" id="btn-close-settings" aria-label="Close Settings">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
       </div>
 
-      <!-- Music Volume Slider in Settings -->
-      <div class="settings-card">
-        <div class="setting-info">
-          <label for="slider-settings-music-volume">Music Volume</label>
-          <span class="value-badge" id="lbl-settings-music-volume">75%</span>
+      <div class="modal-scroll-body">
+        <!-- SFX Volume Slider -->
+        <div class="settings-card">
+          <div class="setting-info">
+            <label for="slider-sfx-volume">SFX Volume</label>
+            <span class="value-badge" id="lbl-sfx-volume">80%</span>
+          </div>
+          <input class="slider" type="range" id="slider-sfx-volume" min="0" max="100" value="80">
         </div>
-        <input class="slider" type="range" id="slider-settings-music-volume" min="0" max="100" value="75">
-      </div>
 
-      <div class="settings-card">
-        <div class="setting-info">
-          <label for="slider-slide-speed">Slide Speed</label>
-          <span class="value-badge" id="lbl-slide-speed">Smooth (130ms)</span>
+        <!-- Music Volume Slider in Settings -->
+        <div class="settings-card">
+          <div class="setting-info">
+            <label for="slider-settings-music-volume">Music Volume</label>
+            <span class="value-badge" id="lbl-settings-music-volume">75%</span>
+          </div>
+          <input class="slider" type="range" id="slider-settings-music-volume" min="0" max="100" value="75">
         </div>
-        <input class="slider" type="range" id="slider-slide-speed" min="0" max="1000" step="10" value="130">
-      </div>
 
-      <div class="settings-card">
-        <div class="setting-info">
-          <label for="slider-part-life">Particle Life</label>
-          <span class="value-badge" id="lbl-part-life">Normal (450ms)</span>
+        <div class="settings-card">
+          <div class="setting-info">
+            <label for="slider-slide-speed">Slide Speed</label>
+            <span class="value-badge" id="lbl-slide-speed">Smooth (130ms)</span>
+          </div>
+          <input class="slider" type="range" id="slider-slide-speed" min="0" max="1000" step="10" value="130">
         </div>
-        <input class="slider" type="range" id="slider-part-life" min="50" max="1500" step="10" value="450">
-      </div>
 
-      <div class="settings-card">
-        <div class="setting-info">
-          <label for="slider-part-density">Particle Density</label>
-          <span class="value-badge" id="lbl-part-density">Default (20 qty)</span>
+        <div class="settings-card">
+          <div class="setting-info">
+            <label for="slider-part-life">Particle Life</label>
+            <span class="value-badge" id="lbl-part-life">Normal (450ms)</span>
+          </div>
+          <input class="slider" type="range" id="slider-part-life" min="50" max="1500" step="10" value="450">
         </div>
-        <input class="slider" type="range" id="slider-part-density" min="5" max="100" step="5" value="20">
-      </div>
 
-      <div class="settings-card">
-        <div class="setting-info">Popup Animation Color</div>
-        <div class="tab-group" id="group-popup-color">
-          <button class="tab-btn" data-color="#00f0ff">Cyan</button>
-          <button class="tab-btn" data-color="#ff0055">Red</button>
-          <button class="tab-btn" data-color="#00ff66">Green</button>
-          <button class="tab-btn" data-color="#ff00aa">Pink</button>
-          <button class="tab-btn" data-color="#888888">Gray</button>
-          <button class="tab-btn" data-color="#9d00ff">Purple</button>
+        <div class="settings-card">
+          <div class="setting-info">
+            <label for="slider-part-density">Particle Density</label>
+            <span class="value-badge" id="lbl-part-density">Default (20 qty)</span>
+          </div>
+          <input class="slider" type="range" id="slider-part-density" min="5" max="100" step="5" value="20">
         </div>
-      </div>
 
-      <div class="settings-card toggle-row">
-        <div>
-          <div class="setting-info">Show Timer</div>
-          <div class="setting-subtext">Display active timer below restart and on leaderboard</div>
+        <div class="settings-card">
+          <div class="setting-info">Popup Animation Color</div>
+          <div class="tab-group" id="group-popup-color">
+            <button class="tab-btn" data-color="#00f0ff">Cyan</button>
+            <button class="tab-btn" data-color="#ff0055">Red</button>
+            <button class="tab-btn" data-color="#00ff66">Green</button>
+            <button class="tab-btn" data-color="#ff00aa">Pink</button>
+            <button class="tab-btn" data-color="#888888">Gray</button>
+            <button class="tab-btn" data-color="#9d00ff">Purple</button>
+          </div>
         </div>
-        <label class="switch">
-          <input type="checkbox" id="toggle-show-timer" aria-label="Show Timer" checked>
-          <span class="switch-slider"></span>
-        </label>
-      </div>
 
-      <div class="settings-card toggle-row">
-        <div>
-          <div class="setting-info">Enable Sound</div>
-          <div class="setting-subtext">Synthesized WebAudio move and merge sweeps</div>
+        <div class="settings-card toggle-row">
+          <div>
+            <div class="setting-info">Show Timer</div>
+            <div class="setting-subtext">Display active timer below restart and on leaderboard</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="toggle-show-timer" aria-label="Show Timer" checked>
+            <span class="switch-slider"></span>
+          </label>
         </div>
-        <label class="switch">
-          <input type="checkbox" id="toggle-sound" aria-label="Enable Sound" checked>
-          <span class="switch-slider"></span>
-        </label>
-      </div>
 
-      <div class="settings-card toggle-row">
-        <div>
-          <div class="setting-info">Enable Particles</div>
-          <div class="setting-subtext">Hardware-accelerated radial burst canvas physics</div>
+        <div class="settings-card toggle-row">
+          <div>
+            <div class="setting-info">Enable Sound</div>
+            <div class="setting-subtext">Synthesized WebAudio move and merge sweeps</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="toggle-sound" aria-label="Enable Sound" checked>
+            <span class="switch-slider"></span>
+          </label>
         </div>
-        <label class="switch">
-          <input type="checkbox" id="toggle-particles" aria-label="Enable Particles" checked>
-          <span class="switch-slider"></span>
-        </label>
-      </div>
 
-      <div class="settings-card toggle-row">
-        <div>
-          <div class="setting-info">Deterministic Mode</div>
-          <div class="setting-subtext">Locks tile spawn randomness so undo cannot be used to reroll tiles</div>
+        <div class="settings-card toggle-row">
+          <div>
+            <div class="setting-info">Enable Particles</div>
+            <div class="setting-subtext">Hardware-accelerated radial burst canvas physics</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="toggle-particles" aria-label="Enable Particles" checked>
+            <span class="switch-slider"></span>
+          </label>
         </div>
-        <label class="switch">
-          <input type="checkbox" id="toggle-deterministic" aria-label="Deterministic Mode">
-          <span class="switch-slider"></span>
-        </label>
-      </div>
 
-      <div class="settings-card toggle-row">
-        <div>
-          <div class="setting-info">Confirm on Exit</div>
-          <div class="setting-subtext">Prompt confirmation dialog before closing the game</div>
+        <div class="settings-card toggle-row">
+          <div>
+            <div class="setting-info">Deterministic Mode</div>
+            <div class="setting-subtext">Locks tile spawn randomness so undo cannot be used to reroll tiles</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="toggle-deterministic" aria-label="Deterministic Mode">
+            <span class="switch-slider"></span>
+          </label>
         </div>
-        <label class="switch">
-          <input type="checkbox" id="toggle-confirm-exit" aria-label="Confirm on Exit" checked>
-          <span class="switch-slider"></span>
-        </label>
-      </div>
 
-      <div class="settings-card">
-        <div class="setting-info">Slide Haptic</div>
-        <div class="tab-group" id="group-haptic-slide">
-          <button class="tab-btn" data-val="0">Off</button>
-          <button class="tab-btn" data-val="8">Soft</button>
-          <button class="tab-btn" data-val="16">Hard</button>
+        <div class="settings-card toggle-row">
+          <div>
+            <div class="setting-info">Confirm on Exit</div>
+            <div class="setting-subtext">Prompt confirmation dialog before closing the game</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="toggle-confirm-exit" aria-label="Confirm on Exit" checked>
+            <span class="switch-slider"></span>
+          </label>
         </div>
-      </div>
 
-      <div class="settings-card">
-        <div class="setting-info">Merge Haptic</div>
-        <div class="tab-group" id="group-haptic-merge">
-          <button class="tab-btn" data-val="0">Off</button>
-          <button class="tab-btn" data-val="18">Soft</button>
-          <button class="tab-btn" data-val="35">Hard</button>
+        <div class="settings-card">
+          <div class="setting-info">Slide Haptic</div>
+          <div class="tab-group" id="group-haptic-slide">
+            <button class="tab-btn" data-val="0">Off</button>
+            <button class="tab-btn" data-val="8">Soft</button>
+            <button class="tab-btn" data-val="16">Hard</button>
+          </div>
         </div>
-      </div>
 
-      <div class="settings-action-grid">
-        <button class="settings-action-card" id="btn-open-changelog">
+        <div class="settings-card">
+          <div class="setting-info">Merge Haptic</div>
+          <div class="tab-group" id="group-haptic-merge">
+            <button class="tab-btn" data-val="0">Off</button>
+            <button class="tab-btn" data-val="18">Soft</button>
+            <button class="tab-btn" data-val="35">Hard</button>
+          </div>
+        </div>
+
+        <div class="settings-action-grid">
+          <button class="settings-action-card" id="btn-open-changelog">
             <span class="action-card-header">
               <span class="action-card-title">Changelog</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </span>
-          <span class="action-card-desc">View latest updates</span>
-        </button>
-
-        <button class="settings-action-card" id="btn-open-credits">
+            <span class="action-card-desc">View latest updates</span>
+          </button>
+          
+          <button class="settings-action-card" id="btn-open-credits">
             <span class="action-card-header">
               <span class="action-card-title">Credits</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </span>
-          <span class="action-card-desc">Special thanks</span>
+            <span class="action-card-desc">Special thanks</span>
+          </button>
+        </div>
+
+        <button class="btn-danger" id="btn-reset-best">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+          </svg>
+          <span>Reset High Score</span>
         </button>
       </div>
 
-      <button class="btn-danger" id="btn-reset-best">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="3 6 5 6 21 6"></polyline>
-          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-        </svg>
-        <span>Reset High Score</span>
-      </button>
-    </div>
-
-    <div class="modal-footer">
-      <button class="btn-primary" id="btn-save-settings">Save &amp; Close</button>
+      <div class="modal-footer">
+        <button class="btn-primary" id="btn-save-settings">Save &amp; Close</button>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Leaderboard Modal Dialog -->
-<div class="modal-overlay" id="modal-leaderboard">
-  <div class="modal-card">
-    <div class="modal-header">
-      <div class="modal-title">Top 5 Leaderboard</div>
-      <button class="close-icon-btn" id="btn-close-leaderboard" aria-label="Close Leaderboard">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
-    <div class="modal-scroll-body">
-      <div class="leaderboard-container" id="leaderboard-list"></div>
+  <!-- Leaderboard Modal Dialog -->
+  <div class="modal-overlay" id="modal-leaderboard">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">Top 5 Leaderboard</div>
+        <button class="close-icon-btn" id="btn-close-leaderboard" aria-label="Close Leaderboard">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-scroll-body">
+        <div class="leaderboard-container" id="leaderboard-list"></div>
 
-      <button class="btn-danger" id="btn-clear-leaderboard" style="margin-top: 8px;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="3 6 5 6 21 6"></polyline>
-          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-        </svg>
-        <span>Clear Leaderboard</span>
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- Changelog Dialog Overlay -->
-<div class="modal-overlay" id="modal-changelog">
-  <div class="modal-card">
-    <div class="modal-header">
-      <div class="modal-title">Changelog</div>
-      <button class="close-icon-btn" id="btn-close-changelog" aria-label="Close Changelog">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
-    <div class="modal-scroll-body" id="changelog-container"></div>
-  </div>
-</div>
-
-<!-- Credits Dialog Overlay -->
-<div class="modal-overlay" id="modal-credits">
-  <div class="modal-card">
-    <div class="modal-header">
-      <div class="modal-title">Credits</div>
-      <button class="close-icon-btn" id="btn-close-credits" aria-label="Close Credits">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
-    <div class="modal-scroll-body" id="credits-container"></div>
-  </div>
-</div>
-
-<!-- Exit Confirmation Modal Dialog -->
-<div class="modal-overlay" id="modal-exit">
-  <div class="modal-card modal-confirm">
-    <div class="modal-title">Exit Game?</div>
-    <p>Are you sure you want to quit? Your current game board state is saved automatically.</p>
-    <div class="modal-actions-row">
-      <button class="btn-capsule" id="btn-cancel-exit">Cancel</button>
-      <button class="btn-primary" id="btn-confirm-exit">Exit Now</button>
+        <button class="btn-danger" id="btn-clear-leaderboard" style="margin-top: 8px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+          </svg>
+          <span>Clear Leaderboard</span>
+        </button>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Action Confirmation Modal Dialog -->
-<div class="modal-overlay" id="modal-confirm-action">
-  <div class="modal-card modal-confirm">
-    <div class="modal-title" id="confirm-action-title">Are you sure?</div>
-    <p id="confirm-action-desc">This action cannot be undone.</p>
-    <div class="modal-actions-row">
-      <button class="btn-capsule" id="btn-cancel-action">Cancel</button>
-      <button class="btn-danger" id="btn-confirm-action" style="flex: 1; padding: 12px; border-radius: 8px;">Confirm</button>
+  <!-- Changelog Dialog Overlay -->
+  <div class="modal-overlay" id="modal-changelog">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">Changelog</div>
+        <button class="close-icon-btn" id="btn-close-changelog" aria-label="Close Changelog">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-scroll-body" id="changelog-container"></div>
     </div>
   </div>
-</div>
 
-<!-- Core Scripts -->
-<script src="js/core/storage.js"></script>
-<script src="js/core/prng.js"></script>
-<script src="js/core/tile.js"></script>
+  <!-- Credits Dialog Overlay -->
+  <div class="modal-overlay" id="modal-credits">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">Credits</div>
+        <button class="close-icon-btn" id="btn-close-credits" aria-label="Close Credits">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-scroll-body" id="credits-container"></div>
+    </div>
+  </div>
 
-<!-- Audio & Music Scripts -->
-<script src="js/audio/sfx.js"></script>
-<script src="js/audio/music-data.js"></script>
-<script src="js/audio/visualizer.js"></script>
-<script src="js/audio/music.js"></script>
+  <!-- Exit Confirmation Modal Dialog -->
+  <div class="modal-overlay" id="modal-exit">
+    <div class="modal-card modal-confirm">
+      <div class="modal-title">Exit Game?</div>
+      <p>Are you sure you want to quit? Your current game board state is saved automatically.</p>
+      <div class="modal-actions-row">
+        <button class="btn-capsule" id="btn-cancel-exit">Cancel</button>
+        <button class="btn-primary" id="btn-confirm-exit">Exit Now</button>
+      </div>
+    </div>
+  </div>
 
-<!-- Feature Scripts -->
-<script src="js/features/particles.js"></script>
-<script src="js/features/timer.js"></script>
-<script src="js/features/leaderboard.js"></script>
-<script src="js/features/info-data.js"></script>
+  <!-- Action Confirmation Modal Dialog -->
+  <div class="modal-overlay" id="modal-confirm-action">
+    <div class="modal-card modal-confirm">
+      <div class="modal-title" id="confirm-action-title">Are you sure?</div>
+      <p id="confirm-action-desc">This action cannot be undone.</p>
+      <div class="modal-actions-row">
+        <button class="btn-capsule" id="btn-cancel-action">Cancel</button>
+        <button class="btn-danger" id="btn-confirm-action" style="flex: 1; padding: 12px; border-radius: 8px;">Confirm</button>
+      </div>
+    </div>
+  </div>
 
-<!-- UI Controllers -->
-<script src="js/ui/theme-ui.js"></script>
-<script src="js/ui/settings-ui.js"></script>
-<script src="js/ui/leaderboard-ui.js"></script>
-<script src="js/ui/music-ui.js"></script>
-<script src="js/ui/ui.js"></script>
+  <!-- Core Scripts -->
+  <script src="js/core/storage.js"></script>
+  <script src="js/core/prng.js"></script>
+  <script src="js/core/tile.js"></script>
 
-<!-- Game Engine & Input -->
-<script src="js/core/game.js"></script>
-<script src="js/input/input.js"></script>
+  <!-- Audio & Music Scripts -->
+  <script src="js/audio/sfx.js"></script>
+  <script src="js/audio/music-data.js"></script>
+  <script src="js/audio/visualizer.js"></script>
+  <script src="js/audio/music.js"></script>
 
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    window.leaderboard = new window.Leaderboard();
-    window.musicEngine = new window.MusicEngine();
-    window.ui = new window.UIController();
-    window.gameEngine = new window.GameEngine(window.ui);
-    window.input = new window.InputHandler(window.gameEngine, window.ui);
+  <!-- Feature Scripts -->
+  <script src="js/features/particles.js"></script>
+  <script src="js/features/timer.js"></script>
+  <script src="js/features/leaderboard.js"></script>
+  <script src="js/features/info-data.js"></script>
 
-    // Check autoplay setting from storage
-    const musicSettings = window.storage ? window.storage.getMusicSettings() : { autoplayMusicEnabled: true };
-    if (musicSettings.autoplayMusicEnabled !== false) {
-      window.musicEngine.play();
-    }
+  <!-- UI Controllers -->
+  <script src="js/ui/theme-ui.js"></script>
+  <script src="js/ui/settings-ui.js"></script>
+  <script src="js/ui/leaderboard-ui.js"></script>
+  <script src="js/ui/music-ui.js"></script>
+  <script src="js/ui/ui.js"></script>
 
-    const unlockAudioAndVibration = () => {
-      if (window.sound) window.sound.init();
-      if (window.musicEngine) {
-        window.musicEngine.initAudioContext();
-        const currentMusicSettings = window.storage ? window.storage.getMusicSettings() : { autoplayMusicEnabled: true };
-        if (currentMusicSettings.autoplayMusicEnabled !== false && !window.musicEngine.isPlaying) {
-          window.musicEngine.play();
-        }
+  <!-- Game Engine & Input -->
+  <script src="js/core/game.js"></script>
+  <script src="js/input/input.js"></script>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      window.leaderboard = new window.Leaderboard();
+      window.musicEngine = new window.MusicEngine();
+      window.ui = new window.UIController();
+      window.gameEngine = new window.GameEngine(window.ui);
+      window.input = new window.InputHandler(window.gameEngine, window.ui);
+
+      // Check autoplay setting from storage
+      const musicSettings = window.storage ? window.storage.getMusicSettings() : { autoplayMusicEnabled: true };
+      if (musicSettings.autoplayMusicEnabled !== false) {
+        window.musicEngine.play();
       }
-      window.removeEventListener('touchstart', unlockAudioAndVibration);
-      window.removeEventListener('click', unlockAudioAndVibration);
-    };
-    window.addEventListener('touchstart', unlockAudioAndVibration, { passive: true });
-    window.addEventListener('click', unlockAudioAndVibration);
-  });
-</script>
+
+      const unlockAudioAndVibration = () => {
+        if (window.sound) window.sound.init();
+        if (window.musicEngine) {
+          window.musicEngine.initAudioContext();
+          const currentMusicSettings = window.storage ? window.storage.getMusicSettings() : { autoplayMusicEnabled: true };
+          if (currentMusicSettings.autoplayMusicEnabled !== false && !window.musicEngine.isPlaying) {
+            window.musicEngine.play();
+          }
+        }
+        window.removeEventListener('touchstart', unlockAudioAndVibration);
+        window.removeEventListener('click', unlockAudioAndVibration);
+      };
+      window.addEventListener('touchstart', unlockAudioAndVibration, { passive: true });
+      window.addEventListener('click', unlockAudioAndVibration);
+    });
+  </script>
 </body>
 </html>

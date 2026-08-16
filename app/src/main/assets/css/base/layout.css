@@ -1,0 +1,319 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+html, body {
+  height: 100%;
+  height: 100dvh;
+  width: 100vw;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  touch-action: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, select, input {
+  touch-action: manipulation;
+}
+
+.app-wrapper {
+  width: var(--board-size);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: calc(10px + env(safe-area-inset-top, 0px)) 0 calc(15px + env(safe-area-inset-bottom, 0px)) 0;
+  box-sizing: border-box;
+}
+
+/* Elevated Spacers to raise the board position */
+.layout-spacer-top {
+  flex: 0.35;
+  pointer-events: none;
+}
+
+.layout-spacer-bottom {
+  flex: 1.25;
+  pointer-events: none;
+}
+
+.top-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Nav Row */
+.nav-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.nav-actions-left, .nav-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-color);
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.icon-btn:active {
+  transform: scale(0.93);
+}
+
+/* Theme Dropdown */
+.theme-dropdown-wrapper {
+  position: relative;
+}
+
+.theme-dropdown-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-color);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.theme-dropdown-btn:active {
+  transform: scale(0.95);
+}
+
+.chevron-icon {
+  transition: transform 0.2s ease;
+}
+
+.theme-dropdown-wrapper.active .chevron-icon {
+  transform: rotate(180deg);
+}
+
+.theme-dropdown-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  width: 185px;
+  display: none;
+  flex-direction: column;
+  z-index: 50;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.9);
+  overflow-y: auto;
+  max-height: 280px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.theme-dropdown-wrapper.active .theme-dropdown-list {
+  display: flex;
+}
+
+.dropdown-item {
+  padding: 10px 14px;
+  font-size: 0.8rem;
+  color: var(--text-color);
+  opacity: 0.7;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.dropdown-item:hover, .dropdown-item.selected {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dropdown-item.selected {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.dropdown-item .radio-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid var(--card-border);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.dropdown-item.selected .radio-indicator {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px var(--accent-color);
+}
+
+/* Brand Row & Scoreboards */
+.brand-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: 3.2rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: var(--text-color);
+  line-height: 0.9;
+}
+
+.scores-wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.score-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  min-width: 95px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.score-card .label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  opacity: 0.5;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.score-card .value {
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+/* Actions Row & Prominent Timer */
+.actions-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.actions-sub-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.timer-pill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 1.05rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-color);
+  letter-spacing: 0.5px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+  transition: opacity 0.2s ease;
+}
+
+.timer-pill svg {
+  stroke: var(--accent-color);
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
+.btn-capsule {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 12px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 1;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--text-color);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.btn-capsule:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btn-capsule:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+#btn-restart {
+  background: var(--text-color);
+  color: var(--bg-color);
+  border: 1px solid var(--text-color);
+}
+
+/* Dynamic Hidden Timer Rule */
+[data-hide-timer="true"] #timer-badge,
+[data-hide-timer="true"] .leaderboard-time-badge,
+[data-hide-timer="true"] .gameover-time-row {
+  display: none !important;
+}

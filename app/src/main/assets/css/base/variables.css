@@ -1,0 +1,7 @@
+:root {
+  --gap: 10px;
+  --board-size: clamp(290px, 90vw, 440px);
+  --cell-size: calc((var(--board-size) - (var(--gap) * 5)) / 4);
+  --slide-speed: 130ms;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}

@@ -1,0 +1,39 @@
+.track-selection-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.track-select-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.track-select-item:hover, .track-select-item.selected {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.track-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  padding-right: 10px;
+}
+
+.track-item-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.track-item-artist {
+  font-size: 0.7rem;
+  opacity: 0.6;
+}

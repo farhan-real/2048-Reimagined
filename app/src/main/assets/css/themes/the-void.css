@@ -1,0 +1,84 @@
+[data-theme="the_void"] {
+  --bg-color: #000000;
+  --board-bg: #000000;
+  --board-border: #111111;
+  --empty-cell-bg: rgba(255, 255, 255, 0.01);
+  --empty-cell-border: 1px solid rgba(255, 255, 255, 0.04);
+  --text-color: #888888;
+  --accent-color: #ffffff;
+  --accent-glow: none;
+  --card-bg: #080808;
+  --card-border: #1a1a1a;
+
+  --t2-bg: #080808;
+  --t2-color: #555555;
+  --t2-border: 1px solid #111111;
+  --t2-glow: none;
+  --t2-particle: #555555;
+
+  --t4-bg: #0c0c0c;
+  --t4-color: #777777;
+  --t4-border: 1px solid #1c1c1c;
+  --t4-glow: none;
+  --t4-particle: #777777;
+
+  --t8-bg: #101010;
+  --t8-color: #999999;
+  --t8-border: 1px solid #222222;
+  --t8-glow: none;
+  --t8-particle: #999999;
+
+  --t16-bg: #141410;
+  --t16-color: #aaaaaa;
+  --t16-border: 1px solid #333333;
+  --t16-glow: none;
+  --t16-particle: #aaaaaa;
+
+  --t32-bg: #181818;
+  --t32-color: #bbbbbb;
+  --t32-border: 1px solid #444444;
+  --t32-glow: none;
+  --t32-particle: #bbbbbb;
+
+  --t64-bg: #1c1c1c;
+  --t64-color: #cccccc;
+  --t64-border: 1px solid #555555;
+  --t64-glow: none;
+  --t64-particle: #cccccc;
+
+  --t128-bg: #222222;
+  --t128-color: #dddddd;
+  --t128-border: 1px solid #666666;
+  --t128-glow: none;
+  --t128-particle: #dddddd;
+
+  --t256-bg: #2a2222;
+  --t256-color: #eeeeee;
+  --t256-border: 1px solid #777777;
+  --t256-glow: none;
+  --t256-particle: #eeeeee;
+
+  --t512-bg: #333333;
+  --t512-color: #ffffff;
+  --t512-border: 1px solid #888888;
+  --t512-glow: none;
+  --t512-particle: #ffffff;
+
+  --t1024-bg: #444444;
+  --t1024-color: #ffffff;
+  --t1024-border: 1px solid #aaaaaa;
+  --t1024-glow: none;
+  --t1024-particle: #ffffff;
+
+  --t2048-bg: #555555;
+  --t2048-color: #ffffff;
+  --t2048-border: 2px solid #ffffff;
+  --t2048-glow: none;
+  --t2048-particle: #ffffff;
+
+  --tsuper-bg: #888888;
+  --tsuper-color: #ffffff;
+  --tsuper-border: 2px solid #ffffff;
+  --tsuper-glow: none;
+  --tsuper-particle: #ffffff;
+}

@@ -1,0 +1,84 @@
+[data-theme="sakura"] {
+  --bg-color: #000000;
+  --board-bg: #050103;
+  --board-border: #ff69b4;
+  --empty-cell-bg: rgba(255, 105, 180, 0.02);
+  --empty-cell-border: 1px solid rgba(255, 105, 180, 0.1);
+  --text-color: #ff69b4;
+  --accent-color: #ff69b4;
+  --accent-glow: 0 0 10px rgba(255, 105, 180, 0.5);
+  --card-bg: #0f0208;
+  --card-border: rgba(255, 105, 180, 0.25);
+
+  --t2-bg: #ffe3ec;
+  --t2-color: #4a1525;
+  --t2-border: none;
+  --t2-glow: 0 0 10px rgba(255, 105, 180, 0.4);
+  --t2-particle: #ffb6c1;
+
+  --t4-bg: #ffb6c1;
+  --t4-color: #4a1525;
+  --t4-border: none;
+  --t4-glow: 0 0 12px rgba(255, 105, 180, 0.5);
+  --t4-particle: #ff69b4;
+
+  --t8-bg: #ff8da1;
+  --t8-color: #ffffff;
+  --t8-border: none;
+  --t8-glow: 0 0 14px rgba(255, 141, 161, 0.6);
+  --t8-particle: #ff8da1;
+
+  --t16-bg: #ff5c8a;
+  --t16-color: #ffffff;
+  --t16-border: none;
+  --t16-glow: 0 0 16px rgba(255, 92, 138, 0.7);
+  --t16-particle: #ff5c8a;
+
+  --t32-bg: #ff1493;
+  --t32-color: #ffffff;
+  --t32-border: none;
+  --t32-glow: 0 0 18px rgba(255, 20, 147, 0.8);
+  --t32-particle: #ff1493;
+
+  --t64-bg: #d90066;
+  --t64-color: #ffffff;
+  --t64-border: none;
+  --t64-glow: 0 0 18px rgba(217, 0, 102, 0.8);
+  --t64-particle: #d90066;
+
+  --t128-bg: #99004d;
+  --t128-color: #ffffff;
+  --t128-border: none;
+  --t128-glow: 0 0 18px rgba(153, 0, 77, 0.8);
+  --t128-particle: #99004d;
+
+  --t256-bg: #800040;
+  --t256-color: #ffffff;
+  --t256-border: none;
+  --t256-glow: 0 0 20px rgba(128, 0, 64, 0.8);
+  --t256-particle: #800040;
+
+  --t512-bg: #6a0dad;
+  --t512-color: #ffffff;
+  --t512-border: none;
+  --t512-glow: 0 0 20px rgba(106, 13, 173, 0.8);
+  --t512-particle: #6a0dad;
+
+  --t1024-bg: #4a0033;
+  --t1024-color: #ffffff;
+  --t1024-border: none;
+  --t1024-glow: 0 0 20px rgba(74, 0, 51, 0.8);
+  --t1024-particle: #4a0033;
+
+  --t2048-bg: #fff0f5;
+  --t2048-color: #ff1493;
+  --t2048-border: 2px solid #ff1493;
+  --t2048-glow: 0 0 28px rgba(255, 20, 147, 0.9);
+  --t2048-particle: #ff1493;
+
+  --tsuper-bg: #ff007f;
+  --tsuper-color: #ffffff;
+  --tsuper-border: 2px solid #ffffff;
+  --tsuper-glow: 0 0 32px rgba(255, 0, 127, 0.9);
+  --tsuper-particle: #ff007f;
+}

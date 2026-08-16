@@ -1,0 +1,84 @@
+[data-theme="terminal"] {
+  --bg-color: #000000;
+  --board-bg: #000000;
+  --board-border: rgba(0, 255, 70, 0.3);
+  --empty-cell-bg: #010401;
+  --empty-cell-border: 1px solid rgba(0, 255, 70, 0.12);
+  --text-color: #00ff46;
+  --accent-color: #00ff46;
+  --accent-glow: 0 0 10px rgba(0, 255, 70, 0.5);
+  --card-bg: #020803;
+  --card-border: rgba(0, 255, 70, 0.2);
+
+  --t2-bg: #000000;
+  --t2-color: #00ff46;
+  --t2-border: 1px solid #00ff46;
+  --t2-glow: 0 0 5px rgba(0, 255, 70, 0.4);
+  --t2-particle: #00ff46;
+
+  --t4-bg: #000000;
+  --t4-color: #00dd3a;
+  --t4-border: 1px solid #00dd3a;
+  --t4-glow: 0 0 7px rgba(0, 221, 58, 0.5);
+  --t4-particle: #00dd3a;
+
+  --t8-bg: #000000;
+  --t8-color: #00bb31;
+  --t8-border: 1px solid #00bb31;
+  --t8-glow: 0 0 9px rgba(0, 187, 49, 0.5);
+  --t8-particle: #00bb31;
+
+  --t16-bg: #000000;
+  --t16-color: #009927;
+  --t16-border: 1px solid #009927;
+  --t16-glow: 0 0 11px rgba(0, 153, 39, 0.6);
+  --t16-particle: #009927;
+
+  --t32-bg: #000000;
+  --t32-color: #008822;
+  --t32-border: 2px solid #008822;
+  --t32-glow: 0 0 13px rgba(0, 136, 34, 0.6);
+  --t32-particle: #008822;
+
+  --t64-bg: #000000;
+  --t64-color: #00aa22;
+  --t64-border: 2px solid #00aa22;
+  --t64-glow: 0 0 15px rgba(0, 170, 34, 0.7);
+  --t64-particle: #00aa22;
+
+  --t128-bg: #000000;
+  --t128-color: #3bfb3b;
+  --t128-border: 2px solid #3bfb3b;
+  --t128-glow: 0 0 18px rgba(59, 251, 59, 0.7);
+  --t128-particle: #3bfb3b;
+
+  --t256-bg: #000000;
+  --t256-color: #6bff6b;
+  --t256-border: 2px solid #6bff6b;
+  --t256-glow: 0 0 20px rgba(107, 255, 107, 0.8);
+  --t256-particle: #6bff6b;
+
+  --t512-bg: #000000;
+  --t512-color: #9bff9b;
+  --t512-border: 2px solid #9bff9b;
+  --t512-glow: 0 0 22px rgba(155, 255, 155, 0.8);
+  --t512-particle: #9bff9b;
+
+  --t1024-bg: #000000;
+  --t1024-color: #ffffff;
+  --t1024-border: 2px solid #ffffff;
+  --t1024-glow: 0 0 25px rgba(255, 255, 255, 0.9);
+  --t1024-particle: #ffffff;
+
+  --t2048-bg: #000000;
+  --t2048-color: #00ff46;
+  --t2048-border: 3px double #00ff46;
+  --t2048-glow: 0 0 30px #00ff46;
+  --t2048-particle: #00ff46;
+
+  --tsuper-bg: #00ff46;
+  --tsuper-color: #000000;
+  --tsuper-border: 3px solid #00ff46;
+  --tsuper-glow: 0 0 35px #00ff46;
+  --tsuper-particle: #00ff46;
+}

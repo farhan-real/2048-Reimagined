@@ -1,0 +1,95 @@
+[data-theme="neon_amoled"] {
+  --bg-color: #000000;
+  --board-bg: #000000;
+  --board-border: #141414;
+  --empty-cell-bg: #080808;
+  --empty-cell-border: 1px solid #111111;
+  --text-color: #ffffff;
+  --accent-color: #00f0ff;
+  --accent-glow: 0 0 10px rgba(0, 240, 255, 0.5);
+  --card-bg: #111111;
+  --card-border: #222222;
+
+  --t2-bg: linear-gradient(135deg, #111111, #080808);
+  --t2-color: #888888;
+  --t2-border: 1px solid #222222;
+  --t2-glow: none;
+  --t2-particle: #888888;
+
+  --t4-bg: linear-gradient(135deg, #001224, #080808);
+  --t4-color: #00bcff;
+  --t4-border: 1px solid #00bcff;
+  --t4-glow: 0 0 8px rgba(0, 188, 255, 0.4);
+  --t4-text-shadow: 0 0 4px #00bcff;
+  --t4-particle: #00bcff;
+
+  --t8-bg: linear-gradient(135deg, #24000a, #080808);
+  --t8-color: #ff3355;
+  --t8-border: 1px solid #ff3355;
+  --t8-glow: 0 0 10px rgba(255, 51, 85, 0.5);
+  --t8-text-shadow: 0 0 5px #ff3355;
+  --t8-particle: #ff3355;
+
+  --t16-bg: linear-gradient(135deg, #240413, #080808);
+  --t16-color: #e91e63;
+  --t16-border: 1px solid #e91e63;
+  --t16-glow: 0 0 12px rgba(233, 30, 99, 0.5);
+  --t16-text-shadow: 0 0 6px #e91e63;
+  --t16-particle: #e91e63;
+
+  --t32-bg: linear-gradient(135deg, #140424, #080808);
+  --t32-color: #9c27b0;
+  --t32-border: 1px solid #9c27b0;
+  --t32-glow: 0 0 14px rgba(156, 39, 176, 0.5);
+  --t32-text-shadow: 0 0 6px #9c27b0;
+  --t32-particle: #9c27b0;
+
+  --t64-bg: linear-gradient(135deg, #00121a, #080808);
+  --t64-color: #00f0ff;
+  --t64-border: 1px solid #00f0ff;
+  --t64-glow: 0 0 16px rgba(0, 240, 255, 0.5);
+  --t64-text-shadow: 0 0 7px #00f0ff;
+  --t64-particle: #00f0ff;
+
+  --t128-bg: linear-gradient(135deg, #001f0a, #080808);
+  --t128-color: #00ff66;
+  --t128-border: 1px solid #00ff66;
+  --t128-glow: 0 0 18px rgba(0, 255, 102, 0.5);
+  --t128-text-shadow: 0 0 8px #00ff66;
+  --t128-particle: #00ff66;
+
+  --t256-bg: linear-gradient(135deg, #000c1f, #080808);
+  --t256-color: #0066ff;
+  --t256-border: 1px solid #0066ff;
+  --t256-glow: 0 0 20px rgba(0, 102, 255, 0.5);
+  --t256-text-shadow: 0 0 8px #0066ff;
+  --t256-particle: #0066ff;
+
+  --t512-bg: linear-gradient(135deg, #1a0033, #080808);
+  --t512-color: #bc00ff;
+  --t512-border: 1px solid #bc00ff;
+  --t512-glow: 0 0 22px rgba(188, 0, 255, 0.6);
+  --t512-text-shadow: 0 0 9px #bc00ff;
+  --t512-particle: #bc00ff;
+
+  --t1024-bg: linear-gradient(135deg, #240008, #080808);
+  --t1024-color: #ff003c;
+  --t1024-border: 1px solid #ff003c;
+  --t1024-glow: 0 0 24px rgba(255, 0, 60, 0.6);
+  --t1024-text-shadow: 0 0 9px #ff003c;
+  --t1024-particle: #ff003c;
+
+  --t2048-bg: linear-gradient(135deg, #111111, #000000);
+  --t2048-color: #ffffff;
+  --t2048-border: 2px solid #ffffff;
+  --t2048-glow: 0 0 28px rgba(255, 255, 255, 0.7);
+  --t2048-text-shadow: 0 0 11px #ffffff;
+  --t2048-particle: #ffffff;
+
+  --tsuper-bg: linear-gradient(135deg, #00121a, #080808);
+  --tsuper-color: #00f0ff;
+  --tsuper-border: 2px solid #00f0ff;
+  --tsuper-glow: 0 0 32px rgba(0, 240, 255, 0.8);
+  --tsuper-text-shadow: 0 0 12px #00f0ff;
+  --tsuper-particle: #00f0ff;
+}

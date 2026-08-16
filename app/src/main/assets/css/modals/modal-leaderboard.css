@@ -1,0 +1,131 @@
+.leaderboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.leaderboard-rank {
+  font-size: 0.9rem;
+  font-weight: 900;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rank-1 {
+  background: var(--accent-color);
+  color: #000000;
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+.rank-2 {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-color);
+}
+
+.rank-3 {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+}
+
+.rank-n {
+  background: transparent;
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+.leaderboard-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  gap: 1px;
+}
+
+.leaderboard-score {
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.leaderboard-date {
+  font-size: 0.68rem;
+  opacity: 0.55;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Enlarged & Centered Time Badge */
+.leaderboard-time-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--card-border);
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+
+.leaderboard-time-badge svg {
+  stroke: var(--accent-color);
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+.leaderboard-delete-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  opacity: 0.35;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  padding: 4px;
+}
+
+.leaderboard-delete-btn:hover,
+.leaderboard-delete-btn:active {
+  opacity: 1;
+  color: #ff0055;
+  transform: scale(1.08);
+}
+
+.leaderboard-empty {
+  text-align: center;
+  padding: 24px 12px;
+  font-size: 0.82rem;
+  opacity: 0.7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

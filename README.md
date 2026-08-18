@@ -129,8 +129,8 @@ app/src/main/
 ## Build Requirements
 
 * Android Studio Hedgehog (2023.1.1) or newer
-* Android SDK 34 (Target)
-* Minimum SDK 24 (Android 7.0 Nougat)
+* Target SDK 37 (Android 17)
+* Minimum SDK 26 (Android 8.0)
 * Gradle 8.x + Kotlin DSL
 
 ### Compiling from Source

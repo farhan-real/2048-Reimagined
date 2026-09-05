@@ -5,6 +5,11 @@ An open-source, high-performance Android edition of the 2048 puzzle game. Built 
 While based on the original 2048 game concept created by Gabriele Cirulli, all source code, layout systems, audio engines, and native Android bridges in this repository were written from scratch by Farhan.
 
 ---
+# Screenshots
+
+| Default Theme | Seaway Theme | Music Player | Settings |
+| :---: | :---: | :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/d10762ca-a8b6-43bd-87dc-8433d1fb6c29" width="230" alt="2048 Classic Theme" /> | <img src="https://github.com/user-attachments/assets/338fab07-650f-4bfa-924c-756e96546cf0" width="230" alt="2048 Alternate Theme" /> | <img src="https://github.com/user-attachments/assets/dbb870fa-827e-4ae1-afa6-20b2ab5798cc" width="230" alt="Background Music Player" /> | <img src="https://github.com/user-attachments/assets/eff34d64-a6aa-4299-890b-8cf98eeec9b5" width="230" alt="Settings Screen" /> |
 
 ## Features
 

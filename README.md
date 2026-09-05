@@ -2,7 +2,7 @@
 
 An open-source, high-performance Android edition of the 2048 puzzle game. Built from scratch with an independent codebase, this project introduces hardware-accelerated grid mechanics, high refresh rate support (90Hz, 120Hz, 144Hz), 11 visual themes, a background music engine with real-time spectrum visualizers, deterministic spawn modes, an active game timer, and a local leaderboard.
 
-While based on the original 2048 game concept created by Gabriele Cirulli, all source code, layout systems, audio engines, and native Android bridges in this repository were written from scratch by Farhan.
+While based on the original 2048 game concept created by Gabriele Cirulli, all source code, layout systems, audio engines, and native Android bridges in this repository were written from scratch by Me.
 
 ---
 # Screenshots

@@ -22,14 +22,10 @@
       this.alpha = Math.max(0, this.life / this.maxLife);
     }
 
-    draw(ctx, currentTheme) {
+    draw(ctx) {
       ctx.save();
       ctx.globalAlpha = this.alpha;
       ctx.fillStyle = this.color;
-      if (currentTheme !== 'classic' && currentTheme !== 'pastel_pink') {
-        ctx.shadowBlur = 4;
-        ctx.shadowColor = this.color;
-      }
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
       ctx.fill();
@@ -51,13 +47,13 @@
 
     resize() {
       const rect = this.canvas.getBoundingClientRect();
-      this.dpr = window.devicePixelRatio || 1;
+      this.dpr = Math.min(window.devicePixelRatio || 1, 2.0);
       this.canvas.width = rect.width * this.dpr;
       this.canvas.height = rect.height * this.dpr;
       this.ctx.scale(this.dpr, this.dpr);
     }
 
-    spawnMergeBurst(col, row, color, currentTheme) {
+    spawnMergeBurst(col, row, color) {
       const toggle = document.getElementById('toggle-particles');
       const isParticlesEnabled = toggle ? toggle.checked : true;
       if (!isParticlesEnabled) return;
@@ -102,7 +98,7 @@
 
       if (!this.animationFrameId) {
         this.lastTime = performance.now();
-        this.animationFrameId = requestAnimationFrame((t) => this.loop(t, currentTheme));
+        this.animationFrameId = requestAnimationFrame((t) => this.loop(t));
       }
     }
 
@@ -115,7 +111,7 @@
       }
     }
 
-    loop(currentTime, currentTheme) {
+    loop(currentTime) {
       const dt = Math.min((currentTime - this.lastTime) / 1000, 0.1);
       this.lastTime = currentTime;
 
@@ -127,12 +123,12 @@
         if (p.life <= 0) {
           this.particles.splice(i, 1);
         } else {
-          p.draw(this.ctx, currentTheme);
+          p.draw(this.ctx);
         }
       }
 
       if (this.particles.length > 0) {
-        this.animationFrameId = requestAnimationFrame((t) => this.loop(t, currentTheme));
+        this.animationFrameId = requestAnimationFrame((t) => this.loop(t));
       } else {
         this.animationFrameId = null;
       }

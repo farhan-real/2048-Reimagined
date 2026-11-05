@@ -34,3 +34,6 @@ Thumbs.db
 
 # Profiler & captures
 /captures/
+
+export_project.ps1
+project_summary.txt

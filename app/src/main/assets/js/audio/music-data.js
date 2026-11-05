@@ -1,21 +1,30 @@
 (function() {
   const TRACK_FILES = [
+    "0BiT - Fax Spider 2.1 kg.mp3",
+    "Dubmood - 4everblue morninsky.mp3",
     "Dubmood - Chiptune.mp3",
     "Dubmood - Colorful Troupe.mp3",
     "Dubmood - Insert No Coins.mp3",
+    "Dubmood - InsertNoCoins Edit.mp3",
     "Dubmood - Keygen 23.mp3",
+    "Dubmood - Keygen 31 Edit.mp3",
     "Dubmood - Keygen 31.mp3",
+    "Dubmood - Keygen 5.mp3",
+    "Dubmood - Paradox 2.mp3",
     "Dubmood - Paradox 3.mp3",
-    "Dubmood - Rez 1911 Cracktro 6.flac",
+    "Dubmood - Rez 1911 Cracktro 6.mp3",
+    "Dubmood - Track tracking.mp3",
     "Dubmood and Zabutom - Supersquatting (Razor 1911 intro edit).mp3",
-    "Jakim - Whatever it means.flac",
-    "ko0x - Starlight sugar moon.flac",
+    "GEAR - Acala DVD iPod Ripper 2.3.2.mp3",
+    "Jakim - Whatever it means.mp3",
+    "ko0x - Starlight sugar moon.mp3",
     "Moodmode - 8-bit Arcade Mode.mp3",
-    "Oxbow - artcore-hidden.flac",
+    "Oxbow - artcore-hidden.mp3",
     "rez & kenet - Unreeeal superhero 3.mp3",
+    "SnD - VB Decompiler Pro 7.6 crk.mp3",
     "Zabutom - Final Blast.mp3",
-    "Zalza - Dancing Midgets.flac",
-    "Zalza vs Floppi - Alanya Spring.flac"
+    "Zalza - Dancing Midgets.mp3",
+    "Zalza vs Floppi - Alanya Spring.mp3"
   ];
 
   function parseTrackFilename(filename) {
@@ -30,7 +39,6 @@
       title = parts.slice(1).join(" - ").trim();
     }
 
-    // Split artists by comma, ampersand, 'and', 'vs', 'vs.', 'feat.', 'ft.', 'x'
     const artistList = rawArtists
       .split(/\s*(?:,|&|\band\b|\bvs\.?\b|\bfeat\.?\b|\bft\.?|\bx\b)\s*/i)
       .map(a => a.trim())

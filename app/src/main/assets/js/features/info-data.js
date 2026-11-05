@@ -1,11 +1,19 @@
 (function() {
   const CHANGELOG = [
     {
-      version: "V3.1.0",
-      title: "New Theme Visions, Major Performance Engine & Polish",
+      version: "V3.1.1",
+      title: "Theme Polish, Outlines & Palette Fixes",
       changes: [
-        "Major Performance Overhaul: Capped visualizer to 25 FPS, pre-allocated static typed array buffers, batched canvas draw calls, and clamped DPR to 2.0x, drastically reducing thermal output and battery drain.",
-        "Eliminated Layout Thrashing: Cached board metrics outside animation loops and added modal visibility isolation to eliminate unneeded GPU composition and forced reflows.",
+        "Retro Keeb Palette Fix: Replaced multi-color accents with strictly authentic mechanical keyboard colors (cream alphas, stepped industrial gray modifiers, and Cherry crimson red artisan accents).",
+        "Outlined Cyberpunk Light: Rebuilt around vibrant glowing neon outlines, colored borders, and cyan/magenta legends over clean light tech surfaces.",
+        "Outlined Synthwave Light: Rebuilt with soft 80s pastel sunset paper and glowing neon Outrun borders, matching the outline aesthetic of its dark counterpart.",
+        "Nordic Frost Dark Contrast: Completely separated tile shades across polar slate, glacial ocean blue, ice cyan, arctic teal, and frost white for instant visual distinction."
+      ]
+    },
+    {
+      version: "V3.1.0",
+      title: "New Theme Visions, Custom Canvases & Polish",
+      changes: [
         "New Distinct Theme Visions: Added Blueprint (architectural cyanotype), Frutiger Aero (glossy 2000s aqua glass), Ukiyo-e (traditional Edo woodblock print), DMG 1989 (classic Game Boy pea-soup LCD), Vectorheart (red/gray/black vector art), and Retro Keeb (vintage mechanical keyboard cream/gray/red).",
         "Unique Themed Canvases: Introduced custom backgrounds beyond standard black and white (natural cedar wood, reflective olive LCD, drafting linen, and graphite chassis).",
         "Dual-Mode Theme Expansions: Added dark variants for Pastel Pink, Nordic Frost, and Classic Sand, alongside Autumn Maple Light.",

@@ -56,13 +56,6 @@ Complete tile progressions from 2 to 2048 for each theme family:
 [![Aesthetic & Minimal](previews/minimal.svg)](app/src/main/assets/previews/minimal.svg)
 
 ---
-# Screenshots
-
-| Default Theme | Seaway Theme |
-| :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/d10762ca-a8b6-43bd-87dc-8433d1fb6c29" width="280" alt="Default Theme" /> | <img src="https://github.com/user-attachments/assets/338fab07-650f-4bfa-924c-756e96546cf0" width="280" alt="Seaway Theme" /> |
-| **Music Player** | **Settings** |
-| <img src="https://github.com/user-attachments/assets/dbb870fa-827e-4ae1-afa6-20b2ab5798cc" width="280" alt="Music Player" /> | <img src="https://github.com/user-attachments/assets/eff34d64-a6aa-4299-890b-8cf98eeec9b5" width="280" alt="Settings Screen" /> |
 
 ## Features
 

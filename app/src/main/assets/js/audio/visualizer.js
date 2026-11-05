@@ -182,8 +182,8 @@
       ctx.fillStyle = grad;
 
       for (let i = 0; i < count; i++) {
-        const targetHeight = Math.max(4, Math.min(maxHeight, bars[i] * maxHeight * 1.12));
-        peakBuffer[i] = targetHeight >= peakBuffer[i] ? targetHeight : Math.max(targetHeight, peakBuffer[i] - (h * 2.2 * dt));
+        const targetHeight = Math.max(4, Math.min(maxHeight, bars[i] * maxHeight * 1.15));
+        peakBuffer[i] = targetHeight >= peakBuffer[i] ? targetHeight : Math.max(targetHeight, peakBuffer[i] - (h * 4.2 * dt));
         const barHeight = peakBuffer[i], x = i * slot + (gap / 2), y = h - bottomOffset - barHeight;
         this.drawBar(ctx, x, y, barWidth, barHeight);
       }
@@ -199,7 +199,7 @@
 
       const dt = Math.min((now - this.lastTime) / 1000, 0.08);
       this.lastTime = now;
-      this.hueOffset = (this.hueOffset + dt * 28) % 360;
+      this.hueOffset = (this.hueOffset + dt * 32) % 360;
       const dpr = Math.min(window.devicePixelRatio || 1, 2.0);
 
       if (this.isLandscape() && this.ctxLandscape && this.canvasLandscape) {

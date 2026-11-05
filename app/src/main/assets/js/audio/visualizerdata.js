@@ -1,17 +1,15 @@
 (function() {
   class PrecompiledVisualizer {
     constructor() {
-      this.cache = new Map();
-      this.isReady = false;
+      this.trackSeeds = new Map();
       this.init();
     }
 
     init() {
       if (window.MusicData && typeof window.MusicData.getAvailableTracks === 'function') {
         const tracks = window.MusicData.getAvailableTracks();
-        tracks.forEach(track => this.precompileTrack(track.id));
+        tracks.forEach(track => this.registerTrack(track.id));
       }
-      this.isReady = true;
     }
 
     hashString(str) {
@@ -23,85 +21,68 @@
       return (h >>> 0);
     }
 
-    precompileTrack(trackId) {
-      if (this.cache.has(trackId)) return;
-
-      const seed = this.hashString(trackId);
-      const bpm = 124 + (seed % 30);
-      const beatSec = 60 / bpm;
-      const totalSeconds = 240;
-      const sampleRate = 4;
-      const totalFrames = totalSeconds * sampleRate;
-      const bands = 16;
-      const data = new Float32Array(totalFrames * bands);
-
-      let s = seed;
-      const rnd = () => { s = (s * 9301 + 49297) % 233280; return s / 233280; };
-      rnd(); rnd();
-
-      for (let f = 0; f < totalFrames; f++) {
-        const t = f / sampleRate;
-        const beatPos = (t % beatSec) / beatSec;
-        const kickPulse = Math.exp(-beatPos * 4.8);
-        const snarePulse = ((Math.floor(t / beatSec) % 2) === 1) ? Math.exp(-beatPos * 3.8) : 0;
-        const hihatPulse = Math.exp(-((t % (beatSec / 2)) / (beatSec / 2)) * 6.5) * 0.7;
-        const measureProgress = (t % (beatSec * 16)) / (beatSec * 16);
-        const energyRise = 0.75 + 0.25 * Math.sin(measureProgress * Math.PI);
-
-        for (let b = 0; b < bands; b++) {
-          let energy = 0.18;
-
-          if (b < 4) {
-            energy += kickPulse * (1.1 - b * 0.15) * 0.95;
-          } else if (b < 10) {
-            const arpHue = Math.sin((t * 7.5) + (b * 0.85));
-            energy += (Math.max(0, arpHue) * 0.7 + 0.15) * energyRise;
-            energy += snarePulse * 0.55;
-          } else {
-            energy += hihatPulse * (0.75 + (b - 10) * 0.08);
-          }
-
-          const noise = (rnd() - 0.5) * 0.06;
-          const finalVal = Math.max(0.12, Math.min(1.0, (energy + noise) * energyRise));
-          data[f * bands + b] = finalVal;
-        }
+    registerTrack(trackId) {
+      if (!this.trackSeeds.has(trackId)) {
+        const seed = this.hashString(trackId);
+        const bpm = 128 + (seed % 30);
+        this.trackSeeds.set(trackId, { seed, bpm, beatSec: 60 / bpm });
       }
-
-      this.cache.set(trackId, { data, totalFrames, sampleRate, bands });
     }
 
     getBars(trackId, timeSeconds, count, variations) {
-      if (!this.cache.has(trackId)) {
-        this.precompileTrack(trackId);
+      if (!this.trackSeeds.has(trackId)) {
+        this.registerTrack(trackId);
       }
-
-      const track = this.cache.get(trackId);
+      const info = this.trackSeeds.get(trackId) || { seed: 1337, bpm: 136, beatSec: 60 / 136 };
       const out = new Float32Array(count);
-      if (!track) return out;
+      const t = Math.max(0, timeSeconds);
+      const beatSec = info.beatSec;
 
-      const safeTime = Math.max(0, timeSeconds);
-      const exactFrame = safeTime * track.sampleRate;
-      const f1 = Math.min(Math.floor(exactFrame), track.totalFrames - 1);
-      const f2 = Math.min(f1 + 1, track.totalFrames - 1);
-      const alpha = exactFrame - f1;
+      // Fast-attack kick transient on every beat
+      const beatPos = (t % beatSec) / beatSec;
+      const kick = Math.exp(-beatPos * 8.5);
+
+      // Sharp snare crack on beats 2 and 4
+      const beatIndex = Math.floor(t / beatSec);
+      const isSnareBeat = (beatIndex % 2) === 1;
+      const snare = isSnareBeat ? Math.exp(-beatPos * 7.0) : 0;
+
+      // 16th-note rapid percussion ticks
+      const sixteenthSec = beatSec / 4;
+      const sixteenthPos = (t % sixteenthSec) / sixteenthSec;
+      const tick = Math.exp(-sixteenthPos * 11.0);
+
+      // Fast-cycling chiptune arpeggios dancing across frequency bands
+      const arpPhase = t * (info.bpm / 7.0);
+      const measurePhase = (t % 16.0) / 16.0;
+      const intensity = 0.75 + 0.25 * Math.sin(measurePhase * Math.PI * 2);
 
       for (let i = 0; i < count; i++) {
         const fraction = i / Math.max(1, count - 1);
         const normX = (i - count / 2) / (count / 2);
-        const bellCurve = 0.35 + 0.65 * Math.exp(-Math.pow(normX / 0.62, 2));
+        const bell = 0.38 + 0.62 * Math.exp(-Math.pow(normX / 0.62, 2));
 
-        const bandPos = fraction * (track.bands - 1);
-        const b1 = Math.floor(bandPos);
-        const b2 = Math.min(b1 + 1, track.bands - 1);
-        const bAlpha = bandPos - b1;
+        let rawVal = 0.06;
 
-        const val1 = track.data[f1 * track.bands + b1] * (1 - bAlpha) + track.data[f1 * track.bands + b2] * bAlpha;
-        const val2 = track.data[f2 * track.bands + b1] * (1 - bAlpha) + track.data[f2 * track.bands + b2] * bAlpha;
-        const rawEnergy = val1 * (1 - alpha) + val2 * alpha;
+        if (fraction < 0.22) {
+          // Bass & Sub-bass: punchy kick impact and bass groove
+          const bassGroove = Math.sin(t * 30.0 + fraction * 12.0) * 0.16;
+          rawVal = (kick * 0.90 + Math.max(0, bassGroove) + 0.08);
+        } else if (fraction < 0.68) {
+          // Midrange: rapid chiptune lead sweeps and snare punch
+          const arpWave = Math.sin(arpPhase + fraction * 15.0);
+          const leadEnergy = Math.max(0, arpWave) * 0.70;
+          const snareEnergy = snare * 0.65;
+          rawVal = (leadEnergy + snareEnergy + tick * 0.25 + 0.07);
+        } else {
+          // Treble: rapid hi-hat chatter and shimmering transients
+          const trebleSizzle = Math.sin(t * 50.0 + fraction * 25.0) * 0.14;
+          rawVal = (tick * 0.78 + Math.max(0, trebleSizzle) + 0.06);
+        }
 
-        const boosted = Math.min(1.0, Math.pow(rawEnergy, 0.75) * 1.35);
+        const boosted = Math.min(1.0, Math.pow(rawVal, 0.70) * 1.55 * intensity);
         const variation = (variations && variations[i]) ? variations[i] : 1.0;
-        out[i] = Math.max(0.08, Math.min(1.0, boosted * bellCurve * variation));
+        out[i] = Math.max(0.06, Math.min(1.0, boosted * bell * variation));
       }
 
       return out;

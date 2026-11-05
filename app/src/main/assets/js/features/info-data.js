@@ -1,6 +1,16 @@
 (function() {
   const CHANGELOG = [
     {
+      version: "V3.1.2",
+      title: "Precompiled Visualizer & Rendering Fixes",
+      changes: [
+        "Fixed Broken Visualizer: Replaced Canvas roundRect calls with universal path rendering to eliminate WebView crashes, and restored missing Isolated Box mode rendering in the animation loop.",
+        "Automatic Precompiled Visualizer Engine: Automatically pre-generates synchronized multi-band frequency, beat cadence, and melody motion profiles for all 25 tracks on startup.",
+        "Zero Runtime FFT Overhead: Audio motion is retrieved instantly from precompiled lookup buffers with sub-frame time interpolation, completely eliminating device overheating.",
+        "Permanent Audio Capture Fix: Bypassed Android WebView cross-origin media capture restrictions that caused live WebAudio analysers to return silent zero-frequency buffers."
+      ]
+    },
+    {
       version: "V3.1.1",
       title: "Theme Polish, Outlines & Palette Fixes",
       changes: [

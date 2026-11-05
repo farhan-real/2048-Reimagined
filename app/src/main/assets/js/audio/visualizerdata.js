@@ -27,10 +27,10 @@
       if (this.cache.has(trackId)) return;
 
       const seed = this.hashString(trackId);
-      const bpm = 120 + (seed % 35); // 120 - 154 BPM
+      const bpm = 124 + (seed % 30);
       const beatSec = 60 / bpm;
-      const totalSeconds = 240; // 4 minutes coverage
-      const sampleRate = 4; // 4 frames per second
+      const totalSeconds = 240;
+      const sampleRate = 4;
       const totalFrames = totalSeconds * sampleRate;
       const bands = 16;
       const data = new Float32Array(totalFrames * bands);
@@ -42,28 +42,27 @@
       for (let f = 0; f < totalFrames; f++) {
         const t = f / sampleRate;
         const beatPos = (t % beatSec) / beatSec;
-        const kickPulse = Math.exp(-beatPos * 7.5);
-        const snarePulse = ((Math.floor(t / beatSec) % 2) === 1) ? Math.exp(-beatPos * 5.0) : 0;
-        const hihatPulse = Math.exp(-((t % (beatSec / 2)) / (beatSec / 2)) * 9.0) * 0.45;
+        const kickPulse = Math.exp(-beatPos * 4.8);
+        const snarePulse = ((Math.floor(t / beatSec) % 2) === 1) ? Math.exp(-beatPos * 3.8) : 0;
+        const hihatPulse = Math.exp(-((t % (beatSec / 2)) / (beatSec / 2)) * 6.5) * 0.7;
         const measureProgress = (t % (beatSec * 16)) / (beatSec * 16);
-        const energyRise = 0.55 + 0.45 * Math.sin(measureProgress * Math.PI);
+        const energyRise = 0.75 + 0.25 * Math.sin(measureProgress * Math.PI);
 
         for (let b = 0; b < bands; b++) {
-          const bandNorm = b / (bands - 1);
-          let energy = 0.08;
+          let energy = 0.18;
 
           if (b < 4) {
-            energy += kickPulse * (1.0 - b * 0.18) * 0.85;
+            energy += kickPulse * (1.1 - b * 0.15) * 0.95;
           } else if (b < 10) {
-            const arpHue = Math.sin((t * 8.0) + (b * 0.75));
-            energy += Math.max(0, arpHue) * 0.55 * energyRise;
-            energy += snarePulse * 0.40;
+            const arpHue = Math.sin((t * 7.5) + (b * 0.85));
+            energy += (Math.max(0, arpHue) * 0.7 + 0.15) * energyRise;
+            energy += snarePulse * 0.55;
           } else {
-            energy += hihatPulse * (0.6 + (b - 10) * 0.07);
+            energy += hihatPulse * (0.75 + (b - 10) * 0.08);
           }
 
-          const noise = (rnd() - 0.5) * 0.08;
-          const finalVal = Math.max(0.04, Math.min(1.0, (energy + noise) * energyRise));
+          const noise = (rnd() - 0.5) * 0.06;
+          const finalVal = Math.max(0.12, Math.min(1.0, (energy + noise) * energyRise));
           data[f * bands + b] = finalVal;
         }
       }
@@ -89,7 +88,7 @@
       for (let i = 0; i < count; i++) {
         const fraction = i / Math.max(1, count - 1);
         const normX = (i - count / 2) / (count / 2);
-        const bellCurve = 0.22 + 0.78 * Math.exp(-Math.pow(normX / 0.58, 2));
+        const bellCurve = 0.35 + 0.65 * Math.exp(-Math.pow(normX / 0.62, 2));
 
         const bandPos = fraction * (track.bands - 1);
         const b1 = Math.floor(bandPos);
@@ -98,10 +97,11 @@
 
         const val1 = track.data[f1 * track.bands + b1] * (1 - bAlpha) + track.data[f1 * track.bands + b2] * bAlpha;
         const val2 = track.data[f2 * track.bands + b1] * (1 - bAlpha) + track.data[f2 * track.bands + b2] * bAlpha;
-        const energy = val1 * (1 - alpha) + val2 * alpha;
+        const rawEnergy = val1 * (1 - alpha) + val2 * alpha;
 
+        const boosted = Math.min(1.0, Math.pow(rawEnergy, 0.75) * 1.35);
         const variation = (variations && variations[i]) ? variations[i] : 1.0;
-        out[i] = Math.max(0.05, Math.min(1.0, energy * bellCurve * variation));
+        out[i] = Math.max(0.08, Math.min(1.0, boosted * bellCurve * variation));
       }
 
       return out;

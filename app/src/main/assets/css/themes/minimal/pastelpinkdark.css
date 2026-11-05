@@ -1,0 +1,84 @@
+[data-theme="pastelpinkdark"] {
+  --bg-color: #12070a;
+  --board-bg: #220c14;
+  --board-border: #802b43;
+  --empty-cell-bg: rgba(255, 140, 170, 0.04);
+  --empty-cell-border: 1px solid rgba(255, 140, 170, 0.1);
+  --text-color: #ffd9e4;
+  --accent-color: #f48fb1;
+  --accent-glow: 0 0 10px rgba(244, 143, 177, 0.5);
+  --card-bg: #1c0a11;
+  --card-border: #661e32;
+
+  --t2-bg: #3d1a24;
+  --t2-color: #ffb3c6;
+  --t2-border: 1px solid #732a3f;
+  --t2-glow: none;
+  --t2-particle: #ffb3c6;
+
+  --t4-bg: #4d1f2d;
+  --t4-color: #ffb3c6;
+  --t4-border: 1px solid #8c334d;
+  --t4-glow: none;
+  --t4-particle: #ffb3c6;
+
+  --t8-bg: #66263b;
+  --t8-color: #ffd9e4;
+  --t8-border: 1px solid #b33b5e;
+  --t8-glow: 0 0 6px rgba(179, 59, 94, 0.4);
+  --t8-particle: #ffd9e4;
+
+  --t16-bg: #802b47;
+  --t16-color: #ffffff;
+  --t16-border: 1px solid #cc436e;
+  --t16-glow: 0 0 8px rgba(204, 67, 110, 0.4);
+  --t16-particle: #cc436e;
+
+  --t32-bg: #a33358;
+  --t32-color: #ffffff;
+  --t32-border: 1px solid #e64c7d;
+  --t32-glow: 0 0 10px rgba(230, 76, 125, 0.45);
+  --t32-particle: #e64c7d;
+
+  --t64-bg: #c43b6b;
+  --t64-color: #ffffff;
+  --t64-border: 1px solid #ff6699;
+  --t64-glow: 0 0 12px rgba(255, 102, 153, 0.5);
+  --t64-particle: #ff6699;
+
+  --t128-bg: #d6497a;
+  --t128-color: #ffffff;
+  --t128-border: 1px solid #ff85ad;
+  --t128-glow: 0 0 14px rgba(255, 133, 173, 0.55);
+  --t128-particle: #ff85ad;
+
+  --t256-bg: #e05c8c;
+  --t256-color: #ffffff;
+  --t256-border: 1px solid #ffa3c0;
+  --t256-glow: 0 0 16px rgba(255, 163, 192, 0.6);
+  --t256-particle: #ffa3c0;
+
+  --t512-bg: #eb739e;
+  --t512-color: #12070a;
+  --t512-border: 1px solid #ffc2d4;
+  --t512-glow: 0 0 18px rgba(255, 194, 212, 0.65);
+  --t512-particle: #eb739e;
+
+  --t1024-bg: #f48fb1;
+  --t1024-color: #12070a;
+  --t1024-border: 1px solid #ffffff;
+  --t1024-glow: 0 0 22px rgba(244, 143, 177, 0.7);
+  --t1024-particle: #f48fb1;
+
+  --t2048-bg: #ffd1dc;
+  --t2048-color: #12070a;
+  --t2048-border: 2px solid #ffffff;
+  --t2048-glow: 0 0 26px rgba(255, 209, 220, 0.8);
+  --t2048-particle: #ffd1dc;
+
+  --tsuper-bg: #ff6699;
+  --tsuper-color: #ffffff;
+  --tsuper-border: 2px solid #ffd1dc;
+  --tsuper-glow: 0 0 30px rgba(255, 102, 153, 0.9);
+  --tsuper-particle: #ff6699;
+}

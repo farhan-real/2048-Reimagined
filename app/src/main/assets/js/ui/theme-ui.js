@@ -3,10 +3,10 @@
     {
       category: "Nature & Earth",
       variants: [
-        { id: "forest", name: "Deep Forest", darkKey: "forest", lightKey: "gardendawn" },
-        { id: "ocean", name: "Ocean Reef", darkKey: "seaway", lightKey: "oceanbreeze" },
+        { id: "forest", name: "Forest", darkKey: "forest", lightKey: "gardendawn" },
+        { id: "ocean", name: "Ocean", darkKey: "seaway", lightKey: "oceanbreeze" },
         { id: "sakura", name: "Sakura Bloom", darkKey: "sakura", lightKey: "sakuralight" },
-        { id: "autumn", name: "Autumn Maple", darkKey: "autumn" }
+        { id: "autumn", name: "Autumn Maple", darkKey: "autumn", lightKey: "autumnlight" }
       ]
     },
     {
@@ -29,9 +29,9 @@
       category: "Aesthetic & Minimal",
       variants: [
         { id: "pastel", name: "Pastel Rainbow", darkKey: "pastel_amoled", lightKey: "pastellight" },
-        { id: "pastelpink", name: "Pastel Pink", lightKey: "pastel_pink" },
-        { id: "nordicfrost", name: "Nordic Frost", lightKey: "nordicfrost" },
-        { id: "classic", name: "Classic Sand", lightKey: "classic" },
+        { id: "pastelpink", name: "Pastel Pink", darkKey: "pastelpinkdark", lightKey: "pastel_pink" },
+        { id: "nordicfrost", name: "Nordic Frost", darkKey: "nordicdark", lightKey: "nordicfrost" },
+        { id: "classic", name: "Classic Sand", darkKey: "classicdark", lightKey: "classic" },
         { id: "thevoid", name: "The Void", darkKey: "the_void" }
       ]
     }
@@ -108,13 +108,11 @@
             toggle.querySelector('.mode-btn-dark').addEventListener('click', (e) => {
               e.stopPropagation();
               this.setTheme(variant.darkKey, onSelect);
-              this.themeDropdownWrapper.classList.remove('active');
             });
 
             toggle.querySelector('.mode-btn-light').addEventListener('click', (e) => {
               e.stopPropagation();
               this.setTheme(variant.lightKey, onSelect);
-              this.themeDropdownWrapper.classList.remove('active');
             });
 
             meta.appendChild(toggle);
@@ -133,9 +131,10 @@
 
           item.addEventListener('click', (e) => {
             e.stopPropagation();
-            const targetKey = (isSelected && this.currentTheme === variant.lightKey) ? (variant.lightKey || variant.darkKey) : (variant.darkKey || variant.lightKey);
+            const targetKey = (isSelected && this.currentTheme === variant.lightKey)
+              ? (variant.lightKey || variant.darkKey)
+              : (variant.darkKey || variant.lightKey);
             this.setTheme(targetKey, onSelect);
-            this.themeDropdownWrapper.classList.remove('active');
           });
 
           this.themeDropdownList.appendChild(item);

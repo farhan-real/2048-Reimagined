@@ -375,13 +375,13 @@
             board: data.undoState.board
           } : null;
 
-          this.ui.setTheme(data.currentTheme || "neon_amoled", () => this.saveState());
+          this.ui.setTheme(data.currentTheme || "neondark", () => this.saveState());
           this.updateScoreUI();
           if (tileCount >= 2) return;
         }
       } catch (e) {}
 
-      this.ui.setTheme("neon_amoled", () => this.saveState());
+      this.ui.setTheme("neondark", () => this.saveState());
       this.restart();
     }
   }

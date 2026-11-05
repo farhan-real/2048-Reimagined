@@ -3,47 +3,47 @@
     {
       category: "Nature & Art",
       variants: [
-        { id: "forest", name: "Forest", darkKey: "forest", lightKey: "gardendawn" },
-        { id: "ocean", name: "Ocean", darkKey: "seaway", lightKey: "oceanbreeze" },
-        { id: "sakura", name: "Sakura Bloom", darkKey: "sakura", lightKey: "sakuralight" },
-        { id: "autumn", name: "Autumn Maple", darkKey: "autumn", lightKey: "autumnlight" },
+        { id: "forest", name: "Forest", darkKey: "forestdark", lightKey: "forestlight" },
+        { id: "ocean", name: "Ocean", darkKey: "oceandark", lightKey: "oceanlight" },
+        { id: "sakura", name: "Sakura Bloom", darkKey: "sakuradark", lightKey: "sakuralight" },
+        { id: "autumn", name: "Autumn Maple", darkKey: "autumndark", lightKey: "autumnlight" },
         { id: "ukiyoe", name: "Ukiyo-e", fixedKey: "ukiyoe", badgeType: "wood" }
       ]
     },
     {
       category: "Space & Cosmos",
       variants: [
-        { id: "nebula", name: "Stellar Nebula", darkKey: "nebula", lightKey: "celestial" },
-        { id: "supernova", name: "Supernova", darkKey: "supernova", lightKey: "supernovalight" }
+        { id: "nebula", name: "Stellar Nebula", darkKey: "nebuladark", lightKey: "nebulalight" },
+        { id: "supernova", name: "Supernova", darkKey: "supernovadark", lightKey: "supernovalight" }
       ]
     },
     {
       category: "Retro & Hardware",
       variants: [
-        { id: "retro", name: "Retro Keeb", darkKey: "retrodark", lightKey: "retro" },
-        { id: "dmg", name: "DMG 1989", darkKey: "dmg", lightKey: "dmglight" },
-        { id: "terminal", name: "Terminal", darkKey: "terminal", lightKey: "terminallight" },
-        { id: "synthwave", name: "Synthwave", darkKey: "synthwave", lightKey: "sunsetsynth" }
+        { id: "retro", name: "Retro Keeb", darkKey: "retrodark", lightKey: "retrolight" },
+        { id: "dmg", name: "DMG 1989", darkKey: "dmgdark", lightKey: "dmglight" },
+        { id: "terminal", name: "Terminal", darkKey: "terminaldark", lightKey: "terminallight" },
+        { id: "synthwave", name: "Synthwave", darkKey: "synthwavedark", lightKey: "synthwavelight" }
       ]
     },
     {
       category: "Cyber & Tech",
       variants: [
-        { id: "blueprint", name: "Blueprint", darkKey: "blueprint", lightKey: "blueprintlight" },
-        { id: "frutiger", name: "Frutiger Aero", darkKey: "frutiger", lightKey: "frutigerlight" },
-        { id: "vectorheart", name: "Vectorheart", darkKey: "vectorheart", lightKey: "vectorheartlight" },
-        { id: "cyberpunk", name: "Cyberpunk", darkKey: "cyberpunk", lightKey: "cyberlight" },
-        { id: "neon", name: "Neon Glow", darkKey: "neon_amoled", lightKey: "neonlight" }
+        { id: "cyberpunk", name: "Cyberpunk", darkKey: "cyberpunkdark", lightKey: "cyberpunklight" },
+        { id: "blueprint", name: "Blueprint", darkKey: "blueprintdark", lightKey: "blueprintlight" },
+        { id: "frutiger", name: "Frutiger Aero", darkKey: "frutigerdark", lightKey: "frutigerlight" },
+        { id: "vectorheart", name: "Vectorheart", darkKey: "vectorheartdark", lightKey: "vectorheartlight" },
+        { id: "neon", name: "Neon Glow", darkKey: "neondark", lightKey: "neonlight" }
       ]
     },
     {
       category: "Aesthetic & Minimal",
       variants: [
-        { id: "pastel", name: "Pastel Rainbow", darkKey: "pastel_amoled", lightKey: "pastellight" },
-        { id: "pastelpink", name: "Pastel Pink", darkKey: "pastelpinkdark", lightKey: "pastel_pink" },
-        { id: "nordicfrost", name: "Nordic Frost", darkKey: "nordicdark", lightKey: "nordicfrost" },
-        { id: "classic", name: "Classic Sand", darkKey: "classicdark", lightKey: "classic" },
-        { id: "thevoid", name: "The Void", darkKey: "the_void" }
+        { id: "pastel", name: "Pastel Rainbow", darkKey: "pasteldark", lightKey: "pastellight" },
+        { id: "pastelpink", name: "Pastel Pink", darkKey: "pastelpinkdark", lightKey: "pastelpinklight" },
+        { id: "nordic", name: "Nordic Frost", darkKey: "nordicdark", lightKey: "nordiclight" },
+        { id: "classic", name: "Classic Sand", darkKey: "classicdark", lightKey: "classiclight" },
+        { id: "void", name: "The Void", darkKey: "void" }
       ]
     }
   ];
@@ -64,7 +64,7 @@
   class ThemeUI {
     constructor(parentUI) {
       this.parent = parentUI;
-      this.currentTheme = "neon_amoled";
+      this.currentTheme = "neondark";
 
       this.themeTriggerBtn = document.getElementById('theme-dropdown-btn');
       this.themeDropdownWrapper = document.getElementById('theme-dropdown-wrapper');
@@ -156,7 +156,7 @@
     }
 
     setTheme(themeKey, onSelect) {
-      if (!THEMES[themeKey]) themeKey = "neon_amoled";
+      if (!THEMES[themeKey]) themeKey = "neondark";
       this.currentTheme = themeKey;
       this.themeCurrentLbl.textContent = THEMES[themeKey].name;
       document.body.setAttribute('data-theme', themeKey);

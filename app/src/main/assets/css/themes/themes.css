@@ -1,47 +1,49 @@
-/* Nature & Earth Themes */
-@import url('nature/forest.css');
-@import url('nature/gardendawn.css');
-@import url('nature/autumn.css');
-@import url('nature/autumnlight.css');
-@import url('nature/sakura.css');
+/* Nature & Art */
+@import url('nature/forestdark.css');
+@import url('nature/forestlight.css');
+@import url('nature/oceandark.css');
+@import url('nature/oceanlight.css');
+@import url('nature/sakuradark.css');
 @import url('nature/sakuralight.css');
-@import url('nature/seaway.css');
-@import url('nature/oceanbreeze.css');
+@import url('nature/autumndark.css');
+@import url('nature/autumnlight.css');
 @import url('nature/ukiyoe.css');
 
-/* Space & Cosmos Themes */
-@import url('space/nebula.css');
-@import url('space/celestial.css');
-@import url('space/supernova.css');
+/* Space & Cosmos */
+@import url('space/nebuladark.css');
+@import url('space/nebulalight.css');
+@import url('space/supernovadark.css');
 @import url('space/supernovalight.css');
 
-/* Cyber & Retro Themes */
-@import url('cyber/neon-amoled.css');
-@import url('cyber/neonlight.css');
-@import url('cyber/cyberpunk.css');
-@import url('cyber/cyberlight.css');
-@import url('cyber/synthwave.css');
-@import url('cyber/sunsetsynth.css');
-@import url('cyber/terminal.css');
-@import url('cyber/terminallight.css');
-@import url('cyber/blueprint.css');
-@import url('cyber/blueprintlight.css');
-@import url('cyber/frutiger.css');
-@import url('cyber/frutigerlight.css');
-@import url('cyber/dmg.css');
-@import url('cyber/dmglight.css');
-@import url('cyber/vectorheart.css');
-@import url('cyber/vectorheartlight.css');
+/* Retro & Hardware */
+@import url('retro/retrodark.css');
+@import url('retro/retrolight.css');
+@import url('retro/dmgdark.css');
+@import url('retro/dmglight.css');
+@import url('retro/terminaldark.css');
+@import url('retro/terminallight.css');
+@import url('retro/synthwavedark.css');
+@import url('retro/synthwavelight.css');
 
-/* Minimal & Classic Themes */
-@import url('minimal/classic.css');
-@import url('minimal/classicdark.css');
-@import url('minimal/nordicfrost.css');
-@import url('minimal/nordicdark.css');
-@import url('minimal/pastel-amoled.css');
+/* Cyber & Tech */
+@import url('cyber/cyberpunkdark.css');
+@import url('cyber/cyberpunklight.css');
+@import url('cyber/blueprintdark.css');
+@import url('cyber/blueprintlight.css');
+@import url('cyber/frutigerdark.css');
+@import url('cyber/frutigerlight.css');
+@import url('cyber/vectorheartdark.css');
+@import url('cyber/vectorheartlight.css');
+@import url('cyber/neondark.css');
+@import url('cyber/neonlight.css');
+
+/* Aesthetic & Minimal */
+@import url('minimal/pasteldark.css');
 @import url('minimal/pastellight.css');
-@import url('minimal/pastel-pink.css');
 @import url('minimal/pastelpinkdark.css');
-@import url('minimal/the-void.css');
-@import url('minimal/retro.css');
-@import url('minimal/retrodark.css');
+@import url('minimal/pastelpinklight.css');
+@import url('minimal/nordicdark.css');
+@import url('minimal/nordiclight.css');
+@import url('minimal/classicdark.css');
+@import url('minimal/classiclight.css');
+@import url('minimal/void.css');

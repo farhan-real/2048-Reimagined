@@ -1,5 +1,5 @@
-[data-theme="pastel_amoled"],
-[data-theme="rainbow_amoled"] {
+[data-theme="pasteldark"],
+[data-theme="pasteldark"] {
   --bg-color: #000000;
   --board-bg: #000000;
   --board-border: #141414;

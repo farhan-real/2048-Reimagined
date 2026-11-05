@@ -17,6 +17,7 @@
     DETERMINISTIC_ENABLED: '2048_deterministic_enabled',
     CONFIRM_EXIT_ENABLED: '2048_confirm_exit_enabled',
     SHOW_TIMER_ENABLED: '2048_show_timer_enabled',
+    ORIENTATION_MODE: '2048_orientation_mode',
     SLIDE_HAPTIC: '2048_slide_haptic_val',
     MERGE_HAPTIC: '2048_merge_haptic_val',
     POPUP_COLOR: '2048_popup_color'
@@ -88,6 +89,7 @@
         deterministicEnabled: localStorage.getItem(KEYS.DETERMINISTIC_ENABLED) === "true",
         confirmExitEnabled: localStorage.getItem(KEYS.CONFIRM_EXIT_ENABLED) !== "false",
         showTimerEnabled: localStorage.getItem(KEYS.SHOW_TIMER_ENABLED) !== "false",
+        orientationMode: localStorage.getItem(KEYS.ORIENTATION_MODE) || "auto",
         slideHaptic: localStorage.getItem(KEYS.SLIDE_HAPTIC) !== null ? parseInt(localStorage.getItem(KEYS.SLIDE_HAPTIC)) : 8,
         mergeHaptic: localStorage.getItem(KEYS.MERGE_HAPTIC) !== null ? parseInt(localStorage.getItem(KEYS.MERGE_HAPTIC)) : 18,
         popupColor: localStorage.getItem(KEYS.POPUP_COLOR) || "#00f0ff"
@@ -105,6 +107,7 @@
       localStorage.setItem(KEYS.DETERMINISTIC_ENABLED, settings.deterministicEnabled);
       localStorage.setItem(KEYS.CONFIRM_EXIT_ENABLED, settings.confirmExitEnabled);
       localStorage.setItem(KEYS.SHOW_TIMER_ENABLED, settings.showTimerEnabled);
+      localStorage.setItem(KEYS.ORIENTATION_MODE, settings.orientationMode || "auto");
       localStorage.setItem(KEYS.SLIDE_HAPTIC, settings.slideHaptic);
       localStorage.setItem(KEYS.MERGE_HAPTIC, settings.mergeHaptic);
       localStorage.setItem(KEYS.POPUP_COLOR, settings.popupColor);

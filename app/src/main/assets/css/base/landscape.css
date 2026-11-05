@@ -1,0 +1,156 @@
+.center-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-panel {
+  display: none;
+}
+
+@media (orientation: landscape) {
+  body[data-orientation-mode="auto"] .app-wrapper,
+  body[data-orientation-mode="landscape"] .app-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    max-width: 1240px;
+    height: 100vh;
+    padding: calc(8px + env(safe-area-inset-top, 0px)) calc(16px + env(safe-area-inset-right, 0px)) calc(8px + env(safe-area-inset-bottom, 0px)) calc(16px + env(safe-area-inset-left, 0px));
+    gap: 16px;
+  }
+
+  body[data-orientation-mode="auto"] .left-panel,
+  body[data-orientation-mode="landscape"] .left-panel {
+    flex: 1;
+    max-width: 290px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  body[data-orientation-mode="auto"] .layout-spacer-top,
+  body[data-orientation-mode="auto"] .layout-spacer-bottom,
+  body[data-orientation-mode="landscape"] .layout-spacer-top,
+  body[data-orientation-mode="landscape"] .layout-spacer-bottom {
+    display: none !important;
+  }
+
+  body[data-orientation-mode="auto"] .center-panel,
+  body[data-orientation-mode="landscape"] .center-panel {
+    flex: 0 0 auto;
+    height: 100%;
+  }
+
+  body[data-orientation-mode="auto"] .right-panel,
+  body[data-orientation-mode="landscape"] .right-panel {
+    flex: 1;
+    max-width: 290px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  body[data-orientation-mode="auto"] #visualizer-full,
+  body[data-orientation-mode="landscape"] #visualizer-full {
+    display: none !important;
+  }
+
+  body[data-orientation-mode="auto"] .visualizer-box-container,
+  body[data-orientation-mode="landscape"] .visualizer-box-container {
+    display: none !important;
+  }
+}
+
+body[data-orientation-mode="landscape"] .app-wrapper {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  max-width: 1240px;
+  height: 100vh;
+  padding: calc(8px + env(safe-area-inset-top, 0px)) calc(16px + env(safe-area-inset-right, 0px)) calc(8px + env(safe-area-inset-bottom, 0px)) calc(16px + env(safe-area-inset-left, 0px));
+  gap: 16px;
+}
+
+body[data-orientation-mode="landscape"] .left-panel {
+  flex: 1;
+  max-width: 290px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+body[data-orientation-mode="landscape"] .center-panel {
+  flex: 0 0 auto;
+  height: 100%;
+}
+
+body[data-orientation-mode="landscape"] .right-panel {
+  flex: 1;
+  max-width: 290px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+body[data-orientation-mode="landscape"] #visualizer-full,
+body[data-orientation-mode="landscape"] .visualizer-box-container,
+body[data-orientation-mode="landscape"] .layout-spacer-top,
+body[data-orientation-mode="landscape"] .layout-spacer-bottom {
+  display: none !important;
+}
+
+body[data-orientation-mode="portrait"] .right-panel {
+  display: none !important;
+}
+
+.landscape-track-card {
+  width: 100%;
+  background: color-mix(in srgb, var(--accent-color) 6%, var(--card-bg));
+  border: 1px solid color-mix(in srgb, var(--accent-color) 25%, var(--card-border));
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.landscape-track-card .vinyl-disc {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.landscape-track-card .track-title {
+  font-size: 0.88rem;
+}
+
+.landscape-visualizer-box {
+  width: 100%;
+  height: 180px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#visualizer-landscape {
+  width: 100%;
+  height: 100%;
+}

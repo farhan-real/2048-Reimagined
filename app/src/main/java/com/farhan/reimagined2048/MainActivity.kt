@@ -1,6 +1,7 @@
 package com.farhan.reimagined2048
 
 import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.media.AudioAttributes
 import android.os.Build
 import android.os.Bundle
@@ -92,7 +93,6 @@ class MainActivity : AppCompatActivity() {
     private fun setupHighPerformanceWebView() {
         webView.setLayerType(View.LAYER_TYPE_HARDWARE, null)
         webView.setBackgroundColor(0xFF000000.toInt())
-
         WebView.setWebContentsDebuggingEnabled(false)
 
         val settings = webView.settings
@@ -121,19 +121,12 @@ class MainActivity : AppCompatActivity() {
     private class SafeWebViewClient(
         private val assetLoader: WebViewAssetLoader
     ) : WebViewClient() {
-
-        override fun shouldInterceptRequest(
-            view: WebView?,
-            request: WebResourceRequest?
-        ): WebResourceResponse? {
+        override fun shouldInterceptRequest(view: WebView?, request: WebResourceRequest?): WebResourceResponse? {
             val url = request?.url ?: return null
             return assetLoader.shouldInterceptRequest(url)
         }
 
-        override fun onRenderProcessGone(
-            view: WebView?,
-            detail: RenderProcessGoneDetail?
-        ): Boolean {
+        override fun onRenderProcessGone(view: WebView?, detail: RenderProcessGoneDetail?): Boolean {
             view?.destroy()
             return true
         }
@@ -142,32 +135,33 @@ class MainActivity : AppCompatActivity() {
     @Keep
     @Suppress("unused")
     class NativeBridge(private val activity: MainActivity) {
-
         @JavascriptInterface
         fun exitApp() {
+            activity.runOnUiThread { activity.finishAffinity() }
+        }
+
+        @JavascriptInterface
+        fun setOrientation(mode: String) {
             activity.runOnUiThread {
-                activity.finishAffinity()
+                when (mode.lowercase()) {
+                    "portrait" -> activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                    "landscape" -> activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+                    else -> activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+                }
             }
         }
 
         @JavascriptInterface
-        fun haptic(milliseconds: Double) {
-            triggerAdaptiveHaptic(milliseconds.toLong())
-        }
+        fun haptic(milliseconds: Double) = triggerAdaptiveHaptic(milliseconds.toLong())
 
         @JavascriptInterface
-        fun haptic(milliseconds: Long) {
-            triggerAdaptiveHaptic(milliseconds)
-        }
+        fun haptic(milliseconds: Long) = triggerAdaptiveHaptic(milliseconds)
 
         @JavascriptInterface
-        fun haptic(milliseconds: Int) {
-            triggerAdaptiveHaptic(milliseconds.toLong())
-        }
+        fun haptic(milliseconds: Int) = triggerAdaptiveHaptic(milliseconds.toLong())
 
         private fun triggerAdaptiveHaptic(rawMs: Long) {
             if (rawMs <= 0) return
-
             val vib = activity.getSystemService(Vibrator::class.java) ?: return
             if (!vib.hasVibrator()) return
 
@@ -187,16 +181,11 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    val attrs = VibrationAttributes.Builder()
-                        .setUsage(VibrationAttributes.USAGE_ALARM)
-                        .build()
+                    val attrs = VibrationAttributes.Builder().setUsage(VibrationAttributes.USAGE_ALARM).build()
                     vib.vibrate(effect, attrs)
                 } else {
                     @Suppress("DEPRECATION")
-                    val audioAttrs = AudioAttributes.Builder()
-                        .setUsage(AudioAttributes.USAGE_ALARM)
-                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                        .build()
+                    val audioAttrs = AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_ALARM).setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION).build()
                     @Suppress("DEPRECATION")
                     vib.vibrate(effect, audioAttrs)
                 }
@@ -209,8 +198,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
-        if (hasFocus) {
-            enableImmersiveMode()
-        }
+        if (hasFocus) enableImmersiveMode()
     }
 }

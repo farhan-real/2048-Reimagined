@@ -6,6 +6,10 @@
 
       this.titleDisplay = document.getElementById('music-title-display');
       this.artistDisplay = document.getElementById('music-artist-display');
+      this.landscapeTitle = document.getElementById('landscape-track-title');
+      this.landscapeArtist = document.getElementById('landscape-track-artist');
+      this.landscapeVinyl = document.getElementById('landscape-vinyl-disc');
+
       this.currentTimeEl = document.getElementById('music-current-time');
       this.durationEl = document.getElementById('music-duration');
       this.progressBar = document.getElementById('music-progress-bar');
@@ -18,7 +22,6 @@
       this.activeCountEl = document.getElementById('music-active-count');
       this.checklistContainer = document.getElementById('track-checkbox-list');
 
-      // Music Tab Controls
       this.visualizerBarsSlider = document.getElementById('slider-visualizer-bars');
       this.lblVisualizerBars = document.getElementById('lbl-visualizer-bars');
       this.autoplayMusicCheckbox = document.getElementById('toggle-autoplay-music');
@@ -31,17 +34,9 @@
     }
 
     setupEvents() {
-      this.btnPlay.addEventListener('click', () => {
-        if (window.musicEngine) window.musicEngine.togglePlay();
-      });
-
-      this.btnNext.addEventListener('click', () => {
-        if (window.musicEngine) window.musicEngine.next();
-      });
-
-      this.btnPrev.addEventListener('click', () => {
-        if (window.musicEngine) window.musicEngine.prev();
-      });
+      this.btnPlay.addEventListener('click', () => { if (window.musicEngine) window.musicEngine.togglePlay(); });
+      this.btnNext.addEventListener('click', () => { if (window.musicEngine) window.musicEngine.next(); });
+      this.btnPrev.addEventListener('click', () => { if (window.musicEngine) window.musicEngine.prev(); });
 
       this.progressBar.addEventListener('input', (e) => {
         if (window.musicEngine) {
@@ -49,18 +44,13 @@
           window.musicEngine.seek(parseFloat(e.target.value) / 100);
         }
       });
-
-      this.progressBar.addEventListener('change', () => {
-        if (window.musicEngine) window.musicEngine.isSeeking = false;
-      });
+      this.progressBar.addEventListener('change', () => { if (window.musicEngine) window.musicEngine.isSeeking = false; });
 
       if (this.volumeSlider) {
         this.volumeSlider.addEventListener('input', (e) => {
           const val = parseInt(e.target.value) || 0;
           if (this.volumeBadge) this.volumeBadge.textContent = val + '%';
-          if (window.musicEngine) {
-            window.musicEngine.setVolume(val / 100);
-          }
+          if (window.musicEngine) window.musicEngine.setVolume(val / 100);
 
           const settingsVol = document.getElementById('slider-settings-music-volume');
           const settingsBadge = document.getElementById('lbl-settings-music-volume');
@@ -84,45 +74,35 @@
 
     updateBarsLabel(barCount) {
       if (!this.lblVisualizerBars) return;
-      if (barCount <= 35) {
-        this.lblVisualizerBars.textContent = `Minimal (${barCount} bars)`;
-      } else if (barCount <= 55) {
-        this.lblVisualizerBars.textContent = `Normal (${barCount} bars)`;
-      } else if (barCount <= 85) {
-        this.lblVisualizerBars.textContent = `Dense (${barCount} bars)`;
-      } else {
-        this.lblVisualizerBars.textContent = `Extreme (${barCount} bars)`;
-      }
+      if (barCount <= 35) this.lblVisualizerBars.textContent = `Minimal (${barCount} bars)`;
+      else if (barCount <= 55) this.lblVisualizerBars.textContent = `Normal (${barCount} bars)`;
+      else if (barCount <= 85) this.lblVisualizerBars.textContent = `Dense (${barCount} bars)`;
+      else this.lblVisualizerBars.textContent = `Extreme (${barCount} bars)`;
     }
 
     setupAutoplayToggle() {
       if (!this.autoplayMusicCheckbox) return;
       this.autoplayMusicCheckbox.addEventListener('change', () => {
-        const isChecked = this.autoplayMusicCheckbox.checked;
         const current = window.storage.getMusicSettings();
-        current.autoplayMusicEnabled = isChecked;
+        current.autoplayMusicEnabled = this.autoplayMusicCheckbox.checked;
         window.storage.saveMusicSettings(current);
       });
     }
 
     updateTrackInfo(track) {
       if (!track) return;
-      this.titleDisplay.textContent = track.title;
-      this.artistDisplay.textContent = track.artistText;
+      if (this.titleDisplay) this.titleDisplay.textContent = track.title;
+      if (this.artistDisplay) this.artistDisplay.textContent = track.artistText;
+      if (this.landscapeTitle) this.landscapeTitle.textContent = track.title;
+      if (this.landscapeArtist) this.landscapeArtist.textContent = track.artistText;
       if (this.activeCountEl && window.musicEngine) {
         this.activeCountEl.textContent = `${window.musicEngine.activePlaylist.length} active tracks`;
       }
     }
 
     updatePlayState(isPlaying) {
-      if (this.vinylDisc) {
-        if (isPlaying) {
-          this.vinylDisc.classList.add('playing');
-        } else {
-          this.vinylDisc.classList.remove('playing');
-        }
-      }
-
+      if (this.vinylDisc) this.vinylDisc.classList.toggle('playing', isPlaying);
+      if (this.landscapeVinyl) this.landscapeVinyl.classList.toggle('playing', isPlaying);
       if (this.btnPlay) {
         this.btnPlay.innerHTML = isPlaying
           ? `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg>`
@@ -131,45 +111,30 @@
     }
 
     updateProgress(currentTime, duration) {
-      if (duration > 0) {
-        this.progressBar.value = (currentTime / duration) * 100;
-      } else {
-        this.progressBar.value = 0;
-      }
+      if (duration > 0) this.progressBar.value = (currentTime / duration) * 100;
+      else this.progressBar.value = 0;
       this.currentTimeEl.textContent = this.formatTime(currentTime);
       this.durationEl.textContent = this.formatTime(duration);
     }
 
     formatTime(sec) {
       if (!sec || isNaN(sec)) return "0:00";
-      const m = Math.floor(sec / 60);
-      const s = Math.floor(sec % 60);
-      return `${m}:${s.toString().padStart(2, '0')}`;
+      return `${Math.floor(sec / 60)}:${Math.floor(sec % 60).toString().padStart(2, '0')}`;
     }
 
     renderChecklist() {
       if (!window.MusicData || !window.musicEngine) return;
       const allTracks = window.MusicData.getAvailableTracks();
-      const currentActiveIds = new Set(window.musicEngine.activePlaylist.map(t => t.id));
-      this.tempSelectedTrackIds = [...currentActiveIds];
-
+      this.tempSelectedTrackIds = [...new Set(window.musicEngine.activePlaylist.map(t => t.id))];
       this.checklistContainer.innerHTML = "";
 
       allTracks.forEach(t => {
         const row = document.createElement('div');
         row.className = "track-select-item" + (this.tempSelectedTrackIds.includes(t.id) ? " selected" : "");
-
         row.innerHTML = `
-          <div class="track-item-info">
-            <span class="track-item-title">${t.title}</span>
-            <span class="track-item-artist">${t.artistText}</span>
-          </div>
-          <label class="switch" style="pointer-events: none;">
-            <input type="checkbox" ${this.tempSelectedTrackIds.includes(t.id) ? "checked" : ""}>
-            <span class="switch-slider"></span>
-          </label>
+          <div class="track-item-info"><span class="track-item-title">${t.title}</span><span class="track-item-artist">${t.artistText}</span></div>
+          <label class="switch" style="pointer-events: none;"><input type="checkbox" ${this.tempSelectedTrackIds.includes(t.id) ? "checked" : ""}><span class="switch-slider"></span></label>
         `;
-
         row.addEventListener('click', () => {
           const input = row.querySelector('input');
           if (this.tempSelectedTrackIds.includes(t.id)) {
@@ -182,7 +147,6 @@
             row.classList.add('selected');
           }
         });
-
         this.checklistContainer.appendChild(row);
       });
     }
@@ -190,8 +154,7 @@
     setupVisualizerTabs() {
       const container = document.getElementById('group-visualizer-mode');
       if (!container) return;
-      const buttons = container.querySelectorAll('.tab-btn');
-      buttons.forEach(btn => {
+      container.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const mode = btn.getAttribute('data-mode');
           this.syncVisualizerTabs(mode);
@@ -203,25 +166,16 @@
       });
     }
 
-    syncVisualizerTabs(currentMode) {
-      const mode = currentMode || "full";
-      const container = document.getElementById('group-visualizer-mode');
-      if (!container) return;
-      const buttons = container.querySelectorAll('.tab-btn');
-      buttons.forEach(btn => {
-        if (btn.getAttribute('data-mode') === mode) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
-      });
+    syncVisualizerTabs(mode = "full") {
+      const c = document.getElementById('group-visualizer-mode');
+      if (!c) return;
+      c.querySelectorAll('.tab-btn').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-mode') === mode));
     }
 
     setupBoxSizeTabs() {
       const container = document.getElementById('group-visualizer-box-size');
       if (!container) return;
-      const buttons = container.querySelectorAll('.tab-btn');
-      buttons.forEach(btn => {
+      container.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const size = btn.getAttribute('data-size');
           this.syncBoxSizeTabs(size);
@@ -233,33 +187,21 @@
       });
     }
 
-    syncBoxSizeTabs(currentSize) {
-      const size = currentSize || "medium";
-      const container = document.getElementById('group-visualizer-box-size');
-      if (!container) return;
-      const buttons = container.querySelectorAll('.tab-btn');
-      buttons.forEach(btn => {
-        if (btn.getAttribute('data-size') === size) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
-      });
+    syncBoxSizeTabs(size = "medium") {
+      const c = document.getElementById('group-visualizer-box-size');
+      if (!c) return;
+      c.querySelectorAll('.tab-btn').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-size') === size));
     }
 
     syncAllMusicControls() {
       const s = window.storage.getMusicSettings();
       this.syncVisualizerTabs(s.visualizerMode || "full");
       this.syncBoxSizeTabs(s.visualizerBoxSize || "medium");
-
       if (this.visualizerBarsSlider) {
         this.visualizerBarsSlider.value = s.visualizerBarCount || 65;
         this.updateBarsLabel(s.visualizerBarCount || 65);
       }
-
-      if (this.autoplayMusicCheckbox) {
-        this.autoplayMusicCheckbox.checked = s.autoplayMusicEnabled !== false;
-      }
+      if (this.autoplayMusicCheckbox) this.autoplayMusicCheckbox.checked = s.autoplayMusicEnabled !== false;
     }
   }
 

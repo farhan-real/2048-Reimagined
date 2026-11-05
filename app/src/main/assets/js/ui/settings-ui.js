@@ -5,6 +5,7 @@
       this.popupColor = "#00f0ff";
       this.slideHapticVal = 8;
       this.mergeHapticVal = 18;
+      this.orientationMode = "auto";
 
       this.initElements();
       this.setupEvents();
@@ -18,7 +19,6 @@
       this.lblPartLife = document.getElementById('lbl-part-life');
       this.lblPartDensity = document.getElementById('lbl-part-density');
 
-      // Volume Sliders
       this.sfxVolumeSlider = document.getElementById('slider-sfx-volume');
       this.musicVolumeSlider = document.getElementById('slider-settings-music-volume');
       this.lblSfxVolume = document.getElementById('lbl-sfx-volume');
@@ -37,16 +37,37 @@
       this.partDensitySlider.addEventListener('input', () => this.updateSliderLabels());
       this.showTimerCheckbox.addEventListener('change', () => this.applyTimerVisibility());
 
-      if (this.sfxVolumeSlider) {
-        this.sfxVolumeSlider.addEventListener('input', () => this.updateSfxVolume());
-      }
+      if (this.sfxVolumeSlider) this.sfxVolumeSlider.addEventListener('input', () => this.updateSfxVolume());
+      if (this.musicVolumeSlider) this.musicVolumeSlider.addEventListener('input', () => this.updateMusicVolume());
 
-      if (this.musicVolumeSlider) {
-        this.musicVolumeSlider.addEventListener('input', () => this.updateMusicVolume());
-      }
-
+      this.setupOrientationTabs();
       this.setupHapticTabs();
       this.setupColorTabs();
+    }
+
+    setupOrientationTabs() {
+      const container = document.getElementById('group-orientation-mode');
+      if (!container) return;
+      container.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          this.orientationMode = btn.getAttribute('data-orientation') || 'auto';
+          this.applyOrientation(this.orientationMode);
+        });
+      });
+    }
+
+    applyOrientation(mode) {
+      document.body.setAttribute('data-orientation-mode', mode);
+      if (window.AndroidBridge && typeof window.AndroidBridge.setOrientation === 'function') {
+        window.AndroidBridge.setOrientation(mode);
+      } else if (screen.orientation && typeof screen.orientation.lock === 'function') {
+        if (mode === 'portrait') screen.orientation.lock('portrait').catch(() => {});
+        else if (mode === 'landscape') screen.orientation.lock('landscape').catch(() => {});
+        else if (screen.orientation.unlock) screen.orientation.unlock();
+      }
+      setTimeout(() => window.dispatchEvent(new Event('resize')), 100);
     }
 
     updateSfxVolume() {
@@ -67,21 +88,19 @@
     }
 
     setupHapticTabs() {
-      const bindGroup = (containerId, callback) => {
-        const container = document.getElementById(containerId);
+      const bindGroup = (id, cb) => {
+        const container = document.getElementById(id);
         if (!container) return;
-        const buttons = container.querySelectorAll('.tab-btn');
-        buttons.forEach(btn => {
+        container.querySelectorAll('.tab-btn').forEach(btn => {
           btn.addEventListener('click', () => {
-            buttons.forEach(b => b.classList.remove('active'));
+            container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             const val = parseInt(btn.getAttribute('data-val'));
-            callback(val);
+            cb(val);
             this.parent.triggerHaptic(val);
           });
         });
       };
-
       bindGroup('group-haptic-slide', (v) => { this.slideHapticVal = v; });
       bindGroup('group-haptic-merge', (v) => { this.mergeHapticVal = v; });
     }
@@ -89,8 +108,7 @@
     setupColorTabs() {
       const container = document.getElementById('group-popup-color');
       if (!container) return;
-      const buttons = container.querySelectorAll('.tab-btn');
-      buttons.forEach(btn => {
+      container.querySelectorAll('.tab-btn').forEach(btn => {
         const col = btn.getAttribute('data-color');
         btn.style.color = col;
         btn.addEventListener('click', () => {
@@ -103,8 +121,7 @@
     syncPopupColors() {
       const container = document.getElementById('group-popup-color');
       if (!container) return;
-      const buttons = container.querySelectorAll('.tab-btn');
-      buttons.forEach(btn => {
+      container.querySelectorAll('.tab-btn').forEach(btn => {
         const col = btn.getAttribute('data-color');
         if (col === this.popupColor) {
           btn.classList.add('active');
@@ -122,49 +139,19 @@
 
     updateSliderLabels() {
       const speed = parseInt(this.slideSlider.value);
-      if (speed === 0) {
-        this.lblSlideSpeed.textContent = "Instant (0ms)";
-      } else if (speed <= 90) {
-        this.lblSlideSpeed.textContent = `Snappy (${speed}ms)`;
-      } else if (speed <= 180) {
-        this.lblSlideSpeed.textContent = `Smooth (${speed}ms)`;
-      } else if (speed <= 400) {
-        this.lblSlideSpeed.textContent = `Chill (${speed}ms)`;
-      } else {
-        this.lblSlideSpeed.textContent = `Slow-Mo (${(speed / 1000).toFixed(1)}s)`;
-      }
+      this.lblSlideSpeed.textContent = speed === 0 ? "Instant (0ms)" : speed <= 90 ? `Snappy (${speed}ms)` : speed <= 180 ? `Smooth (${speed}ms)` : `Chill (${speed}ms)`;
       document.documentElement.style.setProperty('--slide-speed', speed + 'ms');
 
       const life = parseInt(this.partLifeSlider.value);
-      if (life <= 200) {
-        this.lblPartLife.textContent = `Burst (${life}ms)`;
-      } else if (life <= 500) {
-        this.lblPartLife.textContent = `Normal (${life}ms)`;
-      } else if (life <= 900) {
-        this.lblPartLife.textContent = `Lingering (${life}ms)`;
-      } else {
-        this.lblPartLife.textContent = `Float (${(life / 1000).toFixed(1)}s)`;
-      }
+      this.lblPartLife.textContent = life <= 200 ? `Burst (${life}ms)` : life <= 500 ? `Normal (${life}ms)` : `Float (${(life / 1000).toFixed(1)}s)`;
 
       const density = parseInt(this.partDensitySlider.value);
-      if (density <= 15) {
-        this.lblPartDensity.textContent = `Minimal (${density} qty)`;
-      } else if (density <= 30) {
-        this.lblPartDensity.textContent = `Default (${density} qty)`;
-      } else if (density <= 60) {
-        this.lblPartDensity.textContent = `High (${density} qty)`;
-      } else {
-        this.lblPartDensity.textContent = `Extreme (${density} qty)`;
-      }
+      this.lblPartDensity.textContent = density <= 15 ? `Minimal (${density} qty)` : density <= 30 ? `Default (${density} qty)` : `High (${density} qty)`;
     }
 
     applyTimerVisibility() {
-      const show = this.showTimerCheckbox.checked;
-      if (show) {
-        document.body.removeAttribute('data-hide-timer');
-      } else {
-        document.body.setAttribute('data-hide-timer', 'true');
-      }
+      if (this.showTimerCheckbox.checked) document.body.removeAttribute('data-hide-timer');
+      else document.body.setAttribute('data-hide-timer', 'true');
     }
 
     load() {
@@ -172,6 +159,7 @@
       this.popupColor = s.popupColor;
       this.slideHapticVal = s.slideHaptic;
       this.mergeHapticVal = s.mergeHaptic;
+      this.orientationMode = s.orientationMode || "auto";
 
       this.slideSlider.value = s.slideSpeed;
       this.partLifeSlider.value = s.partLife;
@@ -182,45 +170,30 @@
       this.confirmExitCheckbox.checked = s.confirmExitEnabled;
       this.showTimerCheckbox.checked = s.showTimerEnabled;
 
-      // Volume init
       const sfxVol = s.sfxVolume !== undefined ? s.sfxVolume : 80;
       const musicVol = s.musicVolume !== undefined ? s.musicVolume : 75;
 
-      if (this.sfxVolumeSlider) {
-        this.sfxVolumeSlider.value = sfxVol;
-        if (this.lblSfxVolume) this.lblSfxVolume.textContent = sfxVol + '%';
-      }
-      if (this.musicVolumeSlider) {
-        this.musicVolumeSlider.value = musicVol;
-        if (this.lblMusicVolume) this.lblMusicVolume.textContent = musicVol + '%';
-      }
+      if (this.sfxVolumeSlider) { this.sfxVolumeSlider.value = sfxVol; if (this.lblSfxVolume) this.lblSfxVolume.textContent = sfxVol + '%'; }
+      if (this.musicVolumeSlider) { this.musicVolumeSlider.value = musicVol; if (this.lblMusicVolume) this.lblMusicVolume.textContent = musicVol + '%'; }
 
-      if (window.sound) {
-        window.sound.enabled = s.soundEnabled;
-        window.sound.setVolume(sfxVol / 100);
-      }
-      if (window.musicEngine) {
-        window.musicEngine.setVolume(musicVol / 100);
-      }
+      if (window.sound) { window.sound.enabled = s.soundEnabled; window.sound.setVolume(sfxVol / 100); }
+      if (window.musicEngine) window.musicEngine.setVolume(musicVol / 100);
 
       this.updateSliderLabels();
       this.applyTimerVisibility();
+      this.applyOrientation(this.orientationMode);
 
-      const syncTab = (containerId, value) => {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-        const buttons = container.querySelectorAll('.tab-btn');
-        buttons.forEach(btn => {
-          if (parseInt(btn.getAttribute('data-val')) === value) {
-            btn.classList.add('active');
-          } else {
-            btn.classList.remove('active');
-          }
+      const syncTab = (id, val, attr) => {
+        const c = document.getElementById(id);
+        if (!c) return;
+        c.querySelectorAll('.tab-btn').forEach(btn => {
+          if (btn.getAttribute(attr) === String(val)) btn.classList.add('active');
+          else btn.classList.remove('active');
         });
       };
-
-      syncTab('group-haptic-slide', this.slideHapticVal);
-      syncTab('group-haptic-merge', this.mergeHapticVal);
+      syncTab('group-haptic-slide', this.slideHapticVal, 'data-val');
+      syncTab('group-haptic-merge', this.mergeHapticVal, 'data-val');
+      syncTab('group-orientation-mode', this.orientationMode, 'data-orientation');
       this.syncPopupColors();
     }
 
@@ -236,13 +209,14 @@
         deterministicEnabled: this.deterministicCheckbox.checked,
         confirmExitEnabled: this.confirmExitCheckbox.checked,
         showTimerEnabled: this.showTimerCheckbox.checked,
+        orientationMode: this.orientationMode,
         slideHaptic: this.slideHapticVal,
         mergeHaptic: this.mergeHapticVal,
         popupColor: this.popupColor
       });
-
       if (window.sound) window.sound.enabled = this.soundCheckbox.checked;
       this.applyTimerVisibility();
+      this.applyOrientation(this.orientationMode);
       document.documentElement.style.setProperty('--slide-speed', `${this.slideSlider.value}ms`);
     }
   }

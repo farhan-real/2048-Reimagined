@@ -66,7 +66,6 @@
   color: var(--accent-color);
 }
 
-/* Scrubber / Progress Bar */
 .progress-container {
   width: 100%;
   display: flex;
@@ -102,7 +101,6 @@
   cursor: pointer;
 }
 
-/* Controls */
 .music-controls-row {
   display: flex;
   align-items: center;
@@ -138,13 +136,12 @@
   box-shadow: 0 0 14px var(--accent-glow);
 }
 
-/* Dynamic Equalizer Visualizer Canvases */
 #visualizer-full {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 76px;
+  height: 100px;
   pointer-events: none;
   z-index: 10;
   display: none;
@@ -154,7 +151,6 @@
   display: block;
 }
 
-/* Isolated Box Widget (Supports Small, Medium, Large) */
 .visualizer-box-container {
   position: fixed;
   bottom: 16px;

@@ -85,8 +85,8 @@
         const h1 = Math.sin(fraction * Math.PI * 4.6) * 0.05;
         const h2 = Math.cos(fraction * Math.PI * 9.2) * 0.04;
         const alt = (i % 2 === 0 ? 0.035 : -0.035);
-        const jitter = (rnd() - 0.5) * 0.16;
-        variations[i] = Math.max(0.85, Math.min(1.15, 1.0 + h1 + h2 + alt + jitter));
+        const jitter = (rnd() - 0.5) * 0.14;
+        variations[i] = Math.max(0.88, Math.min(1.15, 1.0 + h1 + h2 + alt + jitter));
       }
       return variations;
     }
@@ -96,7 +96,7 @@
       if (this.canvasFull && this.ctxFull) {
         const r = this.canvasFull.getBoundingClientRect();
         this.canvasFull.width = (r.width || window.innerWidth) * dpr;
-        this.canvasFull.height = 76 * dpr;
+        this.canvasFull.height = 100 * dpr;
         this.ctxFull.scale(dpr, dpr);
       }
       if (this.canvasBox && this.ctxBox) {
@@ -176,14 +176,14 @@
       const bars = window.PrecompiledVisualizer.getBars(trackId, currentTime, count, variationBuffer);
 
       const grad = ctx.createLinearGradient(0, 0, 0, h);
-      grad.addColorStop(0, `hsla(${this.hueOffset}, 46%, 60%, 0.90)`);
-      grad.addColorStop(0.55, `hsla(${(this.hueOffset + 25) % 360}, 42%, 52%, 0.55)`);
-      grad.addColorStop(1, `hsla(${(this.hueOffset + 50) % 360}, 38%, 40%, 0.12)`);
+      grad.addColorStop(0, `hsla(${this.hueOffset}, 62%, 62%, 0.95)`);
+      grad.addColorStop(0.5, `hsla(${(this.hueOffset + 25) % 360}, 56%, 54%, 0.85)`);
+      grad.addColorStop(1, `hsla(${(this.hueOffset + 50) % 360}, 50%, 46%, 0.60)`);
       ctx.fillStyle = grad;
 
       for (let i = 0; i < count; i++) {
-        const targetHeight = Math.max(4, Math.min(maxHeight, bars[i] * maxHeight * 1.15));
-        peakBuffer[i] = targetHeight >= peakBuffer[i] ? targetHeight : Math.max(targetHeight, peakBuffer[i] - (h * 4.2 * dt));
+        const targetHeight = Math.max(6, Math.min(maxHeight, bars[i] * maxHeight));
+        peakBuffer[i] = targetHeight >= peakBuffer[i] ? targetHeight : Math.max(targetHeight, peakBuffer[i] - (h * 2.2 * dt));
         const barHeight = peakBuffer[i], x = i * slot + (gap / 2), y = h - bottomOffset - barHeight;
         this.drawBar(ctx, x, y, barWidth, barHeight);
       }
@@ -199,25 +199,25 @@
 
       const dt = Math.min((now - this.lastTime) / 1000, 0.08);
       this.lastTime = now;
-      this.hueOffset = (this.hueOffset + dt * 32) % 360;
+      this.hueOffset = (this.hueOffset + dt * 26) % 360;
       const dpr = Math.min(window.devicePixelRatio || 1, 2.0);
 
       if (this.isLandscape() && this.ctxLandscape && this.canvasLandscape) {
         const count = Math.max(20, Math.min(60, Math.round((this.barCount || 65) * 0.6)));
         if (this.landscapePeakHeights.length !== count) this.landscapePeakHeights = new Float32Array(count);
         if (!this.landscapeBarVariations || this.landscapeBarVariations.length !== count) this.landscapeBarVariations = this.generateBarVariations(count, this.trackSeed);
-        this.renderSpectrum(this.ctxLandscape, this.canvasLandscape, count, dpr, dt, (this.canvasLandscape.height / dpr) - 10, 2, this.landscapePeakHeights, this.landscapeBarVariations);
+        this.renderSpectrum(this.ctxLandscape, this.canvasLandscape, count, dpr, dt, (this.canvasLandscape.height / dpr) - 8, 2, this.landscapePeakHeights, this.landscapeBarVariations);
       } else if (this.mode === "full" && this.ctxFull && this.canvasFull) {
         const count = this.barCount || 65;
         if (this.fullPeakHeights.length !== count) this.fullPeakHeights = new Float32Array(count);
         if (!this.fullBarVariations || this.fullBarVariations.length !== count) this.fullBarVariations = this.generateBarVariations(count, this.trackSeed);
-        this.renderSpectrum(this.ctxFull, this.canvasFull, count, dpr, dt, (this.canvasFull.height / dpr) - 10, 0, this.fullPeakHeights, this.fullBarVariations);
+        this.renderSpectrum(this.ctxFull, this.canvasFull, count, dpr, dt, (this.canvasFull.height / dpr) - 8, 0, this.fullPeakHeights, this.fullBarVariations);
       } else if (this.mode === "box" && this.ctxBox && this.canvasBox) {
         let ratio = this.boxSize === "small" ? 0.32 : this.boxSize === "large" ? 0.44 : 0.38;
         const count = Math.max(14, Math.min(48, Math.round((this.barCount || 65) * ratio)));
         if (this.boxPeakHeights.length !== count) this.boxPeakHeights = new Float32Array(count);
         if (!this.boxBarVariations || this.boxBarVariations.length !== count) this.boxBarVariations = this.generateBarVariations(count, this.trackSeed);
-        this.renderSpectrum(this.ctxBox, this.canvasBox, count, dpr, dt, (this.canvasBox.height / dpr) - 10, 4, this.boxPeakHeights, this.boxBarVariations);
+        this.renderSpectrum(this.ctxBox, this.canvasBox, count, dpr, dt, (this.canvasBox.height / dpr) - 8, 4, this.boxPeakHeights, this.boxBarVariations);
       }
     }
   }

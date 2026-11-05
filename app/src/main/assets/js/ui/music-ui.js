@@ -4,6 +4,7 @@
       this.parent = parentUI;
       this.tempSelectedTrackIds = [];
 
+      this.musicModal = document.getElementById('modal-music');
       this.titleDisplay = document.getElementById('music-title-display');
       this.artistDisplay = document.getElementById('music-artist-display');
       this.landscapeTitle = document.getElementById('landscape-track-title');
@@ -111,6 +112,7 @@
     }
 
     updateProgress(currentTime, duration) {
+      if (!this.musicModal || !this.musicModal.classList.contains('active')) return;
       if (duration > 0) this.progressBar.value = (currentTime / duration) * 100;
       else this.progressBar.value = 0;
       this.currentTimeEl.textContent = this.formatTime(currentTime);

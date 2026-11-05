@@ -41,8 +41,25 @@
       this.lastTime = performance.now();
       this.animationFrameId = null;
 
+      this.cachedGap = 10;
+      this.cachedCellSize = 90;
+      this.cachedDensity = 20;
+      this.cachedLife = 450;
+      this.cachedEnabled = true;
+
       window.addEventListener('resize', () => this.resize());
+      this.bindSettingEvents();
       this.resize();
+    }
+
+    bindSettingEvents() {
+      const toggle = document.getElementById('toggle-particles');
+      const density = document.getElementById('slider-part-density');
+      const life = document.getElementById('slider-part-life');
+
+      if (toggle) toggle.addEventListener('change', () => { this.cachedEnabled = toggle.checked; });
+      if (density) density.addEventListener('input', () => { this.cachedDensity = parseInt(density.value) || 20; });
+      if (life) life.addEventListener('input', () => { this.cachedLife = parseInt(life.value) || 450; });
     }
 
     resize() {
@@ -51,36 +68,36 @@
       this.canvas.width = rect.width * this.dpr;
       this.canvas.height = rect.height * this.dpr;
       this.ctx.scale(this.dpr, this.dpr);
+
+      const board = document.getElementById('board-container');
+      if (board) {
+        const style = getComputedStyle(board);
+        this.cachedGap = parseFloat(style.getPropertyValue('--gap')) || 10;
+        this.cachedCellSize = parseFloat(style.getPropertyValue('--cell-size')) || 90;
+      }
     }
 
     spawnMergeBurst(col, row, color) {
-      const toggle = document.getElementById('toggle-particles');
-      const isParticlesEnabled = toggle ? toggle.checked : true;
-      if (!isParticlesEnabled) return;
+      if (!this.cachedEnabled) return;
 
-      const board = document.getElementById('board-container');
-      const gap = parseFloat(getComputedStyle(board).getPropertyValue('--gap')) || 10;
-      const cellSize = parseFloat(getComputedStyle(board).getPropertyValue('--cell-size')) || 90;
-
+      const gap = this.cachedGap;
+      const cellSize = this.cachedCellSize;
       const xStart = col * (cellSize + gap) + gap;
       const yStart = row * (cellSize + gap) + gap;
       const centerX = xStart + cellSize / 2;
       const centerY = yStart + cellSize / 2;
 
-      const count = parseInt(document.getElementById('slider-part-density').value) || 20;
-      const duration = parseInt(document.getElementById('slider-part-life').value) || 450;
+      const count = this.cachedDensity;
+      const duration = this.cachedLife;
 
       for (let i = 0; i < count; i++) {
         const theta = Math.random() * Math.PI * 2;
-        const cos = Math.cos(theta);
-        const sin = Math.sin(theta);
+        const cos = Math.cos(theta), sin = Math.sin(theta);
         const halfSize = cellSize / 2;
 
-        let px, py;
-        if (Math.abs(cos) > Math.abs(sin)) {
-          px = centerX + Math.sign(cos) * halfSize;
-          py = centerY + Math.sign(cos) * halfSize * (sin / cos);
-        } else {
+        let px = centerX + Math.sign(cos) * halfSize;
+        let py = centerY + (Math.abs(cos) > Math.abs(sin) ? Math.sign(cos) * halfSize * (sin / cos) : Math.sign(sin) * halfSize);
+        if (Math.abs(sin) >= Math.abs(cos)) {
           px = centerX + Math.sign(sin) * halfSize * (cos / sin);
           py = centerY + Math.sign(sin) * halfSize;
         }
@@ -90,10 +107,7 @@
         py += sin * offsetDist;
 
         const velocityScalar = Math.random() * 85 + 75;
-        const vx = cos * velocityScalar;
-        const vy = sin * velocityScalar;
-
-        this.particles.push(new Particle(px, py, vx, vy, color, duration));
+        this.particles.push(new Particle(px, py, cos * velocityScalar, sin * velocityScalar, color, duration));
       }
 
       if (!this.animationFrameId) {
@@ -120,11 +134,8 @@
       for (let i = this.particles.length - 1; i >= 0; i--) {
         const p = this.particles[i];
         p.update(dt);
-        if (p.life <= 0) {
-          this.particles.splice(i, 1);
-        } else {
-          p.draw(this.ctx);
-        }
+        if (p.life <= 0) this.particles.splice(i, 1);
+        else p.draw(this.ctx);
       }
 
       if (this.particles.length > 0) {

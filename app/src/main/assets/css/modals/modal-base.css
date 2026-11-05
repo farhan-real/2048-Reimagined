@@ -5,20 +5,22 @@
   background: rgba(0, 0, 0, 0.86);
   z-index: 150;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
   touch-action: pan-y;
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  will-change: opacity;
+  will-change: opacity, visibility;
 }
 
 .modal-overlay.active {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 

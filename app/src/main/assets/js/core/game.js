@@ -62,11 +62,8 @@
     }
 
     updateUndoButtonState() {
-      if (this.undoState) {
-        this.ui.btnUndo.removeAttribute('disabled');
-      } else {
-        this.ui.btnUndo.setAttribute('disabled', 'true');
-      }
+      if (this.undoState) this.ui.btnUndo.removeAttribute('disabled');
+      else this.ui.btnUndo.setAttribute('disabled', 'true');
     }
 
     restart() {
@@ -233,11 +230,14 @@
               this.updateScoreUI(scoreGained);
               this.ui.triggerHaptic(this.ui.getMergeHaptic());
               if (window.sound) window.sound.playMerge();
-              burstPoints.forEach(pt => {
+
+              if (burstPoints.length > 0) {
                 const style = getComputedStyle(document.body);
-                const particleColor = style.getPropertyValue(`--t${pt.val}-particle`).trim() || 'var(--accent-color)';
-                this.particles.spawnMergeBurst(pt.c, pt.r, particleColor, this.ui.getCurrentTheme());
-              });
+                burstPoints.forEach(pt => {
+                  const particleColor = style.getPropertyValue(`--t${pt.val}-particle`).trim() || 'var(--accent-color)';
+                  this.particles.spawnMergeBurst(pt.c, pt.r, particleColor);
+                });
+              }
             } else {
               this.updateScoreUI();
             }

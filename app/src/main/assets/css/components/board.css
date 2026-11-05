@@ -10,6 +10,7 @@
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  contain: layout style;
 }
 
 .grid-background {
@@ -55,9 +56,9 @@
   z-index: 3;
   pointer-events: none;
   transform: translateZ(0);
+  contain: paint layout;
 }
 
-/* Tile Transformations */
 .tile {
   position: absolute;
   top: var(--gap);
@@ -76,6 +77,7 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform-style: preserve-3d;
+  contain: layout style;
   transform: translate3d(
     calc(var(--col) * (var(--cell-size) + var(--gap))),
     calc(var(--row) * (var(--cell-size) + var(--gap))),
@@ -107,27 +109,16 @@
 }
 
 @keyframes spawnIn {
-  0% {
-    transform: translate3d(calc(var(--col) * (var(--cell-size) + var(--gap))), calc(var(--row) * (var(--cell-size) + var(--gap))), 0) scale(0);
-  }
-  100% {
-    transform: translate3d(calc(var(--col) * (var(--cell-size) + var(--gap))), calc(var(--row) * (var(--cell-size) + var(--gap))), 0) scale(1);
-  }
+  0% { transform: translate3d(calc(var(--col) * (var(--cell-size) + var(--gap))), calc(var(--row) * (var(--cell-size) + var(--gap))), 0) scale(0); }
+  100% { transform: translate3d(calc(var(--col) * (var(--cell-size) + var(--gap))), calc(var(--row) * (var(--cell-size) + var(--gap))), 0) scale(1); }
 }
 
 @keyframes mergePop {
-  0% {
-    transform: translate3d(calc(var(--col) * (var(--cell-size) + var(--gap))), calc(var(--row) * (var(--cell-size) + var(--gap))), 0) scale(1);
-  }
-  50% {
-    transform: translate3d(calc(var(--col) * (var(--cell-size) + var(--gap))), calc(var(--row) * (var(--cell-size) + var(--gap))), 0) scale(1.15);
-  }
-  100% {
-    transform: translate3d(calc(var(--col) * (var(--cell-size) + var(--gap))), calc(var(--row) * (var(--cell-size) + var(--gap))), 0) scale(1);
-  }
+  0% { transform: translate3d(calc(var(--col) * (var(--cell-size) + var(--gap))), calc(var(--row) * (var(--cell-size) + var(--gap))), 0) scale(1); }
+  50% { transform: translate3d(calc(var(--col) * (var(--cell-size) + var(--gap))), calc(var(--row) * (var(--cell-size) + var(--gap))), 0) scale(1.15); }
+  100% { transform: translate3d(calc(var(--col) * (var(--cell-size) + var(--gap))), calc(var(--row) * (var(--cell-size) + var(--gap))), 0) scale(1); }
 }
 
-/* Tile Theme Bindings */
 .tile[data-value="2"] { background: var(--t2-bg); color: var(--t2-color); border: var(--t2-border); box-shadow: var(--t2-glow); text-shadow: var(--t2-text-shadow, none); }
 .tile[data-value="4"] { background: var(--t4-bg); color: var(--t4-color); border: var(--t4-border); box-shadow: var(--t4-glow); text-shadow: var(--t4-text-shadow, none); }
 .tile[data-value="8"] { background: var(--t8-bg); color: var(--t8-color); border: var(--t8-border); box-shadow: var(--t8-glow); text-shadow: var(--t8-text-shadow, none); }

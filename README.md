@@ -28,19 +28,6 @@ Complete tile progressions from 2 to 2048 for each theme family:
 | **Retro & Hardware**<br><sub>*Retro Keeb, DMG 1989, Terminal, Synthwave*</sub><br><br>![Retro & Hardware](app/src/main/assets/previews/retro.svg) | **Cyber & Tech**<br><sub>*Cyberpunk, Blueprint, Frutiger Aero, Vectorheart, Neon Glow*</sub><br><br>![Cyber & Tech](app/src/main/assets/previews/cyber.svg) |
 | **Aesthetic & Minimal**<br><sub>*Pastel Rainbow, Pastel Pink, Nordic Frost, Classic Sand, The Void*</sub><br><br>![Aesthetic & Minimal](app/src/main/assets/previews/minimal.svg) | |
 
----
-
-### Aesthetic & Minimal
-> *Pastel Rainbow, Pastel Pink, Nordic Frost, Classic Sand, The Void*
-
-![Aesthetic & Minimal](app/src/main/assets/previews/minimal.svg)
-
----
-
-### Aesthetic & Minimal
-> *Pastel Rainbow, Pastel Pink, Nordic Frost, Classic Sand, The Void*
-
-[![Aesthetic & Minimal](previews/minimal.svg)](app/src/main/assets/previews/minimal.svg)
 
 ---
 

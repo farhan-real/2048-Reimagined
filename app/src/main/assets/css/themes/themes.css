@@ -1,25 +1,32 @@
-@import url('neon-amoled.css');
-@import url('neonlight.css');
-@import url('pastel-amoled.css');
-@import url('pastellight.css');
-@import url('cyberpunk.css');
-@import url('cyberlight.css');
-@import url('synthwave.css');
-@import url('sunsetsynth.css');
-@import url('seaway.css');
-@import url('oceanbreeze.css');
-@import url('forest.css');
-@import url('gardendawn.css');
-@import url('autumn.css');
-@import url('nebula.css');
-@import url('celestial.css');
-@import url('supernova.css');
-@import url('supernovalight.css');
-@import url('pastel-pink.css');
-@import url('nordicfrost.css');
-@import url('the-void.css');
-@import url('terminal.css');
-@import url('terminallight.css');
-@import url('sakura.css');
-@import url('sakuralight.css');
-@import url('classic.css');
+/* Nature & Earth Themes */
+@import url('nature/forest.css');
+@import url('nature/gardendawn.css');
+@import url('nature/autumn.css');
+@import url('nature/sakura.css');
+@import url('nature/sakuralight.css');
+@import url('nature/seaway.css');
+@import url('nature/oceanbreeze.css');
+
+/* Space & Cosmos Themes */
+@import url('space/nebula.css');
+@import url('space/celestial.css');
+@import url('space/supernova.css');
+@import url('space/supernovalight.css');
+
+/* Cyber & Retro Themes */
+@import url('cyber/neon-amoled.css');
+@import url('cyber/neonlight.css');
+@import url('cyber/cyberpunk.css');
+@import url('cyber/cyberlight.css');
+@import url('cyber/synthwave.css');
+@import url('cyber/sunsetsynth.css');
+@import url('cyber/terminal.css');
+@import url('cyber/terminallight.css');
+
+/* Minimal & Classic Themes */
+@import url('minimal/classic.css');
+@import url('minimal/nordicfrost.css');
+@import url('minimal/pastel-amoled.css');
+@import url('minimal/pastellight.css');
+@import url('minimal/pastel-pink.css');
+@import url('minimal/the-void.css');

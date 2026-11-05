@@ -1,6 +1,21 @@
 (function() {
   const CHANGELOG = [
     {
+      version: "V3.0.0",
+      title: "Landscape Mode, Theme Overhaul & 25-Track Audio",
+      changes: [
+        "Landscape Mode: Ergonomic 3-column layout featuring controls on the left, game board in the center, and a live audio visualizer on the right.",
+        "Orientation Controls: New settings toggle to switch between Rotate (Auto), Portrait, and Landscape modes with responsive board scaling.",
+        "Theme Overhaul & Dual-Mode Toggles: Consolidated theme items in the dropdown with an interactive sliding Sun/Moon toggle for instant Dark/Light mode switching.",
+        "New Nature & Space Themes: Added Emerald Forest, Garden Dawn, Autumn Momiji, Ocean Breeze, Nebula, Celestial Solar, and Supernova Solar Flare.",
+        "Light Variants & Palette Rebalancing: Added daylight variants for Cyberpunk, Sakura, Neon, Terminal, and Pastel; removed single-color wash in Synthwave and Supernova.",
+        "Leaderboard Loss Undo: Undoing from the Game Over screen now automatically retracts the submitted score from the top-5 leaderboard.",
+        "Dynamic Visualizer Ceilings: Added harmonic per-bar variation so saturated chiptune tracks no longer draw an artificial curve.",
+        "Audio Storage Optimization: Converted all music tracks to high-efficiency 192kbps MP3 directly in assets/music/, dramatically cutting storage footprint while expanding the soundtrack to 25 tracks.",
+        'Open Source: Published repository on GitHub at <a href="https://github.com/farhan-real/2048-Reimagined" target="_blank" rel="noopener noreferrer" style="color:var(--accent-color);text-decoration:underline;word-break:break-all;">github.com/farhan-real/2048-Reimagined</a>.'
+      ]
+    },
+    {
       version: "V2.2.1",
       title: "Fixes",
       changes: [
@@ -67,7 +82,7 @@
       title: "Initial Version (Web)",
       changes: [
         "Initial release of the 2048 Reimagined web engine.",
-        "11 high-contrast visual themes (Neon AMOLED, Cyberpunk, Synthwave, Terminal, Sakura Night, Classic Sand, etc.).",
+        "11 high-contrast visual themes.",
         "Hardware-accelerated animations with high refresh rate support (90Hz / 120Hz / 144Hz).",
         "Single-move undo system and particle burst effects on tile merges.",
         "Local state saving (auto-save board and high score)."
@@ -83,6 +98,12 @@
         { role: "Testing", name: "Farhan" },
         { role: "Architecture", name: "Farhan" },
         { role: "Original 2048 Concept", name: "Gabriele Cirulli" }
+      ]
+    },
+    {
+      category: "Open Source",
+      items: [
+        { role: "GitHub", name: '<a href="https://github.com/farhan-real/2048-Reimagined" target="_blank" rel="noopener noreferrer" style="color:var(--accent-color);text-decoration:underline;word-break:break-all;">github.com/farhan-real/2048-Reimagined</a>' }
       ]
     },
     {
@@ -104,7 +125,10 @@
         { name: "rez" },
         { name: "kenet" },
         { name: "Zalza" },
-        { name: "Floppi" }
+        { name: "Floppi" },
+        { name: "0BiT" },
+        { name: "GEAR" },
+        { name: "SnD" }
       ]
     },
     {

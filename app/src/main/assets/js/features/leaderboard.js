@@ -5,7 +5,7 @@
     }
 
     addEntry(score, timeSeconds) {
-      if (score <= 0) return false;
+      if (score <= 0) return null;
 
       const newEntry = {
         id: Date.now().toString(36) + Math.random().toString(36).substr(2, 5),
@@ -27,7 +27,7 @@
       // Keep only top 5 entries
       this.entries = this.entries.slice(0, 5);
       window.storage.setLeaderboard(this.entries);
-      return true;
+      return newEntry.id;
     }
 
     deleteEntry(id) {

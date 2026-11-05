@@ -7,19 +7,16 @@
       this.bestScore = 0;
       this.moveCount = 0;
       this.gameSeed = Date.now();
-
       this.undoState = null;
       this.isMoving = false;
+      this.gameOverLeaderboardId = null;
 
       this.tilesContainer = document.getElementById('tiles-container');
       this.particles = new window.ParticleEngine();
       this.prng = new window.DeterministicRNG(this.gameSeed);
 
-      // Active Timer Initialization
       this.timer = new window.GameTimer((formatted) => {
-        if (this.ui.timerEl) {
-          this.ui.timerEl.textContent = formatted;
-        }
+        if (this.ui.timerEl) this.ui.timerEl.textContent = formatted;
       });
 
       this.setupGameEvents();
@@ -31,7 +28,6 @@
       this.ui.btnRestart.addEventListener('click', () => this.restart());
       this.ui.retryOverlayBtn.addEventListener('click', () => this.restart());
       this.ui.btnUndo.addEventListener('click', () => this.undo());
-
       this.ui.resetBestBtn.addEventListener('click', () => {
         this.ui.showConfirmDialog({
           title: "Reset High Score?",
@@ -52,22 +48,16 @@
       const vacant = [];
       for (let r = 0; r < 4; r++) {
         for (let c = 0; c < 4; c++) {
-          if (this.grid[r][c] === null) {
-            vacant.push({ r, c });
-          }
+          if (this.grid[r][c] === null) vacant.push({ r, c });
         }
       }
       if (vacant.length > 0) {
         const isDeterministic = this.ui.isDeterministic();
         const { cell, val } = this.prng.getTileSpawn(this.grid, this.moveCount, isDeterministic, vacant);
         const tile = new window.Tile(cell.r, cell.c, val);
-
         this.grid[cell.r][cell.c] = tile;
         this.tilesContainer.appendChild(tile.element);
-
-        setTimeout(() => {
-          tile.element.classList.remove('tile-new');
-        }, 150);
+        setTimeout(() => tile.element.classList.remove('tile-new'), 150);
       }
     }
 
@@ -81,40 +71,42 @@
 
     restart() {
       this.clearDOMGrid();
-
       this.grid = Array(4).fill(null).map(() => Array(4).fill(null));
       this.score = 0;
       this.moveCount = 0;
       this.gameSeed = Date.now();
       this.prng = new window.DeterministicRNG(this.gameSeed);
       this.undoState = null;
+      this.gameOverLeaderboardId = null;
       this.updateUndoButtonState();
 
       this.timer.reset();
       this.timer.resume();
-
       this.ui.gameoverOverlay.classList.remove('active');
       this.particles.clear();
 
       this.spawnTile();
       this.spawnTile();
-
       this.saveState();
       this.updateScoreUI();
     }
 
     clearDOMGrid() {
-      const activeTiles = this.tilesContainer.querySelectorAll('.tile');
-      activeTiles.forEach(t => t.remove());
+      this.tilesContainer.querySelectorAll('.tile').forEach(t => t.remove());
     }
 
     undo() {
       if (!this.undoState || this.isMoving) return;
       this.ui.triggerHaptic(this.ui.getSlideHaptic());
 
+      if (this.gameOverLeaderboardId && window.leaderboard) {
+        window.leaderboard.deleteEntry(this.gameOverLeaderboardId);
+        this.gameOverLeaderboardId = null;
+        if (this.ui && this.ui.leaderboard) this.ui.leaderboard.render();
+      }
+
       this.clearDOMGrid();
       this.grid = Array(4).fill(null).map(() => Array(4).fill(null));
-
       this.score = this.undoState.score;
       this.moveCount = this.undoState.moveCount;
       this.gameSeed = this.undoState.gameSeed || this.gameSeed;
@@ -136,10 +128,7 @@
             t.element.classList.add('no-transition');
             this.grid[r][c] = t;
             this.tilesContainer.appendChild(t.element);
-
-            setTimeout(() => {
-              t.element.classList.remove('no-transition', 'tile-new');
-            }, 50);
+            setTimeout(() => t.element.classList.remove('no-transition', 'tile-new'), 50);
           }
         }
       }
@@ -177,13 +166,9 @@
             const tile = this.grid[r][c];
             if (!tile) return;
 
-            let currR = r;
-            let currC = c;
-            let nextR = currR + vector.y;
-            let nextC = currC + vector.x;
-
-            let farthestR = currR;
-            let farthestC = currC;
+            let currR = r, currC = c;
+            let nextR = currR + vector.y, nextC = currC + vector.x;
+            let farthestR = currR, farthestC = currC;
             let mergeTarget = null;
 
             while (nextR >= 0 && nextR < 4 && nextC >= 0 && nextC < 4) {
@@ -202,7 +187,6 @@
 
             if (mergeTarget) {
               this.grid[currR][currC] = null;
-
               tile.row = mergeTarget.row;
               tile.col = mergeTarget.col;
               tile.element.classList.add('tile-moving');
@@ -211,7 +195,6 @@
               mergeTarget.mergedThisTurn = true;
               const newValue = tile.value * 2;
               scoreGained += newValue;
-
               burstPoints.push({ r: mergeTarget.row, c: mergeTarget.col, val: newValue });
 
               const tileToDestroy = tile;
@@ -222,17 +205,14 @@
                 tileToDestroy.destroy();
                 targetTileToUpdate.updateValue(newValue);
               }, slideSpeed);
-
               moved = true;
             } else if (farthestR !== currR || farthestC !== currC) {
               this.grid[currR][currC] = null;
               this.grid[farthestR][farthestC] = tile;
-
               tile.row = farthestR;
               tile.col = farthestC;
               tile.element.classList.add('tile-moving');
               tile.updatePosition();
-
               moved = true;
             }
           });
@@ -243,20 +223,16 @@
           this.moveCount++;
           this.undoState = snapshot;
           this.updateUndoButtonState();
-
           this.ui.triggerHaptic(this.ui.getSlideHaptic());
           if (window.sound) window.sound.playSlide();
 
           const slideSpeed = this.ui.getSlideSpeed();
-
           setTimeout(() => {
             if (scoreGained > 0) {
               this.score += scoreGained;
               this.updateScoreUI(scoreGained);
-
               this.ui.triggerHaptic(this.ui.getMergeHaptic());
               if (window.sound) window.sound.playMerge();
-
               burstPoints.forEach(pt => {
                 const style = getComputedStyle(document.body);
                 const particleColor = style.getPropertyValue(`--t${pt.val}-particle`).trim() || 'var(--accent-color)';
@@ -273,11 +249,7 @@
               this.timer.pause();
               this.ui.triggerHaptic(20);
               if (window.sound) window.sound.playGameOver();
-
-              if (window.leaderboard) {
-                window.leaderboard.addEntry(this.score, this.timer.getElapsedSeconds());
-              }
-
+              this.gameOverLeaderboardId = window.leaderboard ? window.leaderboard.addEntry(this.score, this.timer.getElapsedSeconds()) : null;
               this.ui.finalScoreEl.textContent = this.score;
               if (this.ui.finalTimeEl) {
                 this.ui.finalTimeEl.textContent = this.timer.formatTime(this.timer.getElapsedSeconds());
@@ -286,7 +258,6 @@
             }
 
             this.isMoving = false;
-
             this.grid.forEach(row => row.forEach(t => {
               if (t) t.element.classList.remove('tile-moving');
             }));
@@ -316,14 +287,9 @@
     }
 
     buildTraversals(vector) {
-      const traversals = {
-        rows: [0, 1, 2, 3],
-        cols: [0, 1, 2, 3]
-      };
-
+      const traversals = { rows: [0, 1, 2, 3], cols: [0, 1, 2, 3] };
       if (vector.x === 1) traversals.cols.reverse();
       if (vector.y === 1) traversals.rows.reverse();
-
       return traversals;
     }
 
@@ -346,15 +312,14 @@
     }
 
     saveState() {
-      const boardState = this.grid.map(row =>
-        row.map(tile => tile ? tile.value : null)
-      );
+      const boardState = this.grid.map(row => row.map(tile => tile ? tile.value : null));
       const payload = {
         score: this.score,
         moveCount: this.moveCount,
         gameSeed: this.gameSeed,
         timeSeconds: this.timer.getElapsedSeconds(),
         currentTheme: this.ui.getCurrentTheme(),
+        gameOverLeaderboardId: this.gameOverLeaderboardId,
         board: boardState,
         undoState: this.undoState ? {
           score: this.undoState.score,
@@ -369,13 +334,13 @@
 
     loadGameState() {
       this.ui.loadSettings();
-
       try {
         const data = window.storage.getGameState();
         if (data && data.board && Array.isArray(data.board)) {
           this.score = data.score || 0;
           this.moveCount = data.moveCount || 0;
           this.gameSeed = data.gameSeed || Date.now();
+          this.gameOverLeaderboardId = data.gameOverLeaderboardId || null;
           this.prng = new window.DeterministicRNG(this.gameSeed);
           this.bestScore = window.storage.getBestScore();
 
@@ -397,10 +362,7 @@
                 this.grid[r][c] = t;
                 this.tilesContainer.appendChild(t.element);
                 tileCount++;
-
-                setTimeout(() => {
-                  t.element.classList.remove('no-transition', 'tile-new');
-                }, 50);
+                setTimeout(() => t.element.classList.remove('no-transition', 'tile-new'), 50);
               }
             }
           }
@@ -415,10 +377,7 @@
 
           this.ui.setTheme(data.currentTheme || "neon_amoled", () => this.saveState());
           this.updateScoreUI();
-
-          if (tileCount >= 2) {
-            return;
-          }
+          if (tileCount >= 2) return;
         }
       } catch (e) {}
 

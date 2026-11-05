@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 590" width="100%" height="100%" style="background:#0a0c0e; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <style>
+    .hdr { fill:#8e9aa8; font-size:11px; font-weight:700; text-anchor:middle; }
+    .lbl { font-size:12px; font-weight:700; }
+    .sub { font-size:10px; font-weight:600; fill:#6c7989; }
+    .val { font-weight:800; text-anchor:middle; dominant-baseline:central; }
+    .v2 { font-size:15px; } .v3 { font-size:12px; } .v4 { font-size:10px; } .v5 { font-size:8.5px; }
+  </style>
+
+  <g transform="translate(180, 24)">
+    <text x="21" class="hdr">2</text><text x="69" class="hdr">4</text><text x="117" class="hdr">8</text><text x="165" class="hdr">16</text><text x="213" class="hdr">32</text><text x="261" class="hdr">64</text><text x="309" class="hdr">128</text><text x="357" class="hdr">256</text><text x="405" class="hdr">512</text><text x="453" class="hdr">1024</text><text x="501" class="hdr">2048</text><text x="549" class="hdr">4096</text><text x="597" class="hdr">8192</text><text x="645" class="hdr">16k</text><text x="693" class="hdr">32k</text>
+  </g>
+
+  <!-- Forest Dark -->
+  <g transform="translate(10, 36)">
+    <rect width="920" height="54" rx="8" fill="#0f271a" stroke="#2d6a4f" stroke-width="1"/>
+    <text x="14" y="24" fill="#e8f5ed" class="lbl">Forest</text><text x="14" y="38" class="sub">Dark</text>
+    <g transform="translate(170, 6)">
+      <rect x="0" width="42" height="42" rx="6" fill="#1e4732" stroke="#40916c"/><text x="21" y="21" fill="#d8f3dc" class="val v2">2</text>
+      <rect x="48" width="42" height="42" rx="6" fill="#2d6a4f" stroke="#52b788"/><text x="69" y="21" fill="#ffffff" class="val v2">4</text>
+      <rect x="96" width="42" height="42" rx="6" fill="#40916c" stroke="#74c69d"/><text x="117" y="21" fill="#ffffff" class="val v2">8</text>
+      <rect x="144" width="42" height="42" rx="6" fill="#52b788" stroke="#95d5b2"/><text x="165" y="21" fill="#091a11" class="val v2">16</text>
+      <rect x="192" width="42" height="42" rx="6" fill="#74c69d" stroke="#b7e4c7"/><text x="213" y="21" fill="#091a11" class="val v2">32</text>
+      <rect x="240" width="42" height="42" rx="6" fill="#2a9d8f" stroke="#48cae4"/><text x="261" y="21" fill="#ffffff" class="val v2">64</text>
+      <rect x="288" width="42" height="42" rx="6" fill="#e76f51" stroke="#f4a261"/><text x="309" y="21" fill="#ffffff" class="val v3">128</text>
+      <rect x="336" width="42" height="42" rx="6" fill="#d4a373" stroke="#e9c46a"/><text x="357" y="21" fill="#091a11" class="val v3">256</text>
+      <rect x="384" width="42" height="42" rx="6" fill="#e9c46a" stroke="#ffffff"/><text x="405" y="21" fill="#091a11" class="val v3">512</text>
+      <rect x="432" width="42" height="42" rx="6" fill="#8ac926" stroke="#ffffff"/><text x="453" y="21" fill="#091a11" class="val v4">1024</text>
+      <rect x="480" width="42" height="42" rx="6" fill="#d8f3dc" stroke="#52b788" stroke-width="2"/><text x="501" y="21" fill="#091a11" class="val v4">2048</text>
+      <rect x="528" width="42" height="42" rx="6" fill="#52b788" stroke="#ffffff" stroke-width="2"/><text x="549" y="21" fill="#091a11" class="val v4">4096</text>
+      <rect x="576" width="42" height="42" rx="6" fill="#52b788" stroke="#ffffff" stroke-width="2"/><text x="597" y="21" fill="#091a11" class="val v4">8192</text>
+      <rect x="624" width="42" height="42" rx="6" fill="#52b788" stroke="#ffffff" stroke-width="2"/><text x="645" y="21" fill="#091a11" class="val v5">16384</text>
+      <rect x="672" width="42" height="42" rx="6" fill="#52b788" stroke="#ffffff" stroke-width="2"/><text x="693" y="21" fill="#091a11" class="val v5">32768</text>
+    </g>
+  </g>
+
+  <!-- Forest Light -->
+  <g transform="translate(10, 96)">
+    <rect width="920" height="54" rx="8" fill="#f3f7f4" stroke="#bcd4c3" stroke-width="1"/>
+    <text x="14" y="24" fill="#1b4332" class="lbl">Forest</text><text x="14" y="38" class="sub">Light</text>
+    <g transform="translate(170, 6)">
+      <rect x="0" width="42" height="42" rx="6" fill="#e2ede5"/><text x="21" y="21" fill="#2d6a4f" class="val v2">2</text>
+      <rect x="48" width="42" height="42" rx="6" fill="#d0e4d6"/><text x="69" y="21" fill="#1b4332" class="val v2">4</text>
+      <rect x="96" width="42" height="42" rx="6" fill="#b7d7c1"/><text x="117" y="21" fill="#1b4332" class="val v2">8</text>
+      <rect x="144" width="42" height="42" rx="6" fill="#9ecab0"/><text x="165" y="21" fill="#ffffff" class="val v2">16</text>
+      <rect x="192" width="42" height="42" rx="6" fill="#74b896"/><text x="213" y="21" fill="#ffffff" class="val v2">32</text>
+      <rect x="240" width="42" height="42" rx="6" fill="#52a37e"/><text x="261" y="21" fill="#ffffff" class="val v2">64</text>
+      <rect x="288" width="42" height="42" rx="6" fill="#e09f67"/><text x="309" y="21" fill="#ffffff" class="val v3">128</text>
+      <rect x="336" width="42" height="42" rx="6" fill="#d97757"/><text x="357" y="21" fill="#ffffff" class="val v3">256</text>
+      <rect x="384" width="42" height="42" rx="6" fill="#d85c74"/><text x="405" y="21" fill="#ffffff" class="val v3">512</text>
+      <rect x="432" width="42" height="42" rx="6" fill="#ba4382"/><text x="453" y="21" fill="#ffffff" class="val v4">1024</text>
+      <rect x="480" width="42" height="42" rx="6" fill="#2d6a4f" stroke="#52a37e" stroke-width="2"/><text x="501" y="21" fill="#ffffff" class="val v4">2048</text>
+      <rect x="528" width="42" height="42" rx="6" fill="#1b4332"/><text x="549" y="21" fill="#ffffff" class="val v4">4096</text>
+      <rect x="576" width="42" height="42" rx="6" fill="#1b4332"/><text x="597" y="21" fill="#ffffff" class="val v4">8192</text>
+      <rect x="624" width="42" height="42" rx="6" fill="#1b4332"/><text x="645" y="21" fill="#ffffff" class="val v5">16384</text>
+      <rect x="672" width="42" height="42" rx="6" fill="#1b4332"/><text x="693" y="21" fill="#ffffff" class="val v5">32768</text>
+    </g>
+  </g>
+
+  <!-- Ocean Dark -->
+  <g transform="translate(10, 156)">
+    <rect width="920" height="54" rx="8" fill="#020b12" stroke="#007799" stroke-width="1"/>
+    <text x="14" y="24" fill="#e0f9fb" class="lbl">Ocean</text><text x="14" y="38" class="sub">Dark</text>
+    <g transform="translate(170, 6)">
+      <rect x="0" width="42" height="42" rx="6" fill="#d0fcf9"/><text x="21" y="21" fill="#011624" class="val v2">2</text>
+      <rect x="48" width="42" height="42" rx="6" fill="#a2f9f3"/><text x="69" y="21" fill="#011624" class="val v2">4</text>
+      <rect x="96" width="42" height="42" rx="6" fill="#5ef3eb"/><text x="117" y="21" fill="#011624" class="val v2">8</text>
+      <rect x="144" width="42" height="42" rx="6" fill="#01fdf0"/><text x="165" y="21" fill="#011624" class="val v2">16</text>
+      <rect x="192" width="42" height="42" rx="6" fill="#00dcd2"/><text x="213" y="21" fill="#ffffff" class="val v2">32</text>
+      <rect x="240" width="42" height="42" rx="6" fill="#00b8af"/><text x="261" y="21" fill="#ffffff" class="val v2">64</text>
+      <rect x="288" width="42" height="42" rx="6" fill="#00948c"/><text x="309" y="21" fill="#ffffff" class="val v3">128</text>
+      <rect x="336" width="42" height="42" rx="6" fill="#00706a"/><text x="357" y="21" fill="#ffffff" class="val v3">256</text>
+      <rect x="384" width="42" height="42" rx="6" fill="#014c48"/><text x="405" y="21" fill="#ffffff" class="val v3">512</text>
+      <rect x="432" width="42" height="42" rx="6" fill="#01302e"/><text x="453" y="21" fill="#ffffff" class="val v4">1024</text>
+      <rect x="480" width="42" height="42" rx="6" fill="#01fdf0" stroke="#ffffff" stroke-width="2"/><text x="501" y="21" fill="#011624" class="val v4">2048</text>
+      <rect x="528" width="42" height="42" rx="6" fill="#002244" stroke="#01fdf0"/><text x="549" y="21" fill="#ffffff" class="val v4">4096</text>
+      <rect x="576" width="42" height="42" rx="6" fill="#002244" stroke="#01fdf0"/><text x="597" y="21" fill="#ffffff" class="val v4">8192</text>
+      <rect x="624" width="42" height="42" rx="6" fill="#002244" stroke="#01fdf0"/><text x="645" y="21" fill="#ffffff" class="val v5">16384</text>
+      <rect x="672" width="42" height="42" rx="6" fill="#002244" stroke="#01fdf0"/><text x="693" y="21" fill="#ffffff" class="val v5">32768</text>
+    </g>
+  </g>
+
+  <!-- Ocean Light -->
+  <g transform="translate(10, 216)">
+    <rect width="920" height="54" rx="8" fill="#f0f8fa" stroke="#a9d7e5" stroke-width="1"/>
+    <text x="14" y="24" fill="#023e8a" class="lbl">Ocean</text><text x="14" y="38" class="sub">Light</text>
+    <g transform="translate(170, 6)">
+      <rect x="0" width="42" height="42" rx="6" fill="#e1f4f8"/><text x="21" y="21" fill="#023e8a" class="val v2">2</text>
+      <rect x="48" width="42" height="42" rx="6" fill="#caedf5"/><text x="69" y="21" fill="#023e8a" class="val v2">4</text>
+      <rect x="96" width="42" height="42" rx="6" fill="#ade2ef"/><text x="117" y="21" fill="#03045e" class="val v2">8</text>
+      <rect x="144" width="42" height="42" rx="6" fill="#82d1e7"/><text x="165" y="21" fill="#03045e" class="val v2">16</text>
+      <rect x="192" width="42" height="42" rx="6" fill="#48b8dc"/><text x="213" y="21" fill="#ffffff" class="val v2">32</text>
+      <rect x="240" width="42" height="42" rx="6" fill="#0096c7"/><text x="261" y="21" fill="#ffffff" class="val v2">64</text>
+      <rect x="288" width="42" height="42" rx="6" fill="#0077b6"/><text x="309" y="21" fill="#ffffff" class="val v3">128</text>
+      <rect x="336" width="42" height="42" rx="6" fill="#02599c"/><text x="357" y="21" fill="#ffffff" class="val v3">256</text>
+      <rect x="384" width="42" height="42" rx="6" fill="#023e8a"/><text x="405" y="21" fill="#ffffff" class="val v3">512</text>
+      <rect x="432" width="42" height="42" rx="6" fill="#03045e"/><text x="453" y="21" fill="#ffffff" class="val v4">1024</text>
+      <rect x="480" width="42" height="42" rx="6" fill="#00b4d8" stroke="#0077b6" stroke-width="2"/><text x="501" y="21" fill="#03045e" class="val v4">2048</text>
+      <rect x="528" width="42" height="42" rx="6" fill="#03045e"/><text x="549" y="21" fill="#caf0f8" class="val v4">4096</text>
+      <rect x="576" width="42" height="42" rx="6" fill="#03045e"/><text x="597" y="21" fill="#caf0f8" class="val v4">8192</text>
+      <rect x="624" width="42" height="42" rx="6" fill="#03045e"/><text x="645" y="21" fill="#caf0f8" class="val v5">16384</text>
+      <rect x="672" width="42" height="42" rx="6" fill="#03045e"/><text x="693" y="21" fill="#caf0f8" class="val v5">32768</text>
+    </g>
+  </g>
+
+  <!-- Sakura Dark -->
+  <g transform="translate(10, 276)">
+    <rect width="920" height="54" rx="8" fill="#080105" stroke="#ff69b4" stroke-width="1"/>
+    <text x="14" y="24" fill="#ffe6f0" class="lbl">Sakura</text><text x="14" y="38" class="sub">Dark</text>
+    <g transform="translate(170, 6)">
+      <rect x="0" width="42" height="42" rx="6" fill="#ffe3ec"/><text x="21" y="21" fill="#4a1525" class="val v2">2</text>
+      <rect x="48" width="42" height="42" rx="6" fill="#ffb6c1"/><text x="69" y="21" fill="#4a1525" class="val v2">4</text>
+      <rect x="96" width="42" height="42" rx="6" fill="#ff8da1"/><text x="117" y="21" fill="#ffffff" class="val v2">8</text>
+      <rect x="144" width="42" height="42" rx="6" fill="#ff5c8a"/><text x="165" y="21" fill="#ffffff" class="val v2">16</text>
+      <rect x="192" width="42" height="42" rx="6" fill="#ff1493"/><text x="213" y="21" fill="#ffffff" class="val v2">32</text>
+      <rect x="240" width="42" height="42" rx="6" fill="#d90066"/><text x="261" y="21" fill="#ffffff" class="val v2">64</text>
+      <rect x="288" width="42" height="42" rx="6" fill="#99004d"/><text x="309" y="21" fill="#ffffff" class="val v3">128</text>
+      <rect x="336" width="42" height="42" rx="6" fill="#800040"/><text x="357" y="21" fill="#ffffff" class="val v3">256</text>
+      <rect x="384" width="42" height="42" rx="6" fill="#6a0dad"/><text x="405" y="21" fill="#ffffff" class="val v3">512</text>
+      <rect x="432" width="42" height="42" rx="6" fill="#4a0033"/><text x="453" y="21" fill="#ffffff" class="val v4">1024</text>
+      <rect x="480" width="42" height="42" rx="6" fill="#fff0f5" stroke="#ff1493" stroke-width="2"/><text x="501" y="21" fill="#ff1493" class="val v4">2048</text>
+      <rect x="528" width="42" height="42" rx="6" fill="#ff007f" stroke="#ffffff" stroke-width="2"/><text x="549" y="21" fill="#ffffff" class="val v4">4096</text>
+      <rect x="576" width="42" height="42" rx="6" fill="#ff007f" stroke="#ffffff" stroke-width="2"/><text x="597" y="21" fill="#ffffff" class="val v4">8192</text>
+      <rect x="624" width="42" height="42" rx="6" fill="#ff007f" stroke="#ffffff" stroke-width="2"/><text x="645" y="21" fill="#ffffff" class="val v5">16384</text>
+      <rect x="672" width="42" height="42" rx="6" fill="#ff007f" stroke="#ffffff" stroke-width="2"/><text x="693" y="21" fill="#ffffff" class="val v5">32768</text>
+    </g>
+  </g>
+
+  <!-- Sakura Light -->
+  <g transform="translate(10, 336)">
+    <rect width="920" height="54" rx="8" fill="#fff7f9" stroke="#f282a5" stroke-width="1"/>
+    <text x="14" y="24" fill="#7a1a36" class="lbl">Sakura</text><text x="14" y="38" class="sub">Light</text>
+    <g transform="translate(170, 6)">
+      <rect x="0" width="42" height="42" rx="6" fill="#ffe8ee"/><text x="21" y="21" fill="#7a1a36" class="val v2">2</text>
+      <rect x="48" width="42" height="42" rx="6" fill="#ffd2de"/><text x="69" y="21" fill="#7a1a36" class="val v2">4</text>
+      <rect x="96" width="42" height="42" rx="6" fill="#ffb3c6"/><text x="117" y="21" fill="#540b20" class="val v2">8</text>
+      <rect x="144" width="42" height="42" rx="6" fill="#ff8fab"/><text x="165" y="21" fill="#ffffff" class="val v2">16</text>
+      <rect x="192" width="42" height="42" rx="6" fill="#fb6f92"/><text x="213" y="21" fill="#ffffff" class="val v2">32</text>
+      <rect x="240" width="42" height="42" rx="6" fill="#e84377"/><text x="261" y="21" fill="#ffffff" class="val v2">64</text>
+      <rect x="288" width="42" height="42" rx="6" fill="#d12760"/><text x="309" y="21" fill="#ffffff" class="val v3">128</text>
+      <rect x="336" width="42" height="42" rx="6" fill="#b21549"/><text x="357" y="21" fill="#ffffff" class="val v3">256</text>
+      <rect x="384" width="42" height="42" rx="6" fill="#8a0937"/><text x="405" y="21" fill="#ffffff" class="val v3">512</text>
+      <rect x="432" width="42" height="42" rx="6" fill="#6b0028"/><text x="453" y="21" fill="#ffffff" class="val v4">1024</text>
+      <rect x="480" width="42" height="42" rx="6" fill="#ffe5ec" stroke="#e84377" stroke-width="2"/><text x="501" y="21" fill="#e84377" class="val v4">2048</text>
+      <rect x="528" width="42" height="42" rx="6" fill="#e84377"/><text x="549" y="21" fill="#ffffff" class="val v4">4096</text>
+      <rect x="576" width="42" height="42" rx="6" fill="#e84377"/><text x="597" y="21" fill="#ffffff" class="val v4">8192</text>
+      <rect x="624" width="42" height="42" rx="6" fill="#e84377"/><text x="645" y="21" fill="#ffffff" class="val v5">16384</text>
+      <rect x="672" width="42" height="42" rx="6" fill="#e84377"/><text x="693" y="21" fill="#ffffff" class="val v5">32768</text>
+    </g>
+  </g>
+
+  <!-- Autumn Dark -->
+  <g transform="translate(10, 396)">
+    <rect width="920" height="54" rx="8" fill="#1a0a06" stroke="#f59e0b" stroke-width="1"/>
+    <text x="14" y="24" fill="#fef3c7" class="lbl">Autumn</text><text x="14" y="38" class="sub">Dark</text>
+    <g transform="translate(170, 6)">
+      <rect x="0" width="42" height="42" rx="6" fill="#fef08a" stroke="#facc15"/><text x="21" y="21" fill="#451a03" class="val v2">2</text>
+      <rect x="48" width="42" height="42" rx="6" fill="#fb923c" stroke="#ea580c"/><text x="69" y="21" fill="#ffffff" class="val v2">4</text>
+      <rect x="96" width="42" height="42" rx="6" fill="#dc2626" stroke="#b91c1c"/><text x="117" y="21" fill="#ffffff" class="val v2">8</text>
+      <rect x="144" width="42" height="42" rx="6" fill="#65a30d" stroke="#4d7c0f"/><text x="165" y="21" fill="#ffffff" class="val v2">16</text>
+      <rect x="192" width="42" height="42" rx="6" fill="#f59e0b" stroke="#d97706"/><text x="213" y="21" fill="#451a03" class="val v2">32</text>
+      <rect x="240" width="42" height="42" rx="6" fill="#b91c1c" stroke="#991b1b"/><text x="261" y="21" fill="#ffffff" class="val v2">64</text>
+      <rect x="288" width="42" height="42" rx="6" fill="#ea580c" stroke="#c2410c"/><text x="309" y="21" fill="#ffffff" class="val v3">128</text>
+      <rect x="336" width="42" height="42" rx="6" fill="#854d0e" stroke="#a16207"/><text x="357" y="21" fill="#fef3c7" class="val v3">256</text>
+      <rect x="384" width="42" height="42" rx="6" fill="#9f1239" stroke="#e11d48"/><text x="405" y="21" fill="#ffffff" class="val v3">512</text>
+      <rect x="432" width="42" height="42" rx="6" fill="#facc15" stroke="#ffffff"/><text x="453" y="21" fill="#451a03" class="val v4">1024</text>
+      <rect x="480" width="42" height="42" rx="6" fill="#ef4444" stroke="#facc15" stroke-width="2"/><text x="501" y="21" fill="#ffffff" class="val v4">2048</text>
+      <rect x="528" width="42" height="42" rx="6" fill="#f59e0b" stroke="#ffffff" stroke-width="2"/><text x="549" y="21" fill="#451a03" class="val v4">4096</text>
+      <rect x="576" width="42" height="42" rx="6" fill="#f59e0b" stroke="#ffffff" stroke-width="2"/><text x="597" y="21" fill="#451a03" class="val v4">8192</text>
+      <rect x="624" width="42" height="42" rx="6" fill="#f59e0b" stroke="#ffffff" stroke-width="2"/><text x="645" y="21" fill="#451a03" class="val v5">16384</text>
+      <rect x="672" width="42" height="42" rx="6" fill="#f59e0b" stroke="#ffffff" stroke-width="2"/><text x="693" y="21" fill="#451a03" class="val v5">32768</text>
+    </g>
+  </g>
+
+  <!-- Autumn Light -->
+  <g transform="translate(10, 456)">
+    <rect width="920" height="54" rx="8" fill="#fdf6ed" stroke="#c2410c" stroke-width="1"/>
+    <text x="14" y="24" fill="#3f1707" class="lbl">Autumn</text><text x="14" y="38" class="sub">Light</text>
+    <g transform="translate(170, 6)">
+      <rect x="0" width="42" height="42" rx="6" fill="#fef9c3" stroke="#fde047"/><text x="21" y="21" fill="#713f12" class="val v2">2</text>
+      <rect x="48" width="42" height="42" rx="6" fill="#fed7aa" stroke="#fb923c"/><text x="69" y="21" fill="#7c2d12" class="val v2">4</text>
+      <rect x="96" width="42" height="42" rx="6" fill="#fca5a5" stroke="#f87171"/><text x="117" y="21" fill="#7f1d1d" class="val v2">8</text>
+      <rect x="144" width="42" height="42" rx="6" fill="#bef264" stroke="#84cc16"/><text x="165" y="21" fill="#365314" class="val v2">16</text>
+      <rect x="192" width="42" height="42" rx="6" fill="#fb923c" stroke="#ea580c"/><text x="213" y="21" fill="#ffffff" class="val v2">32</text>
+      <rect x="240" width="42" height="42" rx="6" fill="#ef4444" stroke="#dc2626"/><text x="261" y="21" fill="#ffffff" class="val v2">64</text>
+      <rect x="288" width="42" height="42" rx="6" fill="#eab308" stroke="#ca8a04"/><text x="309" y="21" fill="#422006" class="val v3">128</text>
+      <rect x="336" width="42" height="42" rx="6" fill="#b91c1c" stroke="#991b1b"/><text x="357" y="21" fill="#ffffff" class="val v3">256</text>
+      <rect x="384" width="42" height="42" rx="6" fill="#c2410c" stroke="#9a3412"/><text x="405" y="21" fill="#ffffff" class="val v3">512</text>
+      <rect x="432" width="42" height="42" rx="6" fill="#881337" stroke="#4c0519"/><text x="453" y="21" fill="#ffffff" class="val v4">1024</text>
+      <rect x="480" width="42" height="42" rx="6" fill="#d97706" stroke="#dc2626" stroke-width="2"/><text x="501" y="21" fill="#ffffff" class="val v4">2048</text>
+      <rect x="528" width="42" height="42" rx="6" fill="#b91c1c"/><text x="549" y="21" fill="#ffffff" class="val v4">4096</text>
+      <rect x="576" width="42" height="42" rx="6" fill="#b91c1c"/><text x="597" y="21" fill="#ffffff" class="val v4">8192</text>
+      <rect x="624" width="42" height="42" rx="6" fill="#b91c1c"/><text x="645" y="21" fill="#ffffff" class="val v5">16384</text>
+      <rect x="672" width="42" height="42" rx="6" fill="#b91c1c"/><text x="693" y="21" fill="#ffffff" class="val v5">32768</text>
+    </g>
+  </g>
+
+  <!-- Ukiyo-e Wood -->
+  <g transform="translate(10, 516)">
+    <rect width="920" height="54" rx="8" fill="#cca97c" stroke="#5c381c" stroke-width="1.5"/>
+    <text x="14" y="24" fill="#361e0e" class="lbl">Ukiyo-e</text><text x="14" y="38" class="sub">Wood</text>
+    <g transform="translate(170, 6)">
+      <rect x="0" width="42" height="42" rx="6" fill="#f4ebd9" stroke="#ba9e79"/><text x="21" y="21" fill="#361e0e" class="val v2">2</text>
+      <rect x="48" width="42" height="42" rx="6" fill="#ebd9bf" stroke="#ab8a60"/><text x="69" y="21" fill="#361e0e" class="val v2">4</text>
+      <rect x="96" width="42" height="42" rx="6" fill="#d6b785" stroke="#947143"/><text x="117" y="21" fill="#361e0e" class="val v2">8</text>
+      <rect x="144" width="42" height="42" rx="6" fill="#8a9e7b" stroke="#5c704e"/><text x="165" y="21" fill="#1e2916" class="val v2">16</text>
+      <rect x="192" width="42" height="42" rx="6" fill="#5f7a5b" stroke="#3c5239"/><text x="213" y="21" fill="#f4ebd9" class="val v2">32</text>
+      <rect x="240" width="42" height="42" rx="6" fill="#4f708a" stroke="#2d475c"/><text x="261" y="21" fill="#f4ebd9" class="val v2">64</text>
+      <rect x="288" width="42" height="42" rx="6" fill="#27486b" stroke="#142e47"/><text x="309" y="21" fill="#f4ebd9" class="val v3">128</text>
+      <rect x="336" width="42" height="42" rx="6" fill="#16324f" stroke="#0b1f33"/><text x="357" y="21" fill="#f4ebd9" class="val v3">256</text>
+      <rect x="384" width="42" height="42" rx="6" fill="#d65745" stroke="#a83525"/><text x="405" y="21" fill="#ffffff" class="val v3">512</text>
+      <rect x="432" width="42" height="42" rx="6" fill="#b73229" stroke="#7d1c15"/><text x="453" y="21" fill="#ffffff" class="val v4">1024</text>
+      <rect x="480" width="42" height="42" rx="6" fill="#e6a817" stroke="#b73229" stroke-width="2"/><text x="501" y="21" fill="#361e0e" class="val v4">2048</text>
+      <rect x="528" width="42" height="42" rx="6" fill="#b73229"/><text x="549" y="21" fill="#f4ebd9" class="val v4">4096</text>
+      <rect x="576" width="42" height="42" rx="6" fill="#b73229"/><text x="597" y="21" fill="#f4ebd9" class="val v4">8192</text>
+      <rect x="624" width="42" height="42" rx="6" fill="#b73229"/><text x="645" y="21" fill="#f4ebd9" class="val v5">16384</text>
+      <rect x="672" width="42" height="42" rx="6" fill="#b73229"/><text x="693" y="21" fill="#f4ebd9" class="val v5">32768</text>
+    </g>
+  </g>
+</svg>

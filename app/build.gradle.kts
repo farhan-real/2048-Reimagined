@@ -12,8 +12,8 @@ android {
         applicationId = "com.farhan.reimagined2048"
         minSdk = 26
         targetSdk = 37
-        versionCode = 4
-        versionName = "3.1.0"
+        versionCode = 5
+        versionName = "3.1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

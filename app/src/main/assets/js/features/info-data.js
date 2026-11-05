@@ -1,6 +1,19 @@
 (function() {
   const CHANGELOG = [
     {
+      version: "V3.1.0",
+      title: "New Theme Visions, Custom Canvases & Polish",
+      changes: [
+        "New Distinct Theme Visions: Added Blueprint (architectural cyanotype), Frutiger Aero (glossy 2000s aqua glass), Ukiyo-e (traditional Edo woodblock print), DMG 1989 (classic Game Boy pea-soup LCD), Vectorheart (red/gray/black vector art), and Retro Keeb (vintage mechanical keyboard cream/gray/red).",
+        "Unique Themed Canvases: Introduced custom backgrounds beyond standard black and white (natural cedar wood, reflective olive LCD, drafting linen, and graphite chassis).",
+        "Dual-Mode Theme Expansions: Added dark variants for Pastel Pink, Nordic Frost, and Classic Sand, alongside Autumn Maple Light.",
+        "Aesthetic Overhauls: Redesigned Cyberpunk Light (daytime tech neon), Synthwave Light (Miami Vice sunrise), Terminal Light (monochrome paper console), Forest (rich evergreen canopy), and Supernova (vibrant fully colored plasma tiles).",
+        "Persistent Theme Selector: Dropdown now stays open when switching themes or toggling dark/light modes for seamless live previewing.",
+        "Pastel AMOLED Fix: Resolved CSS selector mismatch that caused the screen to go black when selecting Pastel Rainbow Dark.",
+        "Layout Ergonomics: Added extra breathing room between the top controls and score cards."
+      ]
+    },
+    {
       version: "V3.0.0",
       title: "Landscape Mode, Theme Overhaul & 25-Track Audio",
       changes: [
@@ -9,6 +22,7 @@
         "Theme Overhaul & Dual-Mode Toggles: Consolidated theme items in the dropdown with an interactive sliding Sun/Moon toggle for instant Dark/Light mode switching.",
         "New Nature & Space Themes: Added Emerald Forest, Garden Dawn, Autumn Momiji, Ocean Breeze, Nebula, Celestial Solar, and Supernova Solar Flare.",
         "Light Variants & Palette Rebalancing: Added daylight variants for Cyberpunk, Sakura, Neon, Terminal, and Pastel; removed single-color wash in Synthwave and Supernova.",
+        "Theme Subfolders: Structured all stylesheets into dedicated category subfolders (nature, space, cyber, minimal).",
         "Leaderboard Loss Undo: Undoing from the Game Over screen now automatically retracts the submitted score from the top-5 leaderboard.",
         "Dynamic Visualizer Ceilings: Added harmonic per-bar variation so saturated chiptune tracks no longer draw an artificial curve.",
         "Audio Storage Optimization: Converted all music tracks to high-efficiency 192kbps MP3 directly in assets/music/, dramatically cutting storage footprint while expanding the soundtrack to 25 tracks.",

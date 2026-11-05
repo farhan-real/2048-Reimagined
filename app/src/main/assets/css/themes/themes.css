@@ -7,6 +7,7 @@
 @import url('nature/sakuralight.css');
 @import url('nature/seaway.css');
 @import url('nature/oceanbreeze.css');
+@import url('nature/ukiyoe.css');
 
 /* Space & Cosmos Themes */
 @import url('space/nebula.css');
@@ -23,6 +24,14 @@
 @import url('cyber/sunsetsynth.css');
 @import url('cyber/terminal.css');
 @import url('cyber/terminallight.css');
+@import url('cyber/blueprint.css');
+@import url('cyber/blueprintlight.css');
+@import url('cyber/frutiger.css');
+@import url('cyber/frutigerlight.css');
+@import url('cyber/dmg.css');
+@import url('cyber/dmglight.css');
+@import url('cyber/vectorheart.css');
+@import url('cyber/vectorheartlight.css');
 
 /* Minimal & Classic Themes */
 @import url('minimal/classic.css');
@@ -34,3 +43,5 @@
 @import url('minimal/pastel-pink.css');
 @import url('minimal/pastelpinkdark.css');
 @import url('minimal/the-void.css');
+@import url('minimal/retro.css');
+@import url('minimal/retrodark.css');

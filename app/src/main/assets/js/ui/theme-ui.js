@@ -1,12 +1,13 @@
 (function() {
   const THEME_SECTIONS = [
     {
-      category: "Nature & Earth",
+      category: "Nature & Art",
       variants: [
         { id: "forest", name: "Forest", darkKey: "forest", lightKey: "gardendawn" },
         { id: "ocean", name: "Ocean", darkKey: "seaway", lightKey: "oceanbreeze" },
         { id: "sakura", name: "Sakura Bloom", darkKey: "sakura", lightKey: "sakuralight" },
-        { id: "autumn", name: "Autumn Maple", darkKey: "autumn", lightKey: "autumnlight" }
+        { id: "autumn", name: "Autumn Maple", darkKey: "autumn", lightKey: "autumnlight" },
+        { id: "ukiyoe", name: "Ukiyo-e", fixedKey: "ukiyoe", badgeType: "wood" }
       ]
     },
     {
@@ -17,12 +18,22 @@
       ]
     },
     {
-      category: "Cyber & Retro",
+      category: "Retro & Hardware",
       variants: [
+        { id: "retro", name: "Retro Keeb", darkKey: "retrodark", lightKey: "retro" },
+        { id: "dmg", name: "DMG 1989", darkKey: "dmg", lightKey: "dmglight" },
+        { id: "terminal", name: "Terminal", darkKey: "terminal", lightKey: "terminallight" },
+        { id: "synthwave", name: "Synthwave", darkKey: "synthwave", lightKey: "sunsetsynth" }
+      ]
+    },
+    {
+      category: "Cyber & Tech",
+      variants: [
+        { id: "blueprint", name: "Blueprint", darkKey: "blueprint", lightKey: "blueprintlight" },
+        { id: "frutiger", name: "Frutiger Aero", darkKey: "frutiger", lightKey: "frutigerlight" },
+        { id: "vectorheart", name: "Vectorheart", darkKey: "vectorheart", lightKey: "vectorheartlight" },
         { id: "cyberpunk", name: "Cyberpunk", darkKey: "cyberpunk", lightKey: "cyberlight" },
-        { id: "synthwave", name: "Synthwave", darkKey: "synthwave", lightKey: "sunsetsynth" },
-        { id: "neon", name: "Neon Glow", darkKey: "neon_amoled", lightKey: "neonlight" },
-        { id: "terminal", name: "Terminal", darkKey: "terminal", lightKey: "terminallight" }
+        { id: "neon", name: "Neon Glow", darkKey: "neon_amoled", lightKey: "neonlight" }
       ]
     },
     {
@@ -42,11 +53,13 @@
     s.variants.forEach(v => {
       if (v.darkKey) THEMES[v.darkKey] = { name: `${v.name} (Dark)`, variant: v, mode: "dark" };
       if (v.lightKey) THEMES[v.lightKey] = { name: `${v.name} (Light)`, variant: v, mode: "light" };
+      if (v.fixedKey) THEMES[v.fixedKey] = { name: v.name, variant: v, mode: "fixed" };
     });
   });
 
   const MOON_ICON = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
   const SUN_ICON = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+  const WOOD_ICON = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>`;
 
   class ThemeUI {
     constructor(parentUI) {
@@ -81,7 +94,7 @@
         this.themeDropdownList.appendChild(header);
 
         section.variants.forEach(variant => {
-          const isSelected = this.currentTheme === variant.darkKey || this.currentTheme === variant.lightKey;
+          const isSelected = this.currentTheme === variant.darkKey || this.currentTheme === variant.lightKey || this.currentTheme === variant.fixedKey;
           const currentMode = this.currentTheme === variant.lightKey ? "light" : "dark";
 
           const item = document.createElement('div');
@@ -119,7 +132,7 @@
           } else {
             const fixedBadge = document.createElement('div');
             fixedBadge.className = "theme-fixed-badge";
-            fixedBadge.innerHTML = variant.darkKey ? MOON_ICON : SUN_ICON;
+            fixedBadge.innerHTML = variant.badgeType === "wood" ? WOOD_ICON : (variant.darkKey ? MOON_ICON : SUN_ICON);
             meta.appendChild(fixedBadge);
           }
 
@@ -131,9 +144,9 @@
 
           item.addEventListener('click', (e) => {
             e.stopPropagation();
-            const targetKey = (isSelected && this.currentTheme === variant.lightKey)
+            const targetKey = variant.fixedKey || ((isSelected && this.currentTheme === variant.lightKey)
               ? (variant.lightKey || variant.darkKey)
-              : (variant.darkKey || variant.lightKey);
+              : (variant.darkKey || variant.lightKey));
             this.setTheme(targetKey, onSelect);
           });
 

@@ -1,0 +1,84 @@
+[data-theme="blueprintlight"] {
+  --bg-color: #dbeef9;
+  --board-bg: #c0dfef;
+  --board-border: #0a4c8a;
+  --empty-cell-bg: rgba(10, 76, 138, 0.08);
+  --empty-cell-border: 1px solid rgba(10, 76, 138, 0.16);
+  --text-color: #072b4f;
+  --accent-color: #0a58ca;
+  --accent-glow: none;
+  --card-bg: #cbdef0;
+  --card-border: #8bb6d9;
+
+  --t2-bg: #ebf5fb;
+  --t2-color: #072b4f;
+  --t2-border: 1px solid #0a4c8a;
+  --t2-glow: none;
+  --t2-particle: #ebf5fb;
+
+  --t4-bg: #d4ebf7;
+  --t4-color: #072b4f;
+  --t4-border: 1px solid #0a4c8a;
+  --t4-glow: none;
+  --t4-particle: #d4ebf7;
+
+  --t8-bg: #b5ddf2;
+  --t8-color: #072b4f;
+  --t8-border: 1px solid #083c6c;
+  --t8-glow: none;
+  --t8-particle: #b5ddf2;
+
+  --t16-bg: #92cceb;
+  --t16-color: #072b4f;
+  --t16-border: 1px solid #083c6c;
+  --t16-glow: none;
+  --t16-particle: #92cceb;
+
+  --t32-bg: #67b4de;
+  --t32-color: #ffffff;
+  --t32-border: 1px solid #062f54;
+  --t32-glow: none;
+  --t32-particle: #67b4de;
+
+  --t64-bg: #3a98cf;
+  --t64-color: #ffffff;
+  --t64-border: 1px solid #062f54;
+  --t64-glow: none;
+  --t64-particle: #3a98cf;
+
+  --t128-bg: #1b7cbd;
+  --t128-color: #ffffff;
+  --t128-border: 1px solid #041f38;
+  --t128-glow: none;
+  --t128-particle: #1b7cbd;
+
+  --t256-bg: #0f629c;
+  --t256-color: #ffffff;
+  --t256-border: 1px solid #041f38;
+  --t256-glow: none;
+  --t256-particle: #0f629c;
+
+  --t512-bg: #084978;
+  --t512-color: #ffffff;
+  --t512-border: 1px solid #021424;
+  --t512-glow: none;
+  --t512-particle: #084978;
+
+  --t1024-bg: #043254;
+  --t1024-color: #67b4de;
+  --t1024-border: 1px solid #67b4de;
+  --t1024-glow: none;
+  --t1024-particle: #043254;
+
+  --t2048-bg: #021f36;
+  --t2048-color: #ffffff;
+  --t2048-border: 2px solid #3a98cf;
+  --t2048-glow: 0 0 18px rgba(10, 76, 138, 0.5);
+  --t2048-particle: #021f36;
+
+  --tsuper-bg: #1b7cbd;
+  --tsuper-color: #ffffff;
+  --tsuper-border: none;
+  --tsuper-glow: none;
+  --tsuper-particle: #1b7cbd;
+}

@@ -1,85 +1,52 @@
 (function() {
   const THEME_SECTIONS = [
     {
-      theme: "Pastel",
+      category: "Nature & Earth",
       variants: [
-        { key: "pastellight", name: "Pastel Daylight", mode: "Light" },
-        { key: "pastel_amoled", name: "Pastel AMOLED", mode: "OLED" },
-        { key: "pastel_pink", name: "Pastel Pink", mode: "Light" }
+        { id: "forest", name: "Deep Forest", darkKey: "forest", lightKey: "gardendawn" },
+        { id: "ocean", name: "Ocean Reef", darkKey: "seaway", lightKey: "oceanbreeze" },
+        { id: "sakura", name: "Sakura Bloom", darkKey: "sakura", lightKey: "sakuralight" },
+        { id: "autumn", name: "Autumn Maple", darkKey: "autumn" }
       ]
     },
     {
-      theme: "Cyberpunk",
+      category: "Space & Cosmos",
       variants: [
-        { key: "cyberpunk", name: "Cyberpunk Night", mode: "Dark" },
-        { key: "cyberlight", name: "Cyberpunk Daylight", mode: "Light" }
+        { id: "nebula", name: "Stellar Nebula", darkKey: "nebula", lightKey: "celestial" },
+        { id: "supernova", name: "Supernova", darkKey: "supernova", lightKey: "supernovalight" }
       ]
     },
     {
-      theme: "Sakura",
+      category: "Cyber & Retro",
       variants: [
-        { key: "sakura", name: "Sakura Night", mode: "Dark" },
-        { key: "sakuralight", name: "Sakura Blossom", mode: "Light" }
+        { id: "cyberpunk", name: "Cyberpunk", darkKey: "cyberpunk", lightKey: "cyberlight" },
+        { id: "synthwave", name: "Synthwave", darkKey: "synthwave", lightKey: "sunsetsynth" },
+        { id: "neon", name: "Neon Glow", darkKey: "neon_amoled", lightKey: "neonlight" },
+        { id: "terminal", name: "Terminal", darkKey: "terminal", lightKey: "terminallight" }
       ]
     },
     {
-      theme: "Seaway",
+      category: "Aesthetic & Minimal",
       variants: [
-        { key: "seaway", name: "Seaway Abyss", mode: "Dark" },
-        { key: "oceanbreeze", name: "Ocean Breeze", mode: "Light" }
-      ]
-    },
-    {
-      theme: "Nature & Forest",
-      variants: [
-        { key: "forest", name: "Emerald Forest", mode: "Dark" },
-        { key: "gardendawn", name: "Garden Dawn", mode: "Light" }
-      ]
-    },
-    {
-      theme: "Cosmos & Space",
-      variants: [
-        { key: "nebula", name: "Deep Nebula", mode: "Dark" },
-        { key: "supernova", name: "Supernova Flare", mode: "Dark" },
-        { key: "celestial", name: "Celestial Dawn", mode: "Light" }
-      ]
-    },
-    {
-      theme: "Neon AMOLED",
-      variants: [
-        { key: "neon_amoled", name: "Neon AMOLED", mode: "OLED" },
-        { key: "neonlight", name: "Neon Daylight", mode: "Light" }
-      ]
-    },
-    {
-      theme: "Terminal",
-      variants: [
-        { key: "terminal", name: "Phosphor CRT", mode: "Dark" },
-        { key: "terminallight", name: "Matrix Paper", mode: "Light" }
-      ]
-    },
-    {
-      theme: "Synthwave",
-      variants: [
-        { key: "synthwave", name: "Synthwave Night", mode: "Dark" }
-      ]
-    },
-    {
-      theme: "Minimal & Classic",
-      variants: [
-        { key: "classic", name: "Classic Sand", mode: "Light" },
-        { key: "nordicfrost", name: "Nordic Frost", mode: "Light" },
-        { key: "the_void", name: "The Void", mode: "OLED" }
+        { id: "pastel", name: "Pastel Rainbow", darkKey: "pastel_amoled", lightKey: "pastellight" },
+        { id: "pastelpink", name: "Pastel Pink", lightKey: "pastel_pink" },
+        { id: "nordicfrost", name: "Nordic Frost", lightKey: "nordicfrost" },
+        { id: "classic", name: "Classic Sand", lightKey: "classic" },
+        { id: "thevoid", name: "The Void", darkKey: "the_void" }
       ]
     }
   ];
 
   const THEMES = {};
-  THEME_SECTIONS.forEach(section => {
-    section.variants.forEach(v => {
-      THEMES[v.key] = v;
+  THEME_SECTIONS.forEach(s => {
+    s.variants.forEach(v => {
+      if (v.darkKey) THEMES[v.darkKey] = { name: `${v.name} (Dark)`, variant: v, mode: "dark" };
+      if (v.lightKey) THEMES[v.lightKey] = { name: `${v.name} (Light)`, variant: v, mode: "light" };
     });
   });
+
+  const MOON_ICON = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+  const SUN_ICON = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
 
   class ThemeUI {
     constructor(parentUI) {
@@ -99,7 +66,6 @@
         e.stopPropagation();
         this.themeDropdownWrapper.classList.toggle('active');
       });
-
       document.addEventListener('click', () => {
         this.themeDropdownWrapper.classList.remove('active');
       });
@@ -111,26 +77,53 @@
       THEME_SECTIONS.forEach(section => {
         const header = document.createElement('div');
         header.className = "dropdown-section-header";
-        header.textContent = section.theme;
+        header.textContent = section.category;
         this.themeDropdownList.appendChild(header);
 
-        section.variants.forEach(t => {
+        section.variants.forEach(variant => {
+          const isSelected = this.currentTheme === variant.darkKey || this.currentTheme === variant.lightKey;
+          const currentMode = this.currentTheme === variant.lightKey ? "light" : "dark";
+
           const item = document.createElement('div');
-          item.className = "dropdown-item" + (this.currentTheme === t.key ? " selected" : "");
+          item.className = "dropdown-item" + (isSelected ? " selected" : "");
 
           const meta = document.createElement('div');
           meta.className = "theme-item-meta";
 
           const nameSpan = document.createElement('span');
           nameSpan.className = "theme-name-text";
-          nameSpan.textContent = t.name;
-
-          const badge = document.createElement('span');
-          badge.className = "theme-variant-badge";
-          badge.textContent = t.mode;
-
+          nameSpan.textContent = variant.name;
           meta.appendChild(nameSpan);
-          meta.appendChild(badge);
+
+          if (variant.darkKey && variant.lightKey) {
+            const toggle = document.createElement('div');
+            toggle.className = "theme-mode-toggle";
+            toggle.setAttribute('data-mode', isSelected ? currentMode : "dark");
+            toggle.innerHTML = `
+              <div class="mode-toggle-slider"></div>
+              <button class="mode-toggle-btn mode-btn-dark" aria-label="Dark Mode">${MOON_ICON}</button>
+              <button class="mode-toggle-btn mode-btn-light" aria-label="Light Mode">${SUN_ICON}</button>
+            `;
+
+            toggle.querySelector('.mode-btn-dark').addEventListener('click', (e) => {
+              e.stopPropagation();
+              this.setTheme(variant.darkKey, onSelect);
+              this.themeDropdownWrapper.classList.remove('active');
+            });
+
+            toggle.querySelector('.mode-btn-light').addEventListener('click', (e) => {
+              e.stopPropagation();
+              this.setTheme(variant.lightKey, onSelect);
+              this.themeDropdownWrapper.classList.remove('active');
+            });
+
+            meta.appendChild(toggle);
+          } else {
+            const fixedBadge = document.createElement('div');
+            fixedBadge.className = "theme-fixed-badge";
+            fixedBadge.innerHTML = variant.darkKey ? MOON_ICON : SUN_ICON;
+            meta.appendChild(fixedBadge);
+          }
 
           const radio = document.createElement('div');
           radio.className = "radio-indicator";
@@ -140,7 +133,8 @@
 
           item.addEventListener('click', (e) => {
             e.stopPropagation();
-            this.setTheme(t.key, onSelect);
+            const targetKey = (isSelected && this.currentTheme === variant.lightKey) ? (variant.lightKey || variant.darkKey) : (variant.darkKey || variant.lightKey);
+            this.setTheme(targetKey, onSelect);
             this.themeDropdownWrapper.classList.remove('active');
           });
 

@@ -2,12 +2,15 @@
   const CHANGELOG = [
     {
       version: "V3.1.0",
-      title: "New Theme Visions, Custom Canvases & Polish",
+      title: "New Theme Visions, Major Performance Engine & Polish",
       changes: [
+        "Major Performance Overhaul: Capped visualizer to 25 FPS, pre-allocated static typed array buffers, batched canvas draw calls, and clamped DPR to 2.0x, drastically reducing thermal output and battery drain.",
+        "Eliminated Layout Thrashing: Cached board metrics outside animation loops and added modal visibility isolation to eliminate unneeded GPU composition and forced reflows.",
         "New Distinct Theme Visions: Added Blueprint (architectural cyanotype), Frutiger Aero (glossy 2000s aqua glass), Ukiyo-e (traditional Edo woodblock print), DMG 1989 (classic Game Boy pea-soup LCD), Vectorheart (red/gray/black vector art), and Retro Keeb (vintage mechanical keyboard cream/gray/red).",
         "Unique Themed Canvases: Introduced custom backgrounds beyond standard black and white (natural cedar wood, reflective olive LCD, drafting linen, and graphite chassis).",
         "Dual-Mode Theme Expansions: Added dark variants for Pastel Pink, Nordic Frost, and Classic Sand, alongside Autumn Maple Light.",
-        "Aesthetic Overhauls: Redesigned Cyberpunk Light (daytime tech neon), Synthwave Light (Miami Vice sunrise), Terminal Light (monochrome paper console), Forest (rich evergreen canopy), and Supernova (vibrant fully colored plasma tiles).",
+        "Tile Contrast & Aesthetic Refinements: Enhanced tile progressions so adjacent values (2, 4, 8) are instantly distinguishable; restored full-color glowing plasma tiles to Supernova and deep evergreen canopy to Forest.",
+        "Aesthetic Overhauls: Redesigned Cyberpunk Light (daytime tech neon), Synthwave Light (Miami Vice sunrise), and Terminal Light (monochrome paper console).",
         "Persistent Theme Selector: Dropdown now stays open when switching themes or toggling dark/light modes for seamless live previewing.",
         "Pastel AMOLED Fix: Resolved CSS selector mismatch that caused the screen to go black when selecting Pastel Rainbow Dark.",
         "Layout Ergonomics: Added extra breathing room between the top controls and score cards."

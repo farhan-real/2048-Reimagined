@@ -1,6 +1,14 @@
 (function() {
   const THEME_SECTIONS = [
     {
+      theme: "Pastel",
+      variants: [
+        { key: "pastellight", name: "Pastel Daylight", mode: "Light" },
+        { key: "pastel_amoled", name: "Pastel AMOLED", mode: "OLED" },
+        { key: "pastel_pink", name: "Pastel Pink", mode: "Light" }
+      ]
+    },
+    {
       theme: "Cyberpunk",
       variants: [
         { key: "cyberpunk", name: "Cyberpunk Night", mode: "Dark" },
@@ -61,8 +69,6 @@
       variants: [
         { key: "classic", name: "Classic Sand", mode: "Light" },
         { key: "nordicfrost", name: "Nordic Frost", mode: "Light" },
-        { key: "pastel_pink", name: "Pastel Pink", mode: "Light" },
-        { key: "pastel_amoled", name: "Pastel AMOLED", mode: "OLED" },
         { key: "the_void", name: "The Void", mode: "OLED" }
       ]
     }

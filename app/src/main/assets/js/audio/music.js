@@ -157,6 +157,9 @@
       if (track) {
         const wasPlaying = this.isPlaying;
         this.audio.src = track.path;
+        if (this.visualizer && typeof this.visualizer.setTrackSeed === 'function') {
+          this.visualizer.setTrackSeed(track.id || track.title);
+        }
         if (window.ui && window.ui.music) {
           window.ui.music.updateTrackInfo(track);
         }

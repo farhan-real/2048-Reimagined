@@ -25,28 +25,35 @@ Complete tile progressions from 2 to 2048 for each theme family:
 ### Nature & Art
 > *Forest, Ocean, Sakura, Autumn, Ukiyo-e*
 
-[![Nature & Art](previews/nature.svg)](app/src/main/assets/previews/nature.svg)
+![Nature & Art](app/src/main/assets/previews/nature.svg)
 
 ---
 
 ### Space & Cosmos
 > *Stellar Nebula, Supernova*
 
-[![Space & Cosmos](previews/space.svg)](app/src/main/assets/previews/space.svg)
+![Space & Cosmos](app/src/main/assets/previews/space.svg)
 
 ---
 
 ### Retro & Hardware
 > *Retro Keeb, DMG 1989, Terminal, Synthwave*
 
-[![Retro & Hardware](previews/retro.svg)](app/src/main/assets/previews/retro.svg)
+![Retro & Hardware](app/src/main/assets/previews/retro.svg)
 
 ---
 
 ### Cyber & Tech
 > *Cyberpunk, Blueprint, Frutiger Aero, Vectorheart, Neon Glow*
 
-[![Cyber & Tech](previews/cyber.svg)](app/src/main/assets/previews/cyber.svg)
+![Cyber & Tech](app/src/main/assets/previews/cyber.svg)
+
+---
+
+### Aesthetic & Minimal
+> *Pastel Rainbow, Pastel Pink, Nordic Frost, Classic Sand, The Void*
+
+![Aesthetic & Minimal](app/src/main/assets/previews/minimal.svg)
 
 ---
 

@@ -1,14 +1,14 @@
 [data-theme="seaway"] {
   --bg-color: #020b12;
   --board-bg: #011624;
-  --board-border: #01fdf0;
-  --empty-cell-bg: rgba(1, 253, 240, 0.01);
-  --empty-cell-border: 1px solid rgba(1, 253, 240, 0.08);
-  --text-color: #01fdf0;
+  --board-border: #007799;
+  --empty-cell-bg: rgba(1, 253, 240, 0.02);
+  --empty-cell-border: 1px solid rgba(1, 253, 240, 0.1);
+  --text-color: #e0f9fb;
   --accent-color: #01fdf0;
   --accent-glow: 0 0 10px rgba(1, 253, 240, 0.5);
-  --card-bg: #011d30;
-  --card-border: #01fdf0;
+  --card-bg: #011e33;
+  --card-border: rgba(1, 253, 240, 0.25);
 
   --t2-bg: #d0fcf9;
   --t2-color: #011624;

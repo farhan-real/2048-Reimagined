@@ -1,17 +1,79 @@
 (function() {
-  const THEMES = {
-    neon_amoled: { name: "Neon AMOLED" },
-    rainbow_amoled: { name: "Pastel AMOLED" },
-    cyberpunk: { name: "Cyberpunk" },
-    synthwave: { name: "Synthwave" },
-    seaway: { name: "Seaway" },
-    pastel_pink: { name: "Pastel Pink" },
-    the_void: { name: "The Void" },
-    terminal: { name: "Terminal" },
-    sakura: { name: "Sakura Night" },
-    supernova: { name: "Supernova" },
-    classic: { name: "Classic Sand" }
-  };
+  const THEME_SECTIONS = [
+    {
+      theme: "Cyberpunk",
+      variants: [
+        { key: "cyberpunk", name: "Cyberpunk Night", mode: "Dark" },
+        { key: "cyberlight", name: "Cyberpunk Daylight", mode: "Light" }
+      ]
+    },
+    {
+      theme: "Sakura",
+      variants: [
+        { key: "sakura", name: "Sakura Night", mode: "Dark" },
+        { key: "sakuralight", name: "Sakura Blossom", mode: "Light" }
+      ]
+    },
+    {
+      theme: "Seaway",
+      variants: [
+        { key: "seaway", name: "Seaway Abyss", mode: "Dark" },
+        { key: "oceanbreeze", name: "Ocean Breeze", mode: "Light" }
+      ]
+    },
+    {
+      theme: "Nature & Forest",
+      variants: [
+        { key: "forest", name: "Emerald Forest", mode: "Dark" },
+        { key: "gardendawn", name: "Garden Dawn", mode: "Light" }
+      ]
+    },
+    {
+      theme: "Cosmos & Space",
+      variants: [
+        { key: "nebula", name: "Deep Nebula", mode: "Dark" },
+        { key: "supernova", name: "Supernova Flare", mode: "Dark" },
+        { key: "celestial", name: "Celestial Dawn", mode: "Light" }
+      ]
+    },
+    {
+      theme: "Neon AMOLED",
+      variants: [
+        { key: "neon_amoled", name: "Neon AMOLED", mode: "OLED" },
+        { key: "neonlight", name: "Neon Daylight", mode: "Light" }
+      ]
+    },
+    {
+      theme: "Terminal",
+      variants: [
+        { key: "terminal", name: "Phosphor CRT", mode: "Dark" },
+        { key: "terminallight", name: "Matrix Paper", mode: "Light" }
+      ]
+    },
+    {
+      theme: "Synthwave",
+      variants: [
+        { key: "synthwave", name: "Synthwave Night", mode: "Dark" }
+      ]
+    },
+    {
+      theme: "Minimal & Classic",
+      variants: [
+        { key: "classic", name: "Classic Sand", mode: "Light" },
+        { key: "nordicfrost", name: "Nordic Frost", mode: "Light" },
+        { key: "pastel_pink", name: "Pastel Pink", mode: "Light" },
+        { key: "pastel_amoled", name: "Pastel AMOLED", mode: "OLED" },
+        { key: "the_void", name: "The Void", mode: "OLED" }
+      ]
+    }
+  ];
+
+  const THEMES = {};
+  THEME_SECTIONS.forEach(section => {
+    section.variants.forEach(v => {
+      THEMES[v.key] = v;
+    });
+  });
 
   class ThemeUI {
     constructor(parentUI) {
@@ -39,27 +101,45 @@
 
     buildDropdown(onSelect) {
       this.themeDropdownList.innerHTML = "";
-      Object.keys(THEMES).forEach(key => {
-        const t = THEMES[key];
-        const item = document.createElement('div');
-        item.className = "dropdown-item" + (this.currentTheme === key ? " selected" : "");
 
-        const label = document.createElement('span');
-        label.textContent = t.name;
+      THEME_SECTIONS.forEach(section => {
+        const header = document.createElement('div');
+        header.className = "dropdown-section-header";
+        header.textContent = section.theme;
+        this.themeDropdownList.appendChild(header);
 
-        const radio = document.createElement('div');
-        radio.className = "radio-indicator";
+        section.variants.forEach(t => {
+          const item = document.createElement('div');
+          item.className = "dropdown-item" + (this.currentTheme === t.key ? " selected" : "");
 
-        item.appendChild(label);
-        item.appendChild(radio);
+          const meta = document.createElement('div');
+          meta.className = "theme-item-meta";
 
-        item.addEventListener('click', (e) => {
-          e.stopPropagation();
-          this.setTheme(key, onSelect);
-          this.themeDropdownWrapper.classList.remove('active');
+          const nameSpan = document.createElement('span');
+          nameSpan.className = "theme-name-text";
+          nameSpan.textContent = t.name;
+
+          const badge = document.createElement('span');
+          badge.className = "theme-variant-badge";
+          badge.textContent = t.mode;
+
+          meta.appendChild(nameSpan);
+          meta.appendChild(badge);
+
+          const radio = document.createElement('div');
+          radio.className = "radio-indicator";
+
+          item.appendChild(meta);
+          item.appendChild(radio);
+
+          item.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.setTheme(t.key, onSelect);
+            this.themeDropdownWrapper.classList.remove('active');
+          });
+
+          this.themeDropdownList.appendChild(item);
         });
-
-        this.themeDropdownList.appendChild(item);
       });
     }
 

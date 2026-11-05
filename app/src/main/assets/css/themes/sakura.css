@@ -1,14 +1,14 @@
 [data-theme="sakura"] {
-  --bg-color: #000000;
-  --board-bg: #050103;
+  --bg-color: #080105;
+  --board-bg: #12020a;
   --board-border: #ff69b4;
-  --empty-cell-bg: rgba(255, 105, 180, 0.02);
-  --empty-cell-border: 1px solid rgba(255, 105, 180, 0.1);
-  --text-color: #ff69b4;
+  --empty-cell-bg: rgba(255, 105, 180, 0.03);
+  --empty-cell-border: 1px solid rgba(255, 105, 180, 0.12);
+  --text-color: #ffe6f0;
   --accent-color: #ff69b4;
   --accent-glow: 0 0 10px rgba(255, 105, 180, 0.5);
-  --card-bg: #0f0208;
-  --card-border: rgba(255, 105, 180, 0.25);
+  --card-bg: #1a0310;
+  --card-border: rgba(255, 105, 180, 0.3);
 
   --t2-bg: #ffe3ec;
   --t2-color: #4a1525;

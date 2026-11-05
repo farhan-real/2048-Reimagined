@@ -28,9 +28,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-button, select, input {
-  touch-action: manipulation;
-}
+button, select, input { touch-action: manipulation; }
 
 .app-wrapper {
   width: var(--board-size);
@@ -41,16 +39,8 @@ button, select, input {
   box-sizing: border-box;
 }
 
-/* Elevated Spacers to raise the board position */
-.layout-spacer-top {
-  flex: 0.35;
-  pointer-events: none;
-}
-
-.layout-spacer-bottom {
-  flex: 1.25;
-  pointer-events: none;
-}
+.layout-spacer-top { flex: 0.35; pointer-events: none; }
+.layout-spacer-bottom { flex: 1.25; pointer-events: none; }
 
 .top-group {
   width: 100%;
@@ -59,7 +49,6 @@ button, select, input {
   gap: 12px;
 }
 
-/* Nav Row */
 .nav-bar {
   width: 100%;
   display: flex;
@@ -86,18 +75,11 @@ button, select, input {
   align-items: center;
   justify-content: center;
   transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
-.icon-btn:active {
-  transform: scale(0.93);
-}
+.icon-btn:active { transform: scale(0.93); }
 
-/* Theme Dropdown */
-.theme-dropdown-wrapper {
-  position: relative;
-}
+.theme-dropdown-wrapper { position: relative; }
 
 .theme-dropdown-btn {
   background: var(--card-bg);
@@ -112,21 +94,11 @@ button, select, input {
   align-items: center;
   gap: 6px;
   transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
-.theme-dropdown-btn:active {
-  transform: scale(0.95);
-}
-
-.chevron-icon {
-  transition: transform 0.2s ease;
-}
-
-.theme-dropdown-wrapper.active .chevron-icon {
-  transform: rotate(180deg);
-}
+.theme-dropdown-btn:active { transform: scale(0.95); }
+.chevron-icon { transition: transform 0.2s ease; }
+.theme-dropdown-wrapper.active .chevron-icon { transform: rotate(180deg); }
 
 .theme-dropdown-list {
   position: absolute;
@@ -135,26 +107,36 @@ button, select, input {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 10px;
-  width: 185px;
+  width: 226px;
   display: none;
   flex-direction: column;
   z-index: 50;
   box-shadow: 0 10px 30px rgba(0,0,0,0.9);
   overflow-y: auto;
-  max-height: 280px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  max-height: 340px;
 }
 
-.theme-dropdown-wrapper.active .theme-dropdown-list {
-  display: flex;
+.theme-dropdown-wrapper.active .theme-dropdown-list { display: flex; }
+
+.dropdown-section-header {
+  padding: 7px 12px 3px;
+  font-size: 0.64rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--accent-color);
+  opacity: 0.85;
+  background: rgba(0, 0, 0, 0.14);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+.dropdown-section-header:first-child { border-top: none; }
 
 .dropdown-item {
-  padding: 10px 14px;
-  font-size: 0.8rem;
+  padding: 8px 12px;
+  font-size: 0.79rem;
   color: var(--text-color);
-  opacity: 0.7;
+  opacity: 0.72;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -172,12 +154,42 @@ button, select, input {
   font-weight: 700;
 }
 
+.theme-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.theme-name-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.theme-variant-badge {
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  opacity: 0.65;
+}
+
+.dropdown-item.selected .theme-variant-badge {
+  background: color-mix(in srgb, var(--accent-color) 20%, transparent);
+  color: var(--accent-color);
+  opacity: 1;
+}
+
 .dropdown-item .radio-indicator {
   width: 12px;
   height: 12px;
   border-radius: 50%;
   border: 1.5px solid var(--card-border);
   transition: background 0.15s, border-color 0.15s;
+  flex-shrink: 0;
 }
 
 .dropdown-item.selected .radio-indicator {
@@ -186,7 +198,6 @@ button, select, input {
   box-shadow: 0 0 8px var(--accent-color);
 }
 
-/* Brand Row & Scoreboards */
 .brand-row {
   width: 100%;
   display: flex;
@@ -202,10 +213,7 @@ button, select, input {
   line-height: 0.9;
 }
 
-.scores-wrapper {
-  display: flex;
-  gap: 8px;
-}
+.scores-wrapper { display: flex; gap: 8px; }
 
 .score-card {
   background: var(--card-bg);
@@ -236,7 +244,6 @@ button, select, input {
   line-height: 1.2;
 }
 
-/* Actions Row & Prominent Timer */
 .actions-row {
   width: 100%;
   display: flex;
@@ -270,11 +277,7 @@ button, select, input {
   transition: opacity 0.2s ease;
 }
 
-.timer-pill svg {
-  stroke: var(--accent-color);
-  opacity: 0.9;
-  flex-shrink: 0;
-}
+.timer-pill svg { stroke: var(--accent-color); opacity: 0.9; flex-shrink: 0; }
 
 .btn-capsule {
   font-family: inherit;
@@ -292,18 +295,10 @@ button, select, input {
   border: 1px solid var(--card-border);
   background: var(--card-bg);
   color: var(--text-color);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
-.btn-capsule:active:not(:disabled) {
-  transform: scale(0.97);
-}
-
-.btn-capsule:disabled {
-  opacity: 0.25;
-  cursor: not-allowed;
-}
+.btn-capsule:active:not(:disabled) { transform: scale(0.97); }
+.btn-capsule:disabled { opacity: 0.25; cursor: not-allowed; }
 
 #btn-restart {
   background: var(--text-color);
@@ -311,7 +306,6 @@ button, select, input {
   border: 1px solid var(--text-color);
 }
 
-/* Dynamic Hidden Timer Rule */
 [data-hide-timer="true"] #timer-badge,
 [data-hide-timer="true"] .leaderboard-time-badge,
 [data-hide-timer="true"] .gameover-time-row {

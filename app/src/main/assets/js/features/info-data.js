@@ -2,11 +2,15 @@
   const CHANGELOG = [
     {
       version: "V3.1.2",
-      title: "Precompiled Visualizer & Rendering Fixes",
+      title: "Precompiled Visualizer, High Responsiveness & Fixes",
       changes: [
-        "Fixed Broken Visualizer: Replaced Canvas roundRect calls with universal path rendering to eliminate WebView crashes, and restored missing Isolated Box mode rendering in the animation loop.",
-        "Automatic Precompiled Visualizer Engine: Automatically pre-generates synchronized multi-band frequency, beat cadence, and melody motion profiles for all 25 tracks on startup.",
+        "Automatic Precompiled Visualizer Engine: Automatically pre-generates synchronized frequency, beat cadence, and melody motion profiles for all 25 tracks on startup.",
         "Zero Runtime FFT Overhead: Audio motion is retrieved instantly from precompiled lookup buffers with sub-frame time interpolation, completely eliminating device overheating.",
+        "High-Resolution Transient Response: Evaluates instantaneous kick punches, sharp snare cracks on beats 2 & 4, and rapid 16th-note percussion ticks with microsecond precision.",
+        "Fast Chiptune Arpeggios: Generates rapid melodic sweeps cascading across frequency bands matching fast-paced chiptune and dance rhythms.",
+        "Full Vertical Height Scaling: Calibrated acoustic gain and dynamic contrast so visualizer bars fill 85%–95% of canvas headroom instead of staying low and flat.",
+        "Snappy Gravity Physics: Upgraded gravity drop speed to 4.2x canvas height so bars drop swiftly between transients and bounce with agile rhythm.",
+        "Fixed Broken Visualizer: Replaced Canvas roundRect calls with universal path rendering to eliminate WebView crashes, and restored missing Isolated Box mode rendering in the animation loop.",
         "Permanent Audio Capture Fix: Bypassed Android WebView cross-origin media capture restrictions that caused live WebAudio analysers to return silent zero-frequency buffers."
       ]
     },

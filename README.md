@@ -1,3 +1,19 @@
+<div align="center">
+
+<a href="https://github.com/farhan-real/2048Reimagined-Web">
+  <img src="https://img.shields.io/badge/STATUS-DEPRECATED-red?style=for-the-badge" alt="Status Deprecated" height="32" />
+</a>
+
+<br />
+
+### This repository is archived and no longer maintained.
+Active development continues at:
+
+## [farhan-real/2048Reimagined-Web](https://github.com/farhan-real/2048Reimagined-Web)
+
+---
+</div>
+
 # 2048 Reimagined
 
 > An open-source, high-performance Android edition of the 2048 puzzle game.
